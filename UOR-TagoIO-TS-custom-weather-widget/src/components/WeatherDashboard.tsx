@@ -4,6 +4,7 @@ import { WidgetContext } from '../WidgetView'
 import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceDot } from 'recharts'
 import ReactAnimatedWeather from 'react-animated-weather'
 import './WeatherDashboard.css'
+import packageJson from '../../package.json'
 
 interface EntityWeatherData {
   id: string
@@ -209,7 +210,7 @@ const WeatherDashboard = () => {
         <div className="header-content">
           <div className="app-title">
             <h1>UOR - Weather Forecast</h1>
-            <p> Updates every 6 hours</p>
+            <p> v{packageJson.version} - Updates every 6 hours</p>
           </div>
         </div>
       </header>

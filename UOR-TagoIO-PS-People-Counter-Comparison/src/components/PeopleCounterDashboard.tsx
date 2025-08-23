@@ -1,8 +1,9 @@
-import { useState, useMemo, useContext, useEffect } from 'preact/compat';
+import { useState, useMemo, useContext } from 'preact/compat';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { WidgetContext } from '../WidgetView';
 import { exportChartDataToCSV, exportSensorDataToCSV, SensorExportData } from '../utils/csvExport';
 import { isDevelopmentMode } from '../utils/mockData';
+import packageJson from '../../package.json'
 
 // Type assertion for recharts components to work with Preact
 const Chart = LineChart as any;
@@ -607,7 +608,7 @@ const PeopleCounterDashboard = () => {
       </div>
 
       {/* Chart Panel */}
-      <div style={{ flex: 1, backgroundColor: '#f5f5f5', padding: '20px', borderRadius: '8px', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ flex: 1, backgroundColor: '#f5f5f5', padding: '20px', borderRadius: '8px', display: 'flex', flexDirection: 'column', position: 'relative' }}>
         <h3 style={{ margin: '0 0 20px 0' }}>Hourly Traffic Count (IN) - 24 Hour Period</h3>
         
         {/* Selected Sensors - Horizontal Layout */}
@@ -737,6 +738,9 @@ const PeopleCounterDashboard = () => {
               ))}
             </Chart>
           </ChartContainer>
+          <div style={{ position: 'absolute', top: '20px', right: '20px', fontSize: '12px', color: '#666' }}>
+            v{packageJson.version}
+          </div>
         </div>
       </div>
     </div>

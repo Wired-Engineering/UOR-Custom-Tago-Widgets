@@ -434,7 +434,7 @@
   {
     "id": "68aa0320a73f10000a129775",
     "variable": "device_navd_current_we",
-    "value": 102.95,
+    "value": 103.4,
     "group": "6785633919e8ad000953738b",
     "location": "[-81.470345, 28.473429]",
     "metadata": "",
@@ -1028,7 +1028,7 @@
   {
     "id": "68aa01b4b15a70000adc6891",
     "variable": "device_navd_current_we",
-    "value": 94.38,
+    "value": 90 ,
     "group": "685c31f8957657000a2f55e8",
     "location": "[-81.45943, 28.474657]",
     "metadata": "",
@@ -1352,7 +1352,7 @@
   {
     "id": "68aa00c9486c09000bcd5447",
     "variable": "device_navd_current_we",
-    "value": 102.95,
+    "value": 103.5,
     "group": "6785633919e8ad000953738b",
     "location": "[-81.470345, 28.473429]",
     "metadata": "",
@@ -1928,7 +1928,7 @@
   {
     "id": "68a9ff58d7bc39000a42926e",
     "variable": "device_navd_min_alarm_we",
-    "value": 0,
+    "value": 85,
     "group": "685c31f8957657000a2f55e8",
     "location": "[-81.45943, 28.474657]",
     "metadata": "{\"color\":\"#800080\"}",
@@ -8165,7 +8165,7 @@
   {
     "id": "68a94f74d7bc39000a2cfd36",
     "variable": "device_navd_min_alarm_we",
-    "value": 0,
+    "value": 85,
     "group": "685c31f8957657000a2f55e8",
     "location": "[-81.45943, 28.474657]",
     "metadata": "{\"color\":\"#800080\"}",
