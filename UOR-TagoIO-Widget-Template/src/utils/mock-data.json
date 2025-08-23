@@ -1,0 +1,56 @@
+[
+  {
+    "id": "template_data_1",
+    "variable": "device_name",
+    "value": "Sample Device 1",
+    "group": "group_1",
+    "location": "",
+    "metadata": {},
+    "time": "2025-08-23T12:00:00.000Z"
+  },
+  {
+    "id": "template_data_2",
+    "variable": "value",
+    "value": "42.5",
+    "group": "group_1",
+    "location": "",
+    "metadata": {},
+    "time": "2025-08-23T12:00:00.000Z"
+  },
+  {
+    "id": "template_data_3",
+    "variable": "device_name",
+    "value": "Sample Device 2",
+    "group": "group_2",
+    "location": "",
+    "metadata": {},
+    "time": "2025-08-23T12:00:00.000Z"
+  },
+  {
+    "id": "template_data_4",
+    "variable": "value",
+    "value": "78.3",
+    "group": "group_2",
+    "location": "",
+    "metadata": {},
+    "time": "2025-08-23T12:00:00.000Z"
+  },
+  {
+    "id": "template_data_5",
+    "variable": "device_name",
+    "value": "Sample Device 3",
+    "group": "group_3",
+    "location": "",
+    "metadata": {},
+    "time": "2025-08-23T12:00:00.000Z"
+  },
+  {
+    "id": "template_data_6",
+    "variable": "value",
+    "value": "91.7",
+    "group": "group_3",
+    "location": "",
+    "metadata": {},
+    "time": "2025-08-23T12:00:00.000Z"
+  }
+]
