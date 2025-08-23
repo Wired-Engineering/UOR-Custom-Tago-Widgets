@@ -142,7 +142,19 @@ export const mockTagoIOData = () => {
   return mockRealtimeData
 }
 
-// Development mode detection
+// Development mode detection using Parcel
 export const isDevelopmentMode = () => {
-  return !window.TagoIO || process.env.NODE_ENV === 'development'
+  // Check if TagoIO is available (production environment indicator)
+  const hasTagoIO = typeof window !== 'undefined' && (window as any).TagoIO
+  
+  // Use Parcel's NODE_ENV to detect development mode
+  const isDevEnv = process.env.NODE_ENV === 'development'
+  
+  // Return true if either TagoIO is not available OR we're explicitly in development
+  return !hasTagoIO || isDevEnv
+}
+
+// Production mode detection using Parcel
+export const isProductionMode = () => {
+  return process.env.NODE_ENV === 'production' && typeof window !== 'undefined' && (window as any).TagoIO
 }
