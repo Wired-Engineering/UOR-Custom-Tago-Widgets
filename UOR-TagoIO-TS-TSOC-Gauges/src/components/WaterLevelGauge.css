@@ -4,7 +4,9 @@
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin: 10px;
-  min-width: 250px;
+  min-width: 400px;
+  width: 100%;
+  max-width: 500px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -50,11 +52,11 @@
 .gauge-container {
   position: relative;
   width: 100%;
-  max-width: 300px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: visible;
 }
 
 .gauge-labels {

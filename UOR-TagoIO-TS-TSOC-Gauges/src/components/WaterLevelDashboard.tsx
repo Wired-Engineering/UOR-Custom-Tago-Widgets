@@ -1,6 +1,6 @@
 import { useContext } from 'preact/hooks'
 import { WidgetContext } from '../WidgetView'
-import WaterLevelFunnel from './WaterLevelGauge'
+import WaterLevelGauge from './WaterLevelGauge'
 import './WaterLevelDashboard.css'
 
 const WaterLevelDashboard = () => {
@@ -32,7 +32,7 @@ const WaterLevelDashboard = () => {
           <div className="bars-section">
             <div className="bars-grid">
               {waterLevelData.map(level => (
-                <WaterLevelFunnel
+                <WaterLevelGauge
                   key={`bar-${level.id}`}
                   name={level.name}
                   currentLevel={level.currentLevel}
@@ -45,7 +45,6 @@ const WaterLevelDashboard = () => {
                   maxAlarm={level.maxAlarm}
                   minAlarm={level.minAlarm}
                   lastUpdated={level.last_updated}
-                  metadata={level.metadata}
                 />
               ))}
             </div>

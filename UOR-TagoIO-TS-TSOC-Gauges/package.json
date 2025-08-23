@@ -1,7 +1,7 @@
 {
   "name": "uor-tagoio-ts-tsoc-gauges",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "parcel serve index.html --port 3000",
