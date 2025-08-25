@@ -30,6 +30,12 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
   minAlarm,
   lastUpdated
 }) => {
+  // Treat 0 values as undefined (except for bottom of pond which can legitimately be 0)
+  const effectiveMinOp = minOperational === 0 ? undefined : minOperational
+  const effectiveMaxOp = maxOperational === 0 ? undefined : maxOperational
+  const effectiveMinAlarm = minAlarm === 0 ? undefined : minAlarm
+  const effectiveMaxAlarm = maxAlarm === 0 ? undefined : maxAlarm
+  const effectiveTopOfPond = topOfPond === 0 ? undefined : topOfPond
   // Define zone colors - override metadata colors to match requirements
   const getZoneColor = (zoneType: string) => {
     switch(zoneType) {
@@ -41,101 +47,192 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
   }
   
   // Zone colors based on correct hierarchy from user specification
-  const maxAlarmColor = getZoneColor('operational')         // Red - navd_max_alarm_we (first level high after operational)
-  const maxOpColor = getZoneColor('warning')      // Orange - navd_max_op_we (maximum high for operation)
-  const normalColor = getZoneColor('normal')          // Green - navd_normal_we (normal)
-  const minOpColor = getZoneColor('warning')      // Orange - navd_min_op_we (minimum low for operation) 
-  const minAlarmColor = getZoneColor('operational')         // Red - navd_min_alarm_we (first low alarm after min operational)
+  // Bottom to top: bottom of pond to warning low (red), warning low to operational low (orange),
+  // operational low to operational high (green), operational high to warning high (orange),
+  // warning high to top of pond (red)
+  const criticalColor = '#ff0000'   // Red for critical zones (outside warning thresholds)
+  const warningColor = '#ff8c00'    // Orange for warning zones (between alarm and operational)
+  const normalColor = '#13c613ff'   // Green for normal/operational zone
   
   // Use consistent defined colors for pond limits too
   const topPondColor = '#666666'    // Gray for pond reference limits
   const bottomPondColor = '#666666' // Gray for pond reference limits
     
   
-  // Determine the gauge range - use full alarm range for proper needle positioning
-  const gaugeMax = maxAlarm !== undefined ? maxAlarm : 
-                   (maxOperational !== undefined ? maxOperational : 100)
-  const gaugeMin = minAlarm !== undefined ? minAlarm : 
-                   (minOperational !== undefined ? minOperational : 0)  
+  // Determine the gauge range - use alarm thresholds with a small extension for critical zones
+  // Calculate operational range for sizing the extension
+  const operationalRange = (effectiveMaxOp !== undefined && effectiveMinOp !== undefined) 
+    ? effectiveMaxOp - effectiveMinOp : 1
+    
+  // Use alarm thresholds as base, with 15% operational range extension for critical zones
+  const extension = operationalRange * 0.15
+  
+  let gaugeMax = effectiveMaxAlarm !== undefined ? effectiveMaxAlarm + extension : 
+                 (effectiveTopOfPond !== undefined ? effectiveTopOfPond :
+                 (effectiveMaxOp !== undefined ? effectiveMaxOp : 100))
+  let gaugeMin = effectiveMinAlarm !== undefined ? effectiveMinAlarm - extension : 
+                 (bottomOfPond !== undefined ? bottomOfPond :
+                 (effectiveMinOp !== undefined ? effectiveMinOp : 0))
+  
+  // But don't extend beyond pond limits if they exist
+  if (effectiveTopOfPond !== undefined && gaugeMax > effectiveTopOfPond) {
+    gaugeMax = effectiveTopOfPond
+  }
+  if (bottomOfPond !== undefined && gaugeMin < bottomOfPond) {
+    gaugeMin = bottomOfPond
+  }
+  
   const gaugeRange = gaugeMax - gaugeMin
   
   // Create gauge sectors for all 5 zones when all boundaries exist
   const createGaugeSectors = () => {
     const sectors = []
     
-    // Special case for Kirkman: when all lower thresholds are 0, only show normal zone
-    const allLowerThresholdsZero = minAlarm === 0 && minOperational === 0 && maxOperational === 0
-    
-    // If we have all 4 boundaries, create the 5 standard zones
-    // Order them from LEFT to RIGHT on semicircle (lowest to highest values)
-    if (maxAlarm !== undefined && maxOperational !== undefined && 
-        minOperational !== undefined && minAlarm !== undefined) {
+    // Check if we have the necessary boundaries to create zones
+    const hasOperationalBounds = effectiveMinOp !== undefined && effectiveMaxOp !== undefined
+    const hasAlarmBounds = effectiveMinAlarm !== undefined || effectiveMaxAlarm !== undefined
       
-      if (allLowerThresholdsZero) {
-        // For Kirkman-like case: show only normal zone from 0 to maxAlarm
-        sectors.push({
-          name: 'Normal Zone',
-          value: maxAlarm,
-          color: getZoneColor('normal'), // Green
-          upperBound: maxAlarm,
-          lowerBound: 0,
-          zone: 'normal'
-        })
-      } else {
-        // Standard case: all 5 zones
-        // Zone 1: Critical Low (below min alarm) - LEFT side
-        const criticalLowRange = Math.max(0.1, (gaugeMax - minAlarm) * 0.1)
+    if (hasOperationalBounds) {
+      // Standard case with operational boundaries: Build zones from bottom to top
+      // Zone structure from bottom to top:
+      // 1. Bottom of pond/gauge min to warning low (min alarm) - RED
+      // 2. Warning low (min alarm) to operational low (min op) - ORANGE  
+      // 3. Operational low (min op) to operational high (max op) - GREEN
+      // 4. Operational high (max op) to warning high (max alarm) - ORANGE
+      // 5. Warning high (max alarm) to top of pond/gauge max - RED
+        
+      // Create sectors with proportional visual sizes based on their actual ranges
+      // This accurately represents the data but requires matching needle calculation
+      
+      // Zone 1: Critical Low (from gauge min to min alarm) - RED
+      if (effectiveMinAlarm !== undefined && gaugeMin < effectiveMinAlarm) {
+        const range = effectiveMinAlarm - gaugeMin
         sectors.push({
           name: 'Critical Low Zone',
-          value: criticalLowRange,
-          color: getZoneColor('operational'), // Red
-          upperBound: minAlarm,
-          lowerBound: Math.max(gaugeMin, minAlarm - criticalLowRange),
+          value: range,
+          color: criticalColor, // Red
+          upperBound: effectiveMinAlarm,
+          lowerBound: gaugeMin,
           zone: 'critical-low'
         })
+      }
         
-        // Zone 2: Warning Low (between min alarm and min op)
-        const warningLowRange = Math.max(0.05, minOperational - minAlarm)
+      // Zone 2: Warning Low (between min alarm and min op) - ORANGE
+      if (effectiveMinAlarm !== undefined && effectiveMinOp !== undefined && effectiveMinAlarm < effectiveMinOp) {
+        const range = effectiveMinOp - effectiveMinAlarm
         sectors.push({
           name: 'Warning Low Zone',
-          value: warningLowRange,
-          color: getZoneColor('warning'), // Orange
-          upperBound: minOperational,
-          lowerBound: minAlarm,
+          value: range,
+          color: warningColor, // Orange
+          upperBound: effectiveMinOp,
+          lowerBound: effectiveMinAlarm,
           zone: 'warning-low'
         })
+      }
         
-        // Zone 3: Normal (between min op and max op) - CENTER
-        const normalRange = Math.max(0.1, maxOperational - minOperational)
-        sectors.push({
-          name: 'Normal Zone',
-          value: normalRange,
-          color: getZoneColor('normal'), // Green
-          upperBound: maxOperational,
-          lowerBound: minOperational,
-          zone: 'normal'
-        })
+      // Zone 3: Normal/Operational (between min op and max op) - GREEN
+      const normalRange = effectiveMaxOp - effectiveMinOp
+      sectors.push({
+        name: 'Normal Zone',
+        value: normalRange,
+        color: normalColor, // Green
+        upperBound: effectiveMaxOp,
+        lowerBound: effectiveMinOp,
+        zone: 'normal'
+      })
         
-        // Zone 4: Warning High (between max op and max alarm)
-        const warningHighRange = Math.max(0.05, maxAlarm - maxOperational)
+      // Zone 4: Warning High (between max op and max alarm) - ORANGE
+      if (effectiveMaxAlarm !== undefined && effectiveMaxOp < effectiveMaxAlarm) {
+        const range = effectiveMaxAlarm - effectiveMaxOp
         sectors.push({
           name: 'Warning High Zone',
-          value: warningHighRange,
-          color: getZoneColor('warning'), // Orange
-          upperBound: maxAlarm,
-          lowerBound: maxOperational,
+          value: range,
+          color: warningColor, // Orange
+          upperBound: effectiveMaxAlarm,
+          lowerBound: effectiveMaxOp,
           zone: 'warning-high'
         })
+      }
         
-        // Zone 5: Critical High (above max alarm) - RIGHT side
-        const criticalHighRange = Math.max(0.1, (maxAlarm - gaugeMin) * 0.1)
+      // Zone 5: Critical High (from max alarm to gauge max) - RED
+      if (effectiveMaxAlarm !== undefined && effectiveMaxAlarm < gaugeMax) {
+        const range = gaugeMax - effectiveMaxAlarm
         sectors.push({
           name: 'Critical High Zone',
-          value: criticalHighRange,
-          color: getZoneColor('operational'), // Red
-          upperBound: maxAlarm + criticalHighRange,
-          lowerBound: maxAlarm,
+          value: range,
+          color: criticalColor, // Red
+          upperBound: gaugeMax,
+          lowerBound: effectiveMaxAlarm,
           zone: 'critical-high'
+        })
+      }
+    } else if (hasAlarmBounds) {
+      // Case with only alarm boundaries (no operational boundaries)
+      // This includes cases like Kirkman where operational values are 0/undefined
+      
+      // For Kirkman-style case: create zones with warning high between normal and critical
+      if (effectiveMinAlarm !== undefined && gaugeMin < effectiveMinAlarm) {
+        // Red zone below min alarm
+        sectors.push({
+          name: 'Critical Low Zone',
+          value: effectiveMinAlarm - gaugeMin,
+          color: criticalColor,
+          upperBound: effectiveMinAlarm,
+          lowerBound: gaugeMin,
+          zone: 'critical-low'
+        })
+      }
+      
+      // Create zones based on normal level and max alarm
+      if (effectiveMaxAlarm !== undefined) {
+        // Green zone: from min alarm (or gauge min) to 80% of the way to max alarm
+        const greenLowerBound = effectiveMinAlarm !== undefined ? effectiveMinAlarm : gaugeMin
+        const alarmRange = effectiveMaxAlarm - normalLevel
+        const greenUpperBound = normalLevel + (alarmRange * 0.6) // Green zone covers 60% of range to alarm
+        
+        if (greenUpperBound > greenLowerBound) {
+          sectors.push({
+            name: 'Normal Zone',
+            value: greenUpperBound - greenLowerBound,
+            color: normalColor,
+            upperBound: greenUpperBound,
+            lowerBound: greenLowerBound,
+            zone: 'normal'
+          })
+        }
+        
+        // Warning High zone: from normal buffer to max alarm
+        if (effectiveMaxAlarm > greenUpperBound) {
+          sectors.push({
+            name: 'Warning High Zone',
+            value: effectiveMaxAlarm - greenUpperBound,
+            color: warningColor,
+            upperBound: effectiveMaxAlarm,
+            lowerBound: greenUpperBound,
+            zone: 'warning-high'
+          })
+        }
+        
+        // Critical High zone: from max alarm to gauge max
+        if (gaugeMax > effectiveMaxAlarm) {
+          sectors.push({
+            name: 'Critical High Zone',
+            value: gaugeMax - effectiveMaxAlarm,
+            color: criticalColor,
+            upperBound: gaugeMax,
+            lowerBound: effectiveMaxAlarm,
+            zone: 'critical-high'
+          })
+        }
+      } else {
+        // Fallback if no max alarm: simple green zone
+        sectors.push({
+          name: 'Normal Zone',
+          value: gaugeRange,
+          color: normalColor,
+          upperBound: gaugeMax,
+          lowerBound: gaugeMin,
+          zone: 'normal'
         })
       }
     } else {
@@ -178,20 +275,52 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
   
   const gaugeSectors = createGaugeSectors()
   const RADIAN = Math.PI / 180
-  const width = 400  // Gauge width
-  const height = 250 // Gauge height
-  const chartWidth = width  // PieChart width (extra space for labels)
-  const chartHeight = height // PieChart height (extra space for labels)
+  const width = 300  // Gauge width
+  const height = 200 // Gauge height
+  const chartWidth = width  // PieChart width
+  const chartHeight = height // PieChart height
   const cx = chartWidth / 2      // Center X in chart coordinates
   const cy = chartWidth / 2      // Center Y in chart coordinates  
   const iR = (width / 2) * 0.5   // Inner radius based on gauge size
   const oR = (width / 2) * 0.8   // Outer radius based on gauge size
   
   
-  // Calculate where the needle should point based on current level
-  const needlePosition = Math.max(0, Math.min(1, (currentLevel - gaugeMin) / gaugeRange))
+  // Calculate needle value based on current level position within the sectors
+  const calculateNeedleValue = () => {
+    const total = gaugeSectors.reduce((sum, sector) => sum + sector.value, 0)
+    let cumulativeValue = 0
+    
+    // Find which sector contains the current level and calculate cumulative value
+    for (let i = 0; i < gaugeSectors.length; i++) {
+      const sector = gaugeSectors[i]
+      
+      if (currentLevel >= sector.lowerBound && currentLevel <= sector.upperBound) {
+        // Calculate how far into this sector we are (0 to 1)
+        const positionInSector = (currentLevel - sector.lowerBound) / (sector.upperBound - sector.lowerBound)
+        // Add the portion of this sector that comes before our position
+        const needleValue = cumulativeValue + (positionInSector * sector.value)
+        
+        return needleValue
+      }
+      
+      cumulativeValue += sector.value
+    }
+    
+    // Handle edge cases
+    if (currentLevel < gaugeMin) {
+      return 0 // Far left
+    }
+    if (currentLevel > gaugeMax) {
+      return total // Far right
+    }
+    
+    return total / 2 // Fallback to middle
+  }
 
-  // Custom label function to show zone ranges outside the sectors
+  const needleValue = calculateNeedleValue()
+
+  // Custom label function to show zone ranges outside the sectors (currently disabled)
+  /*
   const renderZoneLabel = ({ cx, cy, midAngle, outerRadius, index }: any) => {
     if (index >= gaugeSectors.length) return null
     
@@ -201,7 +330,7 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
     const rawY = cy + labelRadius * Math.sin(-midAngle * RADIAN)
     
     // Format the range text - use two decimal places
-    const rangeText = `${sector.lowerBound.toFixed(2)}-${sector.upperBound.toFixed(2)}`
+    const rangeText = `${sector.lowerBound}-${sector.upperBound}`
     
     // Calculate container boundaries (assuming 400px chart width)
     const containerLeft = 20
@@ -250,24 +379,33 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
       </text>
     )
   }
+  */
 
-  // Arrow component for needle
-  const Arrow = ({ cx, cy, midAngle, outerRadius }: any) => {
-    const sin = Math.sin(-RADIAN * midAngle)
-    const cos = Math.cos(-RADIAN * midAngle)
-    const mx = cx + (outerRadius + width * 0.03) * cos
-    const my = cy + (outerRadius + width * 0.03) * sin
+  // Arrow component for needle - using Recharts approach
+  const Arrow = () => {
+    const total = gaugeSectors.reduce((sum, sector) => sum + sector.value, 0)
+    const ang = 180.0 * (1 - needleValue / total)
+    const length = (iR + 2 * oR) / 3
+    const sin = Math.sin(-RADIAN * ang)
+    const cos = Math.cos(-RADIAN * ang)
+    const r = 5
+    const x0 = cx + 5
+    const y0 = cy + 5
+    const xba = x0 + r * sin
+    const yba = y0 - r * cos
+    const xbb = x0 - r * sin
+    const ybb = y0 + r * cos
+    const xp = x0 + length * cos
+    const yp = y0 + length * sin
     
     return (
       <g>
+        <circle cx={x0} cy={y0} r={r} fill="#000000" stroke="none" />
         <path
-          d={`M${cx},${cy}L${mx},${my}`}
-          strokeWidth="4"
-          stroke="#000000"
-          fill="none"
-          strokeLinecap="round"
+          d={`M${xba} ${yba}L${xbb} ${ybb} L${xp} ${yp} L${xba} ${yba}`}
+          stroke="none"
+          fill="#000000"
         />
-        <circle cx={cx} cy={cy} r={width * 0.02} fill="white" stroke="#000000" strokeWidth="2" />
       </g>
     )
   }
@@ -281,47 +419,59 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
   }
   
   const getCurrentZoneInfo = () => {
-    // Special case for Kirkman: when all lower thresholds are 0, only check against maxAlarm
-    const allLowerThresholdsZero = minAlarm === 0 && minOperational === 0 && maxOperational === 0
+    // Check if we have operational boundaries
+    const hasOperationalBounds = effectiveMinOp !== undefined && effectiveMaxOp !== undefined
     
-    if (allLowerThresholdsZero && maxAlarm !== undefined) {
-      if (currentLevel > maxAlarm) {
-        return { name: 'Critical High', color: getZoneColor('operational'), type: 'operational' }
-      } else {
-        return { name: 'Normal', color: getZoneColor('normal'), type: 'normal' }
+    if (hasOperationalBounds) {
+      // Standard hierarchy with operational thresholds - check from highest to lowest
+      // Critical High: At or above max alarm
+      if (effectiveMaxAlarm !== undefined && currentLevel >= effectiveMaxAlarm) {
+        return { name: 'Critical High', color: criticalColor, type: 'critical' }
+      }
+      
+      // Warning High: At or above max operational but below max alarm
+      if (effectiveMaxOp !== undefined && effectiveMaxAlarm !== undefined && 
+          currentLevel >= effectiveMaxOp && currentLevel < effectiveMaxAlarm) {
+        return { name: 'Warning High', color: warningColor, type: 'warning' }
+      }
+      
+      // Warning Low: At or below min operational but above min alarm  
+      if (effectiveMinAlarm !== undefined && effectiveMinOp !== undefined && 
+          currentLevel > effectiveMinAlarm && currentLevel <= effectiveMinOp) {
+        return { name: 'Warning Low', color: warningColor, type: 'warning' }
+      }
+      
+      // Normal zone: Between min and max operational (exclusive of boundaries)
+      if (currentLevel > effectiveMinOp && currentLevel < effectiveMaxOp) {
+        return { name: 'Operational', color: normalColor, type: 'normal' }
+      }
+      
+      // Critical Low: At or below min alarm
+      if (effectiveMinAlarm !== undefined && currentLevel <= effectiveMinAlarm) {
+        return { name: 'Critical Low', color: criticalColor, type: 'critical' }
+      }
+    } else {
+      // Only alarm thresholds available (like Kirkman case)
+      if (effectiveMaxAlarm !== undefined && currentLevel >= effectiveMaxAlarm) {
+        return { name: 'Critical High', color: criticalColor, type: 'critical' }
+      }
+      
+      // Check if we're in warning high zone (similar to sector logic)
+      if (effectiveMaxAlarm !== undefined) {
+        const alarmRange = effectiveMaxAlarm - normalLevel
+        const greenUpperBound = normalLevel + (alarmRange * 0.6)
+        
+        if (currentLevel > greenUpperBound && currentLevel < effectiveMaxAlarm) {
+          return { name: 'Warning High', color: warningColor, type: 'warning' }
+        }
+      }
+      
+      if (effectiveMinAlarm !== undefined && currentLevel <= effectiveMinAlarm) {
+        return { name: 'Critical Low', color: criticalColor, type: 'critical' }
       }
     }
     
-    // Standard hierarchy for all other gauges
-    // Critical High: Above max alarm
-    if (maxAlarm !== undefined && currentLevel > maxAlarm) {
-      return { name: 'Critical High', color: getZoneColor('operational'), type: 'operational' }
-    }
-    
-    // Warning High: Between max operational and max alarm
-    if (maxOperational !== undefined && maxAlarm !== undefined && 
-        currentLevel > maxOperational && currentLevel <= maxAlarm) {
-      return { name: 'Warning High', color: getZoneColor('warning'), type: 'warning' }
-    }
-    
-    // Normal zone: Between min and max operational
-    if (minOperational !== undefined && maxOperational !== undefined && 
-        currentLevel >= minOperational && currentLevel <= maxOperational) {
-      return { name: 'Normal', color: getZoneColor('normal'), type: 'normal' }
-    }
-    
-    // Warning Low: Between min alarm and min operational
-    if (minAlarm !== undefined && minOperational !== undefined && 
-        currentLevel >= minAlarm && currentLevel < minOperational) {
-      return { name: 'Warning Low', color: getZoneColor('warning'), type: 'warning' }
-    }
-    
-    // Critical Low: Below min alarm
-    if (minAlarm !== undefined && currentLevel < minAlarm) {
-      return { name: 'Critical Low', color: getZoneColor('operational'), type: 'operational' }
-    }
-    
-    return { name: 'Normal', color: getZoneColor('normal'), type: 'normal' }
+    return { name: 'Operational', color: normalColor, type: 'normal' }
   }
   
   const currentZoneInfo = getCurrentZoneInfo()
@@ -366,7 +516,8 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
             outerRadius={oR}
             {...pieProps}
             dataKey="value"
-            label={renderZoneLabel}
+            // DISABLING LABELS FOR NOW
+            //label={renderZoneLabel}
             labelLine={false}
           >
             {gaugeSectors.map((entry, index) => (
@@ -375,38 +526,37 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
           </Pie>
           
           {/* Always visible needle - render directly */}
-          {/* Semicircle: 180° (left) to 0° (right), needlePosition 0=left, 1=right */}
-          {Arrow({ cx, cy, midAngle: 180 - (needlePosition * 180), outerRadius: oR })}
+          {/* Semicircle: 180° (left) to 0° (right) */}
+          <Arrow />
         </PieChart>
         
         <div className="gauge-labels">
-          <span className="gauge-label-left">{bottomOfPond}</span>
-          <span className="gauge-label-center">NWL: {normalLevel}</span>
-          <span className="gauge-label-right">{topOfPond}</span>
+          <span className="gauge-label-left">{bottomOfPond !== undefined ? `BOP: ${bottomOfPond}` : ''}</span>
+          <span className="gauge-label-center">NWL: {normalLevel !== undefined ? normalLevel : ''}</span>
+          <span className="gauge-label-right">{topOfPond !== undefined ? `TOP: ${topOfPond}` : ''}</span>
         </div>
         
         <div className="gauge-value">
-          <div className="current-value" style={{ color: currentColor }}>
+          <div className="current-value" style={{ 
+            backgroundColor: currentColor,
+            color: 'white',
+            fontWeight: 'bold',
+            borderRadius: '50px',
+            padding: '8px 16px',
+            display: 'inline-block'
+          }}>
             {currentLevel}
           </div>
           <div className="value-label">Current WL (ft)</div>
         </div>
       </div>
-      
-      <div className="gauge-info">
-        <div className="normal-deviation">
-          Normal Elevation Deviation: {normalDeviation} in
-        </div>
-      </div>
-      
-        
-      
+     
       <div className="last-updated" style={{
         textAlign: 'center',
         marginTop: '8px',
         padding: '4px',
-        fontSize: '10px',
-        color: '#666',
+        fontSize: '14px',
+        color: 'black',
         backgroundColor: '#f5f5f5',
         borderRadius: '3px'
       }}>
@@ -418,7 +568,7 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
           <div className="current-status">
             <h4>Current Status</h4>
             <p><strong>Water Level:</strong> {currentLevel} ft</p>
-            <p><strong>Normal Level:</strong> {normalLevel} ft</p>
+            <p><strong>Operational Level:</strong> {normalLevel} ft</p>
             <p><strong>Deviation:</strong> {normalDeviation} in</p>
           </div>
           
@@ -437,7 +587,7 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
             <strong style={{ fontSize: '11px', marginBottom: '4px' }}>Water Level Zones</strong>
             
             {/* Top of Pond - Reference only, not in gauge */}
-            {topOfPond !== undefined && topOfPond !== null && !isNaN(topOfPond) && (
+            {effectiveTopOfPond !== undefined && effectiveTopOfPond !== null && !isNaN(effectiveTopOfPond) && (
               <div className="zone-item" style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -455,12 +605,12 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
                   borderRadius: '50%'
                 }}></div>
                 <span style={{ fontWeight: '500' }}>Top of Pond:</span>
-                <span style={{ color: '#666' }}>{topOfPond} ft</span>
+                <span style={{ color: '#666' }}>{effectiveTopOfPond} ft</span>
               </div>
             )}
             
-            {/* Warning High (Max Alarm) - Orange */}
-            {maxAlarm !== undefined && maxAlarm !== null && !isNaN(maxAlarm) && (
+            {/* Warning High (Max Alarm) - Red boundary */}
+            {effectiveMaxAlarm !== undefined && effectiveMaxAlarm !== null && !isNaN(effectiveMaxAlarm) && (
               <div className="zone-item" style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -468,22 +618,22 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
                 backgroundColor: 'white',
                 padding: '2px 6px',
                 borderRadius: '12px',
-                border: `1px solid ${maxAlarmColor}`,
+                border: `1px solid ${criticalColor}`,
                 whiteSpace: 'nowrap'
               }}>
                 <div style={{
                   width: '8px',
                   height: '8px',
-                  backgroundColor: maxAlarmColor,
+                  backgroundColor: criticalColor,
                   borderRadius: '50%'
                 }}></div>
                 <span style={{ fontWeight: '500' }}>Warning High:</span>
-                <span style={{ color: '#666' }}>{maxAlarm} ft</span>
+                <span style={{ color: '#666' }}>{effectiveMaxAlarm} ft</span>
               </div>
             )}
             
-            {/* Operational High (Max Operational) - Red */}
-            {maxOperational !== undefined && maxOperational !== null && !isNaN(maxOperational) && (
+            {/* Operational High (Max Operational) - Orange boundary */}
+            {effectiveMaxOp !== undefined && effectiveMaxOp !== null && !isNaN(effectiveMaxOp) && (
               <div className="zone-item" style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -491,17 +641,17 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
                 backgroundColor: 'white',
                 padding: '2px 6px',
                 borderRadius: '12px',
-                border: `1px solid ${maxOpColor}`,
+                border: `1px solid ${warningColor}`,
                 whiteSpace: 'nowrap'
               }}>
                 <div style={{
                   width: '8px',
                   height: '8px',
-                  backgroundColor: maxOpColor,
+                  backgroundColor: warningColor,
                   borderRadius: '50%'
                 }}></div>
                 <span style={{ fontWeight: '500' }}>Operational High:</span>
-                <span style={{ color: '#666' }}>{maxOperational === 0 ? 'undefined' : `${maxOperational} ft`}</span>
+                <span style={{ color: '#666' }}>{effectiveMaxOp} ft</span>
               </div>
             )}
             
@@ -523,13 +673,13 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
                   backgroundColor: normalColor,
                   borderRadius: '50%'
                 }}></div>
-                <span style={{ fontWeight: '500' }}>Normal Level:</span>
+                <span style={{ fontWeight: '500' }}>Operational Level:</span>
                 <span style={{ color: '#666' }}>{normalLevel} ft</span>
               </div>
             )}
             
-            {/* Operational Low (Min Operational) - Red */}
-            {minOperational !== undefined && minOperational !== null && !isNaN(minOperational) && (
+            {/* Operational Low (Min Operational) - Orange boundary */}
+            {effectiveMinOp !== undefined && effectiveMinOp !== null && !isNaN(effectiveMinOp) && (
               <div className="zone-item" style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -537,22 +687,22 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
                 backgroundColor: 'white',
                 padding: '2px 6px',
                 borderRadius: '12px',
-                border: `1px solid ${minOpColor}`,
+                border: `1px solid ${warningColor}`,
                 whiteSpace: 'nowrap'
               }}>
                 <div style={{
                   width: '8px',
                   height: '8px',
-                  backgroundColor: minOpColor,
+                  backgroundColor: warningColor,
                   borderRadius: '50%'
                 }}></div>
                 <span style={{ fontWeight: '500' }}>Operational Low:</span>
-                <span style={{ color: '#666' }}>{minOperational === 0 ? 'undefined' : `${minOperational} ft`}</span>
+                <span style={{ color: '#666' }}>{effectiveMinOp} ft</span>
               </div>
             )}
             
-            {/* Warning Low (Min Alarm) - Orange */}
-            {minAlarm !== undefined && minAlarm !== null && !isNaN(minAlarm) && (
+            {/* Warning Low (Min Alarm) - Red boundary */}
+            {effectiveMinAlarm !== undefined && effectiveMinAlarm !== null && !isNaN(effectiveMinAlarm) && (
               <div className="zone-item" style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -560,17 +710,17 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
                 backgroundColor: 'white',
                 padding: '2px 6px',
                 borderRadius: '12px',
-                border: `1px solid ${minAlarmColor}`,
+                border: `1px solid ${criticalColor}`,
                 whiteSpace: 'nowrap'
               }}>
                 <div style={{
                   width: '8px',
                   height: '8px',
-                  backgroundColor: minAlarmColor,
+                  backgroundColor: criticalColor,
                   borderRadius: '50%'
                 }}></div>
                 <span style={{ fontWeight: '500' }}>Warning Low:</span>
-                <span style={{ color: '#666' }}>{minAlarm === 0 ? 'undefined' : `${minAlarm} ft`}</span>
+                <span style={{ color: '#666' }}>{effectiveMinAlarm} ft</span>
               </div>
             )}
             
@@ -593,7 +743,7 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
                   borderRadius: '50%'
                 }}></div>
                 <span style={{ fontWeight: '500' }}>Bottom of Pond:</span>
-                <span style={{ color: '#666' }}>{bottomOfPond} ft</span>
+                <span style={{ color: '#666' }}>{(bottomOfPond === 0 && name.includes('Kirkman')) ? '0.00 ft' : bottomOfPond + ' ft'}</span>
               </div>
             )}
           </div>
