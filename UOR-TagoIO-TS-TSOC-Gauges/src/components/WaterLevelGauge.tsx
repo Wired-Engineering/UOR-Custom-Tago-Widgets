@@ -568,7 +568,7 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
           <div className="current-status">
             <h4>Current Status</h4>
             <p><strong>Water Level:</strong> {currentLevel} ft</p>
-            <p><strong>Operational Level:</strong> {normalLevel} ft</p>
+            <p><strong>Normal Level:</strong> {normalLevel} ft</p>
             <p><strong>Deviation:</strong> {normalDeviation} in</p>
           </div>
           
