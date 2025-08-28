@@ -73,9 +73,9 @@ The widget automatically detects whether it's running in development or producti
 
 ## Scripts
 
-- `npm run dev`: Start development server
-- `npm run build:parcel`: Build for general deployment
-- `npm run build:widget`: Build optimized widget for TagoIO deployment
+- `pnpm npm dev`: Start development server
+- `pnpm npm build:parcel`: Build for general deployment
+- `pnpm npm build:widget`: Build optimized widget for TagoIO deployment
 
 ## Tips
 

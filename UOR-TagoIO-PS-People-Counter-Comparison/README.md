@@ -12,8 +12,8 @@ A TagoIO custom widget for displaying and comparing people counter data across m
 ## Development
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Visit `http://localhost:3000` to view the widget in development mode with mock data.
@@ -21,7 +21,7 @@ Visit `http://localhost:3000` to view the widget in development mode with mock d
 ## Build
 
 ```bash
-npm run build:widget
+pnpm build:widget
 ```
 
 Builds the widget for TagoIO deployment in the `built-widget` directory.

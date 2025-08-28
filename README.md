@@ -27,8 +27,8 @@ Each project contains its own README with specific setup instructions. Generally
 
 ```bash
 cd [project-folder]
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 ## Template Usage
