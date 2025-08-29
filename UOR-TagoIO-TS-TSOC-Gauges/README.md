@@ -1,4 +1,4 @@
-# Tech Sercices TSOC Water Level Gauges Widget
+# Tech Services TSOC Water Level Gauges Widget
 
 A TagoIO custom widget for monitoring water level data with interactive gauge visualizations.
 
