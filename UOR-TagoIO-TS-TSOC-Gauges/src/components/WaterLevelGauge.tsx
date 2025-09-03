@@ -430,7 +430,6 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
   
   const currentZoneInfo = getCurrentZoneInfo()
   const currentColor = currentZoneInfo.color
-  const currentZoneName = currentZoneInfo.name
   
   const [isExpanded, setIsExpanded] = useState(false)
   
@@ -443,16 +442,6 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
       <div className="gauge-header">
         <h3 className="gauge-title">{name}</h3>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <span style={{ 
-            padding: '2px 8px',
-            borderRadius: '4px',
-            fontSize: '12px',
-            backgroundColor: currentColor,
-            color: '#fff',
-            fontWeight: 'bold'
-          }}>
-            {currentZoneName}
-          </span>
           <button className="expand-button">
             {isExpanded ? '▼' : '▶'}
           </button>
