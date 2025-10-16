@@ -94,8 +94,8 @@ export const WidgetView = () => {
         // Convert to water level records
         Object.entries(variablesByGroup).forEach(([groupKey, variables]) => {
           // Only create a record if we have the required water level data
-          if (variables.device_name && 
-              variables.device_navd_current_we !== undefined) {
+          if (variables.name && 
+              variables.navd_current_we !== undefined) {
             
             // Find the most recent timestamp from all variables in this group
             const mostRecentTime = (Object.values(variables.variableTimes) as string[]).reduce((latest: string, current: string) => {
@@ -104,16 +104,16 @@ export const WidgetView = () => {
             
             const waterLevelRecord: EntityWaterLevelData = {
               id: groupKey,
-              name: variables.device_name,
-              currentLevel: variables.device_navd_current_we,
-              minOperational: variables.device_navd_min_op_we !== undefined && variables.device_navd_min_op_we !== null ? variables.device_navd_min_op_we : undefined,
-              maxOperational: variables.device_navd_max_op_we !== undefined && variables.device_navd_max_op_we !== null ? variables.device_navd_max_op_we : undefined,
-              normalLevel: variables.device_navd_normal_we || 0,
-              normalDeviation: variables.device_navd_normal_we_deviation || 0,
-              topOfPond: variables.device_navd_alarm_top !== undefined && variables.device_navd_alarm_top !== null ? variables.device_navd_alarm_top : undefined,
-              bottomOfPond: variables.device_navd_alarm_bop !== undefined && variables.device_navd_alarm_bop !== null ? variables.device_navd_alarm_bop : undefined,
-              maxAlarm: variables.device_navd_max_alarm_we !== undefined && variables.device_navd_max_alarm_we !== null ? variables.device_navd_max_alarm_we : undefined,
-              minAlarm: variables.device_navd_min_alarm_we !== undefined && variables.device_navd_min_alarm_we !== null ? variables.device_navd_min_alarm_we : undefined,
+              name: variables.name,
+              currentLevel: variables.navd_current_we,
+              minOperational: variables.navd_min_op_we !== undefined && variables.navd_min_op_we !== null ? variables.navd_min_op_we : undefined,
+              maxOperational: variables.navd_max_op_we !== undefined && variables.navd_max_op_we !== null ? variables.navd_max_op_we : undefined,
+              normalLevel: variables.navd_normal_we || 0,
+              normalDeviation: variables.navd_normal_we_deviation || 0,
+              topOfPond: variables.navd_alarm_top !== undefined && variables.navd_alarm_top !== null ? variables.navd_alarm_top : undefined,
+              bottomOfPond: variables.navd_alarm_bop !== undefined && variables.navd_alarm_bop !== null ? variables.navd_alarm_bop : undefined,
+              maxAlarm: variables.navd_max_alarm_we !== undefined && variables.navd_max_alarm_we !== null ? variables.navd_max_alarm_we : undefined,
+              minAlarm: variables.navd_min_alarm_we !== undefined && variables.navd_min_alarm_we !== null ? variables.navd_min_alarm_we : undefined,
               group: groupKey,
               created_at: variables.time || new Date().toISOString(),
               updated_at: variables.time || new Date().toISOString(),

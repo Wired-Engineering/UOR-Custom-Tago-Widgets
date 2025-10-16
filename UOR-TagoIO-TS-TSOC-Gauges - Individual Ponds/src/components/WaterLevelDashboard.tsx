@@ -2,7 +2,6 @@ import { useContext } from 'preact/hooks'
 import { WidgetContext } from '../WidgetView'
 import WaterLevelGauge from './WaterLevelGauge'
 import './WaterLevelDashboard.css'
-import packageJson from '../../package.json'
 
 const WaterLevelDashboard = () => {
   const { waterLevelData, isLoading } = useContext(WidgetContext)

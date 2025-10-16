@@ -35,22 +35,22 @@ export const mockWaterLevelData = (): WaterLevelData[] => {
   Object.keys(groupedData).forEach(groupId => {
     const group = groupedData[groupId]
     
-    if (group.device_name && 
-        group.device_navd_current_we !== undefined) {
+    if (group.name && 
+        group.navd_current_we !== undefined) {
       
       // Extract values, treating 0 as a valid value
       const waterLevel = {
         id: groupId,
-        name: group.device_name,
-        currentLevel: group.device_navd_current_we,
-        minOperational: group.device_navd_min_op_we,
-        maxOperational: group.device_navd_max_op_we,
-        normalLevel: group.device_navd_normal_we || 0,
-        normalDeviation: group.device_navd_normal_we_deviation || 0,
-        topOfPond: group.device_navd_alarm_top || (group.device_navd_max_op_we !== undefined ? group.device_navd_max_op_we + 10 : 100),
-        bottomOfPond: group.device_navd_alarm_bop || (group.device_navd_min_op_we !== undefined ? group.device_navd_min_op_we - 10 : 0),
-        maxAlarm: group.device_navd_max_alarm_we,
-        minAlarm: group.device_navd_min_alarm_we,
+        name: group.name,
+        currentLevel: group.navd_current_we,
+        minOperational: group.navd_min_op_we,
+        maxOperational: group.navd_max_op_we,
+        normalLevel: group.navd_normal_we || 0,
+        normalDeviation: group.navd_normal_we_deviation || 0,
+        topOfPond: group.navd_alarm_top || (group.navd_max_op_we !== undefined ? group.navd_max_op_we + 10 : 100),
+        bottomOfPond: group.navd_alarm_bop || (group.navd_min_op_we !== undefined ? group.navd_min_op_we - 10 : 0),
+        maxAlarm: group.navd_max_alarm_we,
+        minAlarm: group.navd_min_alarm_we,
         last_updated: new Date().toISOString(),
         group: groupId
       }      
