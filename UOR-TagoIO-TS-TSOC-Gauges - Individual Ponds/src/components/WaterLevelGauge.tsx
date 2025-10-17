@@ -441,11 +441,6 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
     <div className={`water-gauge ${isExpanded ? 'expanded' : ''}`} onClick={toggleExpanded}>
       <div className="gauge-header">
         <h3 className="gauge-title">{name}</h3>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <button className="expand-button">
-            {isExpanded ? '▼' : '▶'}
-          </button>
-        </div>
       </div>
       
       <div className="gauge-container">
