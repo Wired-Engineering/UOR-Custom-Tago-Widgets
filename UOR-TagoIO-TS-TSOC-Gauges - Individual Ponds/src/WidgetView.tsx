@@ -129,10 +129,23 @@ export const WidgetView = () => {
 
     console.log(`✅ Created ${newWaterLevelData.length} water level records`)
     setRealtimeEventCount(prev => prev + 1)
-    
+
     if (newWaterLevelData.length > 0) {
-      // Sort alphabetically by device name
-      const sortedData = newWaterLevelData.sort((a, b) => a.name.localeCompare(b.name))
+      // Deduplicate by pond name - keep the most recent record for each pond
+      const uniquePonds = new Map<string, EntityWaterLevelData>()
+
+      newWaterLevelData.forEach(record => {
+        const existing = uniquePonds.get(record.name)
+        if (!existing || new Date(record.last_updated).getTime() > new Date(existing.last_updated).getTime()) {
+          uniquePonds.set(record.name, record)
+        }
+      })
+
+      // Convert back to array and sort alphabetically by device name
+      const uniqueData = Array.from(uniquePonds.values())
+      const sortedData = uniqueData.sort((a, b) => a.name.localeCompare(b.name))
+
+      console.log(`✅ After deduplication: ${sortedData.length} unique ponds`)
       setWaterLevelData(sortedData)
       setIsLoading(false)
     }
