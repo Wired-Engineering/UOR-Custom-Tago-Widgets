@@ -1,0 +1,43 @@
+{
+  "name": "udx-gslm-entity-config-viewer-widget",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "parcel serve index.html --port 3001",
+    "build:parcel": "parcel build index.html --dist-dir dist-parcel --no-source-maps",
+    "build:widget": "parcel build index.html --dist-dir built-widget --no-source-maps --public-url ./"
+  },
+  "alias": {
+    "react": "preact/compat",
+    "react-dom": "preact/compat",
+    "react-dom/client": "preact/compat",
+    "preact/jsx-dev-runtime": "preact/jsx-runtime",
+    "es-toolkit/compat/get": "lodash-es/get",
+    "es-toolkit/compat/isEqual": "lodash-es/isEqual",
+    "es-toolkit/compat/isPlainObject": "lodash-es/isPlainObject",
+    "es-toolkit/compat/last": "lodash-es/last",
+    "es-toolkit/compat/maxBy": "lodash-es/maxBy",
+    "es-toolkit/compat/minBy": "lodash-es/minBy",
+    "es-toolkit/compat/omit": "lodash-es/omit",
+    "es-toolkit/compat/range": "lodash-es/range",
+    "es-toolkit/compat/sortBy": "lodash-es/sortBy",
+    "es-toolkit/compat/sumBy": "lodash-es/sumBy",
+    "es-toolkit/compat/throttle": "lodash-es/throttle",
+    "es-toolkit/compat/uniqBy": "lodash-es/uniqBy",
+    "es-toolkit/noop": "lodash-es/noop",
+    "es-toolkit": "lodash-es"
+  },
+  "dependencies": {
+    "@preact/compat": "^18.3.1",
+    "@tago-io/custom-widget": "^1.1.0",
+    "lodash-es": "^4.17.21",
+    "preact": "^10.27.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "buffer": "^6.0.3",
+    "parcel": "^2.15.4",
+    "typescript": "^5.9.2"
+  }
+}
