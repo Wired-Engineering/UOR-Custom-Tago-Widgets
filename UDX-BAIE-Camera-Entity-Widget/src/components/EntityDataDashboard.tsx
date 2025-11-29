@@ -154,6 +154,7 @@ const EntityDataDashboard = () => {
           record.info.park,
           record.info.camera_hostname,
           record.info.camera_friendly_name,
+          record.info.camera_device_id,
           record.info.scenario_type,
           record.info.venue_type,
           record.settings.venue_id,
@@ -170,6 +171,7 @@ const EntityDataDashboard = () => {
             linkedFields.push(scenario.name)
             linkedFields.push(scenario.info.camera_hostname || '')
             linkedFields.push(scenario.info.camera_friendly_name || '')
+            linkedFields.push(scenario.info.camera_device_id || '')
           })
         }
 
@@ -302,6 +304,10 @@ const EntityDataDashboard = () => {
       <div className="details-section">
         <h4>Camera Info</h4>
         <div className="detail-grid">
+          <div className="detail-item">
+            <span className="detail-label">Device ID</span>
+            <span className="detail-value">{record.info.camera_device_id || 'N/A'}</span>
+          </div>
           <div className="detail-item">
             <span className="detail-label">Hostname</span>
             <span className="detail-value">{record.info.camera_hostname || 'N/A'}</span>

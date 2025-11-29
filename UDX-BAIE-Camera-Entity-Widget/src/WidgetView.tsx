@@ -33,6 +33,7 @@ export interface EntityRecord {
     camera_hostname?: string
     camera_friendly_name?: string
     camera_type?: string
+    camera_device_id?: string
     scenario_identifier?: string
     scenario_type?: string
     venue_type?: string
