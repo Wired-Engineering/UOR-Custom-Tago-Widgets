@@ -121,6 +121,11 @@ export const getMockEntityData = (): EntityRecord[] => {
   return mockEntityRecords
 }
 
+// Get the raw mock data in TagoIO format (preserves time field)
+export const getMockRawData = (): TagoDataItem[] => {
+  return mockDataJson as TagoDataItem[]
+}
+
 export const getMockCameraDevices = (): CameraDevice[] => {
   console.log(`Mock data loaded with ${mockCameraDevices.length} camera devices`)
   return mockCameraDevices

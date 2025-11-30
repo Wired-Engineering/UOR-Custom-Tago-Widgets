@@ -889,7 +889,7 @@ const EntityDataDashboard = () => {
       <header className="dashboard-header">
         <h1>UDX GSLM Camera Config Explorer</h1>
         <p className="header-subtitle">
-          {lastUpdate && ` Updated ${lastUpdate.toLocaleTimeString()}`}
+          {lastUpdate && ` Updated ${lastUpdate.toLocaleString()}`}
         </p>
       </header>
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'preact/hooks'
 import { createContext } from 'preact'
 import App from './App'
-import { isDevelopmentMode, getMockEntityData, getMockCameraDevices } from './utils/mockData'
+import { isDevelopmentMode, getMockCameraDevices, getMockRawData } from './utils/mockData'
 import "@tago-io/custom-widget"
 import "@tago-io/custom-widget/dist/custom-widget.css"
 
@@ -130,12 +130,23 @@ export const WidgetView = () => {
     // Entity data now comes as multiple entity_record variables, each containing a single JSON record
     let records: EntityRecord[] = []
     let cameras: CameraDevice[] = []
+    let latestTimestamp: Date | null = null
 
     if (Array.isArray(realtimeData)) {
       // Check if it's the TagoIO realtime format with result arrays
       if (realtimeData[0]?.result) {
         realtimeData.forEach((dataGroup: any) => {
           if (dataGroup.result && Array.isArray(dataGroup.result)) {
+            // Track the most recent timestamp from data points
+            dataGroup.result.forEach((dp: any) => {
+              if (dp.time) {
+                const dpTime = new Date(dp.time)
+                if (!latestTimestamp || dpTime > latestTimestamp) {
+                  latestTimestamp = dpTime
+                }
+              }
+            })
+
             // Find all entity_record variables and parse each one
             const entityRecordPoints = dataGroup.result.filter((dp: any) => dp.variable === 'entity_record')
 
@@ -209,7 +220,7 @@ export const WidgetView = () => {
 
     console.log(`Processed ${records.length} entity records and ${cameras.length} camera devices`)
     setRealtimeEventCount(prev => prev + 1)
-    setLastUpdate(new Date())
+    setLastUpdate(latestTimestamp)
 
     if (records.length > 0) {
       setEntityData(records)
@@ -228,9 +239,10 @@ export const WidgetView = () => {
     if (isDevelopmentMode()) {
       console.log('Development mode detected - using mock data')
       setTimeout(() => {
-        const mockData = getMockEntityData()
+        const mockRawData = getMockRawData()
         const mockCameras = getMockCameraDevices()
-        processRealtimeData(mockData)
+        // Wrap in TagoIO realtime format so processRealtimeData can extract timestamps
+        processRealtimeData([{ result: mockRawData }])
         setCameraDevices(mockCameras)
         console.log(`Loaded ${mockCameras.length} mock camera devices`)
       }, 500)
