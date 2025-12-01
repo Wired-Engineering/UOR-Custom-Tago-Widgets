@@ -3,7 +3,7 @@ import { WidgetContext, EntityRecord, CameraDevice } from '../WidgetView'
 import './EntityDataDashboard.css'
 
 type RecordType = 'camera_scenario' | 'queue_venue' | 'occupancy_venue'
-type FilterType = 'all' | RecordType | 'devices'
+type FilterType = 'all' | RecordType | 'devices' | 'duplicates'
 
 interface GroupedData {
   [recordType: string]: {
@@ -19,7 +19,7 @@ const RECORD_TYPE_LABELS: Record<RecordType, string> = {
 
 const RECORD_TYPE_ICONS: Record<RecordType, string> = {
   camera_scenario: 'CAM',
-  queue_venue: 'QUE',
+  queue_venue: 'QUEUE',
   occupancy_venue: 'OCC'
 }
 
@@ -45,6 +45,39 @@ const EntityDataDashboard = () => {
     counts.devices = cameraDevices.length
     return counts
   }, [entityData, cameraDevices])
+
+  // Detect duplicate records (same camera_hostname AND unique_id)
+  const duplicateRecords = useMemo(() => {
+    const keyMap = new Map<string, EntityRecord[]>()
+
+    entityData.forEach(record => {
+      const hostname = record.info.camera_hostname || ''
+      const uniqueId = record.unique_id || ''
+      const key = `${hostname}|${uniqueId}`
+
+      if (!keyMap.has(key)) {
+        keyMap.set(key, [])
+      }
+      keyMap.get(key)!.push(record)
+    })
+
+    // Filter to only keys with more than one record (duplicates)
+    const duplicates: { key: string; hostname: string; uniqueId: string; records: EntityRecord[] }[] = []
+
+    keyMap.forEach((records, key) => {
+      if (records.length > 1) {
+        const [hostname, uniqueId] = key.split('|')
+        duplicates.push({
+          key,
+          hostname: hostname || '(no hostname)',
+          uniqueId: uniqueId || '(no unique_id)',
+          records: records.sort((a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime())
+        })
+      }
+    })
+
+    return duplicates
+  }, [entityData])
 
   // Match camera devices with their scenarios by hostname
   const camerasWithScenarios = useMemo(() => {
@@ -297,6 +330,15 @@ const EntityDataDashboard = () => {
   const formatNumber = (num: number | null | undefined) => {
     if (num === null || num === undefined) return 'N/A'
     return num.toLocaleString()
+  }
+
+  const [copiedId, setCopiedId] = useState<string | null>(null)
+
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopiedId(text)
+      setTimeout(() => setCopiedId(null), 2000)
+    })
   }
 
   const renderCameraScenarioDetails = (record: EntityRecord) => (
@@ -928,6 +970,14 @@ const EntityDataDashboard = () => {
               >
                 Devices ({totalCounts.devices || 0})
               </button>
+              {duplicateRecords.length > 0 && (
+                <button
+                  className={`filter-btn filter-duplicates ${filterType === 'duplicates' ? 'active' : ''}`}
+                  onClick={() => setFilterType('duplicates')}
+                >
+                  Duplicates ({duplicateRecords.reduce((sum, d) => sum + d.records.length, 0)})
+                </button>
+              )}
             </div>
 
             <div className="sidebar-divider"></div>
@@ -957,6 +1007,99 @@ const EntityDataDashboard = () => {
           </div>
 
           <div className="dashboard-body">
+            {/* Duplicates View */}
+            {filterType === 'duplicates' && (
+              <div className="duplicates-section">
+                <div className="duplicates-header">
+                  <h2>Duplicate Records</h2>
+                  <p className="duplicates-description">
+                    Records with the same camera_hostname AND unique_id.
+                    Click an ID to copy it for deletion in the entity.
+                  </p>
+                </div>
+
+                {duplicateRecords.length === 0 ? (
+                  <div className="no-results">
+                    <p>No duplicate records found.</p>
+                  </div>
+                ) : (
+                  <div className="duplicate-groups">
+                    {duplicateRecords.map((dupGroup, index) => (
+                      <div key={dupGroup.key} className="duplicate-group">
+                        <div className="duplicate-group-header">
+                          <span className="dup-index">#{index + 1}</span>
+                          <div className="dup-key-info">
+                            <div className="dup-field">
+                              <span className="dup-label">Hostname:</span>
+                              <span className="dup-value">{dupGroup.hostname}</span>
+                            </div>
+                            <div className="dup-field">
+                              <span className="dup-label">Unique ID:</span>
+                              <span className="dup-value">{dupGroup.uniqueId}</span>
+                            </div>
+                          </div>
+                          <span className="dup-count">{dupGroup.records.length} records</span>
+                        </div>
+
+                        <div className="duplicate-records-list">
+                          <table className="dup-table">
+                            <thead>
+                              <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Record Type</th>
+                                <th>Created At</th>
+                                <th>Record ID (click to copy)</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {dupGroup.records.map((record, recIndex) => (
+                                <tr key={record.id} className={recIndex === 0 ? 'original' : 'duplicate'}>
+                                  <td className="rec-index">
+                                    {recIndex === 0 ? (
+                                      <span className="badge badge-success">Keep</span>
+                                    ) : (
+                                      <span className="badge badge-danger">Dup</span>
+                                    )}
+                                  </td>
+                                  <td className="rec-name">{record.name}</td>
+                                  <td className="rec-type">
+                                    <span className={`type-badge-small ${record.record_type}`}>
+                                      {RECORD_TYPE_ICONS[record.record_type as RecordType] || '?'}
+                                    </span>
+                                  </td>
+                                  <td className="rec-date">{formatDate(record.created_at)}</td>
+                                  <td className="rec-id">
+                                    <button
+                                      className={`copy-id-btn ${copiedId === record.id ? 'copied' : ''}`}
+                                      onClick={() => copyToClipboard(record.id)}
+                                      title="Click to copy"
+                                    >
+                                      {copiedId === record.id ? 'Copied!' : record.id}
+                                    </button>
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                <div className="duplicates-summary">
+                  <p>
+                    <strong>Total duplicate groups:</strong> {duplicateRecords.length}
+                    {' | '}
+                    <strong>Total duplicate records:</strong> {duplicateRecords.reduce((sum, d) => sum + d.records.length, 0)}
+                    {' | '}
+                    <strong>Records to delete:</strong> {duplicateRecords.reduce((sum, d) => sum + d.records.length - 1, 0)}
+                  </p>
+                </div>
+              </div>
+            )}
+
             {/* Devices View */}
             {filterType === 'devices' && (
               <>
@@ -1097,7 +1240,7 @@ const EntityDataDashboard = () => {
             )}
 
             {/* Entity Records View */}
-            {filterType !== 'devices' && Object.entries(groupedData).map(([recordType, parks]) => {
+            {filterType !== 'devices' && filterType !== 'duplicates' && Object.entries(groupedData).map(([recordType, parks]) => {
               const typeKey = recordType as RecordType
               const isTypeExpanded = expandedTypes.has(recordType)
               const typeCount = Object.values(parks).flat().length
@@ -1195,7 +1338,7 @@ const EntityDataDashboard = () => {
               )
             })}
 
-            {filterType !== 'devices' && stats.total === 0 && (
+            {filterType !== 'devices' && filterType !== 'duplicates' && stats.total === 0 && (
               <div className="no-results">
                 <p>No records found matching your criteria.</p>
                 {searchQuery && (

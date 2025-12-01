@@ -10,6 +10,26 @@
     "time": "2025-11-28T22:20:42.147Z"
   },
   {
+    "id": "DUPLICATE_TEST_001",
+    "variable": "entity_record",
+    "value": "{\"id\":\"DUPLICATE_TEST_001\",\"created_at\":\"2025-11-28T12:00:00.000Z\",\"updated_at\":\"2025-11-28T22:16:57.612Z\",\"record_type\":\"camera_scenario\",\"unique_id\":\"axis-B8A44FF030A3_Device1Scenario2\",\"name\":\"Doorway Entry (DUPLICATE)\",\"info\":{\"camera_hostname\":\"axis-B8A44FF030A3\",\"camera_friendly_name\":\"USF B86 Mels East Exit\",\"camera_type\":\"axis\",\"scenario_identifier\":\"Device1Scenario2\",\"scenario_type\":\"CrosslineCounting\",\"park\":\"Universal Studios Florida\"},\"settings\":{\"configured\":true,\"direction\":\"entry\",\"venue_id\":\"USF_Mels_oc\",\"venue_type\":\"occupancy\"},\"metrics\":{\"last_crossline_count\":23,\"last_crossline_update\":\"2025-11-28T22:16:57.576Z\",\"trigger_count\":0,\"last_reset\":\"2025-11-28T09:01:26.928Z\",\"daily_reset_performed\":true,\"midnight_reset_detected\":true},\"timestamps\":null,\"device_ip\":null}",
+    "type": "string",
+    "group": "entity_2025-11-28_17",
+    "location": "",
+    "metadata": "{\"record_type\":\"camera_scenario\",\"unique_id\":\"axis-B8A44FF030A3_Device1Scenario2\",\"name\":\"Doorway Entry (DUPLICATE)\",\"park\":\"Universal Studios Florida\",\"index\":999,\"encoding\":\"json\"}",
+    "time": "2025-11-28T22:20:42.200Z"
+  },
+  {
+    "id": "DUPLICATE_TEST_002",
+    "variable": "entity_record",
+    "value": "{\"id\":\"DUPLICATE_TEST_002\",\"created_at\":\"2025-11-29T08:30:00.000Z\",\"updated_at\":\"2025-11-29T10:00:00.000Z\",\"record_type\":\"camera_scenario\",\"unique_id\":\"axis-B8A44FF030A3_Device1Scenario2\",\"name\":\"Doorway Entry (DUPLICATE 2)\",\"info\":{\"camera_hostname\":\"axis-B8A44FF030A3\",\"camera_friendly_name\":\"USF B86 Mels East Exit\",\"camera_type\":\"axis\",\"scenario_identifier\":\"Device1Scenario2\",\"scenario_type\":\"CrosslineCounting\",\"park\":\"Universal Studios Florida\"},\"settings\":{\"configured\":true,\"direction\":\"entry\",\"venue_id\":\"USF_Mels_oc\",\"venue_type\":\"occupancy\"},\"metrics\":{\"last_crossline_count\":45,\"last_crossline_update\":\"2025-11-29T09:45:00.000Z\",\"trigger_count\":0,\"last_reset\":\"2025-11-29T08:30:00.000Z\",\"daily_reset_performed\":true,\"midnight_reset_detected\":true},\"timestamps\":null,\"device_ip\":null}",
+    "type": "string",
+    "group": "entity_2025-11-28_17",
+    "location": "",
+    "metadata": "{\"record_type\":\"camera_scenario\",\"unique_id\":\"axis-B8A44FF030A3_Device1Scenario2\",\"name\":\"Doorway Entry (DUPLICATE 2)\",\"park\":\"Universal Studios Florida\",\"index\":998,\"encoding\":\"json\"}",
+    "time": "2025-11-28T22:20:42.201Z"
+  },
+  {
     "id": "692a203a64869a0009f2afa6",
     "variable": "parks_count",
     "value": 5,

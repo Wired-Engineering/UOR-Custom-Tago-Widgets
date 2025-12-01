@@ -1095,3 +1095,266 @@ body::-webkit-scrollbar-thumb:hover,
     text-align: center;
   }
 }
+
+/* Duplicates section */
+.filter-duplicates.active {
+  background: #ef4444;
+  border-color: #ef4444;
+}
+
+.duplicates-section {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.duplicates-header {
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #fee2e2;
+  padding-bottom: 1rem;
+}
+
+.duplicates-header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #dc2626;
+  margin: 0 0 0.5rem 0;
+}
+
+.duplicates-description {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.duplicate-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.duplicate-group {
+  border: 2px solid #fecaca;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fef2f2;
+}
+
+.duplicate-group-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: linear-gradient(90deg, rgba(239, 68, 68, 0.1) 0%, transparent 100%);
+  border-bottom: 1px solid #fecaca;
+}
+
+.dup-index {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #dc2626;
+  min-width: 40px;
+}
+
+.dup-key-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.dup-field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dup-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 500;
+  min-width: 70px;
+}
+
+.dup-value {
+  font-size: 0.875rem;
+  color: #1f2937;
+  font-weight: 600;
+  font-family: monospace;
+}
+
+.dup-count {
+  background: #dc2626;
+  color: white;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.duplicate-records-list {
+  padding: 0.75rem;
+  background: white;
+}
+
+.dup-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.dup-table th {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  background: #f8fafc;
+  border-bottom: 2px solid #e8f0f4;
+  color: #6b7280;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.dup-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #e8f0f4;
+  vertical-align: middle;
+}
+
+.dup-table tr:last-child td {
+  border-bottom: none;
+}
+
+.dup-table tr.original {
+  background: #f0fdf4;
+}
+
+.dup-table tr.duplicate {
+  background: #fff7ed;
+}
+
+.dup-table tr.duplicate:hover {
+  background: #ffedd5;
+}
+
+.rec-index .badge {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.rec-name {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.rec-type {
+  text-align: center;
+}
+
+.type-badge-small {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.65rem;
+  color: white;
+}
+
+.type-badge-small.camera_scenario { background: #2563eb; }
+.type-badge-small.queue_venue { background: #dc2626; }
+.type-badge-small.occupancy_venue { background: #16a34a; }
+
+.rec-date {
+  color: #6b7280;
+  font-size: 0.8rem;
+}
+
+.rec-id {
+  max-width: 300px;
+}
+
+.copy-id-btn {
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 0.4rem 0.6rem;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s;
+  word-break: break-all;
+  text-align: left;
+  width: 100%;
+}
+
+.copy-id-btn:hover {
+  background: #e5e7eb;
+  border-color: #d1d5db;
+}
+
+.copy-id-btn.copied {
+  background: #dcfce7;
+  border-color: #16a34a;
+  color: #166534;
+  font-weight: 600;
+}
+
+.duplicates-summary {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #fef2f2;
+  border-radius: 8px;
+  border: 1px solid #fecaca;
+}
+
+.duplicates-summary p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.duplicates-summary strong {
+  color: #dc2626;
+}
+
+/* Responsive for duplicates */
+@media (max-width: 768px) {
+  .dup-table {
+    font-size: 0.75rem;
+  }
+
+  .dup-table th,
+  .dup-table td {
+    padding: 0.5rem;
+  }
+
+  .duplicate-group-header {
+    flex-wrap: wrap;
+  }
+
+  .dup-key-info {
+    width: 100%;
+    order: 3;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dup-table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .rec-id {
+    max-width: 150px;
+  }
+
+  .copy-id-btn {
+    font-size: 0.65rem;
+    padding: 0.3rem 0.4rem;
+  }
+}
