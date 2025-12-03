@@ -178,7 +178,7 @@ body::-webkit-scrollbar-thumb:hover,
 
 .clear-search {
   position: absolute;
-  right: 10px;
+  right: 1.5rem;
   top: 50%;
   transform: translateY(-50%);
   background: #e0e8ed;
@@ -186,12 +186,18 @@ body::-webkit-scrollbar-thumb:hover,
   border-radius: 50%;
   width: 24px;
   height: 24px;
+  min-width: 24px;
+  min-height: 24px;
   cursor: pointer;
   font-size: 14px;
+  line-height: 1;
   color: #666;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10;
+  padding: 0;
+  margin-right: 0.5rem;
 }
 
 .clear-search:hover {
@@ -1046,6 +1052,11 @@ body::-webkit-scrollbar-thumb:hover,
 
   .dashboard-main .search-box {
     padding: 0.75rem 1rem;
+  }
+
+  .clear-search {
+    right: 1rem;
+    margin-right: 0.25rem;
   }
 
   .dashboard-body {

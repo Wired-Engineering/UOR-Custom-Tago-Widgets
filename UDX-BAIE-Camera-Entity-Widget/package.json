@@ -1,7 +1,7 @@
 {
   "name": "udx-gslm-entity-config-viewer-widget",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.6",
   "type": "module",
   "scripts": {
     "dev": "parcel serve index.html --port 3001",
