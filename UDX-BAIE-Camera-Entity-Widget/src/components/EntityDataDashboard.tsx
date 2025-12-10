@@ -42,11 +42,37 @@ const EntityDataDashboard = () => {
     isItemExpanded
   } = useExpandState()
 
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text).then(() => {
+  const copyToClipboard = async (text: string) => {
+    try {
+      // Try the modern Clipboard API first
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text)
+      } else {
+        // Fallback for iframes and non-secure contexts
+        const textArea = document.createElement('textarea')
+        textArea.value = text
+        // Avoid scrolling to bottom
+        textArea.style.position = 'fixed'
+        textArea.style.top = '0'
+        textArea.style.left = '0'
+        textArea.style.width = '2em'
+        textArea.style.height = '2em'
+        textArea.style.padding = '0'
+        textArea.style.border = 'none'
+        textArea.style.outline = 'none'
+        textArea.style.boxShadow = 'none'
+        textArea.style.background = 'transparent'
+        document.body.appendChild(textArea)
+        textArea.focus()
+        textArea.select()
+        document.execCommand('copy')
+        document.body.removeChild(textArea)
+      }
       setCopiedId(text)
       setTimeout(() => setCopiedId(null), 2000)
-    })
+    } catch (err) {
+      console.error('Failed to copy text:', err)
+    }
   }
 
   const handleExpandAll = () => expandAll(groupedData, groupedCameras)
