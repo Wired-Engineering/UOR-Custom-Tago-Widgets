@@ -438,14 +438,10 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
   }
   
   return (
+    <div className="gauge-scale-wrapper">
     <div className={`water-gauge ${isExpanded ? 'expanded' : ''}`} onClick={toggleExpanded}>
       <div className="gauge-header">
         <h3 className="gauge-title">{name}</h3>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <button className="expand-button">
-            {isExpanded ? '▼' : '▶'}
-          </button>
-        </div>
       </div>
       
       <div className="gauge-container">
@@ -491,6 +487,9 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
             {currentLevel}
           </div>
           <div className="value-label">Current WL (ft)</div>
+          <div className="current-status">
+            <p><strong>Deviation from Normal:</strong> {normalDeviation} in</p>
+          </div>
         </div>
       </div>
      
@@ -508,12 +507,6 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
       
       {isExpanded && (
         <div className="gauge-details">
-          <div className="current-status">
-            <h4>Current Status</h4>
-            <p><strong>Water Level:</strong> {currentLevel} ft</p>
-            <p><strong>Normal Level:</strong> {normalLevel} ft</p>
-            <p><strong>Deviation:</strong> {normalDeviation} in</p>
-          </div>
           
           {/* Water Level Zones - Only visible when expanded */}
           <div className="zone-quick-reference" style={{
@@ -692,6 +685,7 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
           </div>
         </div>
       )}
+    </div>
     </div>
   )
 }

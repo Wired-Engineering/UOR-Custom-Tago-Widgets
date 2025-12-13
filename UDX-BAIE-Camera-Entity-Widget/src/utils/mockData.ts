@@ -13,6 +13,21 @@ interface TagoDataItem {
   time: string
 }
 
+// Check if string looks like base64-encoded gzip (starts with H4sI which is gzip magic bytes in base64)
+const isCompressedData = (value: string): boolean => {
+  return typeof value === 'string' && value.startsWith('H4sI')
+}
+
+// Decompress gzip/base64 encoded data (sync version using pako would be ideal, but for now skip compressed in mock)
+const tryParseValue = (value: string): any => {
+  // Skip compressed data in mock parsing - it will be handled by the async processRealtimeData
+  if (isCompressedData(value)) {
+    console.log('Skipping compressed mock data - will be handled by async parser')
+    return null
+  }
+  return JSON.parse(value)
+}
+
 // Parse entity records from the TagoIO JSON format
 const parseEntityRecords = (): EntityRecord[] => {
   const data = mockDataJson as TagoDataItem[]
@@ -22,7 +37,7 @@ const parseEntityRecords = (): EntityRecord[] => {
     .filter(item => item.variable === 'entity_record')
     .map(item => {
       try {
-        return JSON.parse(item.value as string) as EntityRecord
+        return tryParseValue(item.value as string) as EntityRecord
       } catch (e) {
         console.error('Failed to parse entity record:', e)
         return null
@@ -42,7 +57,7 @@ const parseCameraDevices = (): CameraDevice[] => {
     .filter(item => item.variable === 'camera_device')
     .map(item => {
       try {
-        return JSON.parse(item.value as string) as CameraDevice
+        return tryParseValue(item.value as string) as CameraDevice
       } catch (e) {
         console.error('Failed to parse camera device:', e)
         return null

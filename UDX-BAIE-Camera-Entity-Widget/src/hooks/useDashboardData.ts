@@ -6,8 +6,15 @@ import {
   DuplicateGroup,
   GroupedCameras,
   DashboardStats,
-  FilterType
+  FilterType,
+  UnconfiguredScenario
 } from '../types/dashboard'
+import {
+  filterEntityRecord,
+  filterCameraDevice,
+  filterUnconfiguredScenario,
+  filterDuplicateGroup
+} from '../utils/searchUtils'
 
 interface UseDashboardDataProps {
   entityData: EntityRecord[]
@@ -19,6 +26,9 @@ interface UseDashboardDataProps {
 interface UseDashboardDataReturn {
   totalCounts: Record<string, number>
   duplicateRecords: DuplicateGroup[]
+  filteredDuplicateRecords: DuplicateGroup[]
+  unconfiguredScenarios: UnconfiguredScenario[]
+  filteredUnconfiguredScenarios: UnconfiguredScenario[]
   camerasWithScenarios: CameraWithScenarios[]
   scenariosByVenueId: Record<string, EntityRecord[]>
   groupedCameras: GroupedCameras
@@ -73,6 +83,38 @@ export const useDashboardData = ({
     })
 
     return duplicates
+  }, [entityData])
+
+  // Detect unconfigured scenarios (where name === info.scenario_identifier)
+  const unconfiguredScenarios = useMemo(() => {
+    const unconfigured: UnconfiguredScenario[] = []
+
+    entityData.forEach(record => {
+      if (record.record_type !== 'camera_scenario') return
+
+      const scenarioIdentifier = record.info.scenario_identifier || ''
+
+      if (record.name === scenarioIdentifier) {
+        const hostname = record.info.camera_hostname || ''
+        // Extract MAC address from hostname if present (e.g., axis-B8A44FFF01B7)
+        const macMatch = hostname.match(/-([A-F0-9]{12})$/i)
+        const macAddress = macMatch ? macMatch[1] : ''
+
+        unconfigured.push({
+          record,
+          hostname,
+          macAddress,
+          deviceScenario: scenarioIdentifier
+        })
+      }
+    })
+
+    // Sort by hostname then by device/scenario
+    return unconfigured.sort((a, b) => {
+      const hostnameCompare = a.hostname.localeCompare(b.hostname)
+      if (hostnameCompare !== 0) return hostnameCompare
+      return a.deviceScenario.localeCompare(b.deviceScenario)
+    })
   }, [entityData])
 
   // Match camera devices with their scenarios by hostname
@@ -133,20 +175,9 @@ export const useDashboardData = ({
     const unconfigured: CameraWithScenarios[] = []
 
     camerasWithScenarios.forEach(camera => {
-      // Apply search filter
-      if (searchQuery) {
-        const query = searchQuery.toLowerCase()
-        const searchableText = [
-          camera.name,
-          camera.hostname,
-          camera.park,
-          camera.ip_address,
-          ...camera.scenarios.map(s => s.name)
-        ].filter(Boolean).join(' ').toLowerCase()
-
-        if (!searchableText.includes(query)) {
-          return
-        }
+      // Apply search filter using centralized search utility
+      if (!filterCameraDevice(camera, camera.scenarios, searchQuery)) {
+        return
       }
 
       if (!camera.is_configured) {
@@ -167,51 +198,16 @@ export const useDashboardData = ({
   const { groupedData, stats } = useMemo(() => {
     const filtered = entityData.filter(record => {
       // Apply type filter
-      if (filterType !== 'all' && filterType !== 'devices' && filterType !== 'duplicates' && record.record_type !== filterType) {
+      if (filterType !== 'all' && filterType !== 'devices' && filterType !== 'duplicates' && filterType !== 'unconfigured' && record.record_type !== filterType) {
         return false
       }
 
-      // Apply search filter
-      if (searchQuery) {
-        const query = searchQuery.toLowerCase()
+      // Apply search filter using centralized search utility
+      const linkedScenarios = (record.record_type === 'queue_venue' || record.record_type === 'occupancy_venue')
+        ? scenariosByVenueId[record.unique_id] || []
+        : []
 
-        // Base searchable fields
-        const baseFields = [
-          record.name,
-          record.unique_id,
-          record.info.park,
-          record.info.camera_hostname,
-          record.info.camera_friendly_name,
-          record.info.camera_device_id,
-          record.info.scenario_type,
-          record.info.venue_type,
-          record.settings.venue_id,
-          record.settings.venue_type,
-          record.settings.direction,
-          record.device_ip
-        ]
-
-        // For queue/occupancy venues, also search linked camera and scenario names
-        let linkedFields: string[] = []
-        if (record.record_type === 'queue_venue' || record.record_type === 'occupancy_venue') {
-          const linkedScenarios = scenariosByVenueId[record.unique_id] || []
-          linkedScenarios.forEach(scenario => {
-            linkedFields.push(scenario.name)
-            linkedFields.push(scenario.info.camera_hostname || '')
-            linkedFields.push(scenario.info.camera_friendly_name || '')
-            linkedFields.push(scenario.info.camera_device_id || '')
-          })
-        }
-
-        const searchableText = [...baseFields, ...linkedFields]
-          .filter(Boolean)
-          .join(' ')
-          .toLowerCase()
-
-        return searchableText.includes(query)
-      }
-
-      return true
+      return filterEntityRecord(record, searchQuery, linkedScenarios)
     })
 
     // Group by record_type, then by park
@@ -245,9 +241,24 @@ export const useDashboardData = ({
     }
   }, [entityData, searchQuery, filterType, scenariosByVenueId])
 
+  // Filter duplicates by search query
+  const filteredDuplicateRecords = useMemo(() => {
+    if (!searchQuery) return duplicateRecords
+    return duplicateRecords.filter(group => filterDuplicateGroup(group, searchQuery))
+  }, [duplicateRecords, searchQuery])
+
+  // Filter unconfigured scenarios by search query
+  const filteredUnconfiguredScenarios = useMemo(() => {
+    if (!searchQuery) return unconfiguredScenarios
+    return unconfiguredScenarios.filter(item => filterUnconfiguredScenario(item, searchQuery))
+  }, [unconfiguredScenarios, searchQuery])
+
   return {
     totalCounts,
     duplicateRecords,
+    filteredDuplicateRecords,
+    unconfiguredScenarios,
+    filteredUnconfiguredScenarios,
     camerasWithScenarios,
     scenariosByVenueId,
     groupedCameras,

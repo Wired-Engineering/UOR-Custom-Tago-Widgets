@@ -47,13 +47,6 @@ const WaterLevelDashboard = () => {
             </div>
           </div>
       </div>
-      
-      <div className="attribution">
-        <span>
-          This TagoIO Widget monitors water levels using sensor data from Milesight EM500-SWL Sensors.
-        </span>
-        <span>Made by Sam Stanton UC - PWS</span>
-      </div>
     </div>
   )
 }

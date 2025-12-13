@@ -12,7 +12,7 @@ import {
   RecordSummary
 } from './RecordDetails'
 import { CameraDeviceDetails, CameraDeviceSummary } from './CameraDeviceCard'
-import { FilterType, RecordType, RECORD_TYPE_LABELS, RECORD_TYPE_ICONS } from '../types/dashboard'
+import { FilterType, RecordType, RECORD_TYPE_LABELS, RECORD_TYPE_ICONS, UnconfiguredScenario } from '../types/dashboard'
 import { formatDate } from '../utils/formatters'
 import './EntityDataDashboard.css'
 
@@ -25,6 +25,9 @@ const EntityDataDashboard = () => {
   const {
     totalCounts,
     duplicateRecords,
+    filteredDuplicateRecords,
+    unconfiguredScenarios,
+    filteredUnconfiguredScenarios,
     groupedCameras,
     groupedData,
     stats,
@@ -42,37 +45,36 @@ const EntityDataDashboard = () => {
     isItemExpanded
   } = useExpandState()
 
-  const copyToClipboard = async (text: string) => {
+  const copyToClipboard = (text: string) => {
+    // Use execCommand fallback which works better in iframes
+    const textArea = document.createElement('textarea')
+    textArea.value = text
+    // Avoid scrolling to bottom
+    textArea.style.position = 'fixed'
+    textArea.style.top = '0'
+    textArea.style.left = '0'
+    textArea.style.width = '2em'
+    textArea.style.height = '2em'
+    textArea.style.padding = '0'
+    textArea.style.border = 'none'
+    textArea.style.outline = 'none'
+    textArea.style.boxShadow = 'none'
+    textArea.style.background = 'transparent'
+    document.body.appendChild(textArea)
+    textArea.focus()
+    textArea.select()
+
     try {
-      // Try the modern Clipboard API first
-      if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(text)
-      } else {
-        // Fallback for iframes and non-secure contexts
-        const textArea = document.createElement('textarea')
-        textArea.value = text
-        // Avoid scrolling to bottom
-        textArea.style.position = 'fixed'
-        textArea.style.top = '0'
-        textArea.style.left = '0'
-        textArea.style.width = '2em'
-        textArea.style.height = '2em'
-        textArea.style.padding = '0'
-        textArea.style.border = 'none'
-        textArea.style.outline = 'none'
-        textArea.style.boxShadow = 'none'
-        textArea.style.background = 'transparent'
-        document.body.appendChild(textArea)
-        textArea.focus()
-        textArea.select()
-        document.execCommand('copy')
-        document.body.removeChild(textArea)
+      const successful = document.execCommand('copy')
+      if (successful) {
+        setCopiedId(text)
+        setTimeout(() => setCopiedId(null), 2000)
       }
-      setCopiedId(text)
-      setTimeout(() => setCopiedId(null), 2000)
     } catch (err) {
       console.error('Failed to copy text:', err)
     }
+
+    document.body.removeChild(textArea)
   }
 
   const handleExpandAll = () => expandAll(groupedData, groupedCameras)
@@ -90,7 +92,7 @@ const EntityDataDashboard = () => {
 
   const configuredCameraCount = Object.values(groupedCameras.configured).flat().length
   const unconfiguredCameraCount = groupedCameras.unconfigured.length
-  const hasNoResults = filterType !== 'devices' && filterType !== 'duplicates' &&
+  const hasNoResults = filterType !== 'devices' && filterType !== 'duplicates' && filterType !== 'unconfigured' &&
     stats.total === 0 && configuredCameraCount === 0 && unconfiguredCameraCount === 0
 
   return (
@@ -145,6 +147,14 @@ const EntityDataDashboard = () => {
                   Duplicates ({duplicateRecords.reduce((sum, d) => sum + d.records.length, 0)})
                 </button>
               )}
+              {unconfiguredScenarios.length > 0 && (
+                <button
+                  className={`filter-btn filter-unconfigured ${filterType === 'unconfigured' ? 'active' : ''}`}
+                  onClick={() => setFilterType('unconfigured')}
+                >
+                  Unconfigured ({unconfiguredScenarios.length})
+                </button>
+              )}
             </div>
 
             <div className="sidebar-divider"></div>
@@ -177,7 +187,16 @@ const EntityDataDashboard = () => {
             {/* Duplicates View */}
             {filterType === 'duplicates' && (
               <DuplicatesView
-                duplicateRecords={duplicateRecords}
+                duplicateRecords={filteredDuplicateRecords}
+                copiedId={copiedId}
+                onCopy={copyToClipboard}
+              />
+            )}
+
+            {/* Unconfigured Scenarios View */}
+            {filterType === 'unconfigured' && (
+              <UnconfiguredView
+                unconfiguredScenarios={filteredUnconfiguredScenarios}
                 copiedId={copiedId}
                 onCopy={copyToClipboard}
               />
@@ -197,7 +216,7 @@ const EntityDataDashboard = () => {
             )}
 
             {/* Entity Records View */}
-            {filterType !== 'devices' && filterType !== 'duplicates' && (
+            {filterType !== 'devices' && filterType !== 'duplicates' && filterType !== 'unconfigured' && (
               <>
                 {Object.entries(groupedData).map(([recordType, parks]) => (
                   <EntityRecordsSection
@@ -350,6 +369,98 @@ const DuplicatesView = ({ duplicateRecords, copiedId, onCopy }: DuplicatesViewPr
     </div>
   </div>
 )
+
+interface UnconfiguredViewProps {
+  unconfiguredScenarios: UnconfiguredScenario[]
+  copiedId: string | null
+  onCopy: (text: string) => void
+}
+
+const UnconfiguredView = ({ unconfiguredScenarios, copiedId, onCopy }: UnconfiguredViewProps) => {
+  // Group by hostname for better organization
+  const groupedByHostname = unconfiguredScenarios.reduce((acc, item) => {
+    const hostname = item.hostname || '(no hostname)'
+    if (!acc[hostname]) {
+      acc[hostname] = []
+    }
+    acc[hostname].push(item)
+    return acc
+  }, {} as Record<string, UnconfiguredScenario[]>)
+
+  return (
+    <div className="unconfigured-section">
+      <div className="unconfigured-header">
+        <h2>Unconfigured Scenarios</h2>
+        <p className="unconfigured-description">
+          Camera scenarios that have not been configured yet.
+          These still have their auto-generated names (name = scenario_identifier).
+          Click an ID to copy it.
+        </p>
+      </div>
+
+      {unconfiguredScenarios.length === 0 ? (
+        <div className="no-results">
+          <p>No unconfigured scenarios found.</p>
+        </div>
+      ) : (
+        <div className="unconfigured-groups">
+          {Object.entries(groupedByHostname).sort(([a], [b]) => a.localeCompare(b)).map(([hostname, items]) => (
+            <div key={hostname} className="unconfigured-group">
+              <div className="unconfigured-group-header">
+                <div className="unconfigured-hostname">
+                  <span className="dup-label">Camera:</span>
+                  <span className="dup-value">{hostname}</span>
+                </div>
+                <span className="dup-count">{items.length} scenario{items.length !== 1 ? 's' : ''}</span>
+              </div>
+
+              <div className="unconfigured-records-list">
+                <table className="dup-table">
+                  <thead>
+                    <tr>
+                      <th>Scenario Name</th>
+                      <th>Unique ID</th>
+                      <th>Park</th>
+                      <th>Created At</th>
+                      <th>Record ID (click to copy)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {items.map((item) => (
+                      <tr key={item.record.id} className="unconfigured-row">
+                        <td className="rec-name">{item.record.name}</td>
+                        <td className="rec-unique-id">{item.record.unique_id}</td>
+                        <td className="rec-park">{item.record.info.park || '-'}</td>
+                        <td className="rec-date">{formatDate(item.record.created_at)}</td>
+                        <td className="rec-id">
+                          <button
+                            className={`copy-id-btn ${copiedId === item.record.id ? 'copied' : ''}`}
+                            onClick={() => onCopy(item.record.id)}
+                            title="Click to copy"
+                          >
+                            {copiedId === item.record.id ? 'Copied!' : item.record.id}
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      <div className="unconfigured-summary">
+        <p>
+          <strong>Total unconfigured scenarios:</strong> {unconfiguredScenarios.length}
+          {' | '}
+          <strong>Cameras affected:</strong> {Object.keys(groupedByHostname).length}
+        </p>
+      </div>
+    </div>
+  )
+}
 
 interface DevicesViewProps {
   groupedCameras: ReturnType<typeof useDashboardData>['groupedCameras']

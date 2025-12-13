@@ -39,26 +39,48 @@ export const LinkedCamerasAndScenarios = ({ venueId, getScenariosGroupedByCamera
                 </div>
                 <span className="scenario-count">{scenarios.length} scenario{scenarios.length !== 1 ? 's' : ''}</span>
               </div>
+              {camera && (
+                <div className="linked-camera-ids">
+                  <span className="id-item">
+                    <span className="id-label">Device ID:</span>
+                    <span className="id-value">{camera.id}</span>
+                  </span>
+                </div>
+              )}
               <div className="linked-scenarios">
                 {scenarios.map(scenario => (
                   <div key={scenario.id} className="linked-scenario-item">
-                    <div className="scenario-info">
-                      <span className="scenario-name">{scenario.name}</span>
-                      <div className="scenario-badges">
-                        <span className={`scenario-type-badge ${scenario.info.scenario_type === 'CrosslineCounting' ? 'crossline' : 'occupancy'}`}>
-                          {scenario.info.scenario_type === 'CrosslineCounting' ? 'Crossline' : 'OIA'}
-                        </span>
-                        {scenario.settings.direction && (
-                          <span className={`direction-badge direction-${scenario.settings.direction}`}>
-                            {scenario.settings.direction}
+                    <div className="scenario-row">
+                      <div className="scenario-info">
+                        <span className="scenario-name">{scenario.name}</span>
+                        <div className="scenario-badges">
+                          <span className={`scenario-type-badge ${scenario.info.scenario_type === 'CrosslineCounting' ? 'crossline' : 'occupancy'}`}>
+                            {scenario.info.scenario_type === 'CrosslineCounting' ? 'Crossline' : 'OIA'}
+                          </span>
+                          {scenario.settings.direction && (
+                            <span className={`direction-badge direction-${scenario.settings.direction}`}>
+                              {scenario.settings.direction}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                      <div className="scenario-metric">
+                        {scenario.metrics.last_crossline_count !== undefined && (
+                          <span className="count-value">
+                            {formatNumber(scenario.metrics.last_crossline_count)}
                           </span>
                         )}
                       </div>
                     </div>
-                    <div className="scenario-metric">
-                      {scenario.metrics.last_crossline_count !== undefined && (
-                        <span className="count-value">
-                          {formatNumber(scenario.metrics.last_crossline_count)}
+                    <div className="scenario-ids">
+                      <span className="id-item">
+                        <span className="id-label">Record ID:</span>
+                        <span className="id-value">{scenario.id}</span>
+                      </span>
+                      {scenario.info.camera_device_id && (
+                        <span className="id-item">
+                          <span className="id-label">Camera Device:</span>
+                          <span className="id-value">{scenario.info.camera_device_id}</span>
                         </span>
                       )}
                     </div>

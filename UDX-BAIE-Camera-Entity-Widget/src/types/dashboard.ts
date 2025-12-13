@@ -1,7 +1,14 @@
 import { EntityRecord, CameraDevice } from '../WidgetView'
 
 export type RecordType = 'camera_scenario' | 'queue_venue' | 'occupancy_venue'
-export type FilterType = 'all' | RecordType | 'devices' | 'duplicates'
+export type FilterType = 'all' | RecordType | 'devices' | 'duplicates' | 'unconfigured'
+
+export interface UnconfiguredScenario {
+  record: import('../WidgetView').EntityRecord
+  hostname: string
+  macAddress: string
+  deviceScenario: string
+}
 
 export interface GroupedData {
   [recordType: string]: {

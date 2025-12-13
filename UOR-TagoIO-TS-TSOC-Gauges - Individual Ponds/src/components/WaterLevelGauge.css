@@ -1,19 +1,22 @@
+.gauge-scale-wrapper {
+  --scale: min(1, calc(90vw / 400px));
+  width: fit-content;
+  margin: 0 auto;
+}
+
 .water-gauge {
   background: white;
   border-radius: 8px;
   padding: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin: 5px 2px;
-  min-width: 400px;
-  width: 100%;
-  max-width: 400px;
+  width: 400px;
   cursor: pointer;
   transition: all 0.3s ease;
+  zoom: var(--scale);
 }
 
 .water-gauge:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
 }
 
 .water-gauge.expanded {
@@ -141,8 +144,8 @@
 }
 
 .gauge-details {
-  margin-top: 20px;
-  padding-top: 20px;
+  margin-top: 8px;
+  padding-top: 8px;
   border-top: 1px solid #eee;
   animation: slideDown 0.3s ease;
 }

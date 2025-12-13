@@ -5,6 +5,45 @@ import { isDevelopmentMode, getMockCameraDevices, getMockRawData } from './utils
 import "@tago-io/custom-widget"
 import "@tago-io/custom-widget/dist/custom-widget.css"
 
+// Decompress gzip/base64 encoded data
+const decompressData = async (base64String: string): Promise<string> => {
+  // Decode base64 to binary
+  const binaryString = atob(base64String)
+  const bytes = new Uint8Array(binaryString.length)
+  for (let i = 0; i < binaryString.length; i++) {
+    bytes[i] = binaryString.charCodeAt(i)
+  }
+
+  // Decompress using DecompressionStream (native browser API)
+  const ds = new DecompressionStream('gzip')
+  const decompressedStream = new Blob([bytes]).stream().pipeThrough(ds)
+  const decompressedBlob = await new Response(decompressedStream).blob()
+  return await decompressedBlob.text()
+}
+
+// Check if string looks like base64-encoded gzip (starts with H4sI which is gzip magic bytes in base64)
+const isCompressedData = (value: string): boolean => {
+  return typeof value === 'string' && value.startsWith('H4sI')
+}
+
+// Parse value that might be compressed JSON
+const parseValue = async (value: any): Promise<any> => {
+  if (typeof value !== 'string') return value
+
+  try {
+    // Check if it's compressed data
+    if (isCompressedData(value)) {
+      const decompressed = await decompressData(value)
+      return JSON.parse(decompressed)
+    }
+    // Try regular JSON parse
+    return JSON.parse(value)
+  } catch (e) {
+    console.error('Error parsing value:', e)
+    return null
+  }
+}
+
 // Camera device interface from TagoIO devices
 export interface CameraDevice {
   id: string
@@ -124,7 +163,7 @@ export const WidgetView = () => {
   const [realtimeEventCount, setRealtimeEventCount] = useState(0)
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null)
 
-  const processRealtimeData = (realtimeData: any) => {
+  const processRealtimeData = async (realtimeData: any) => {
     console.log('Processing realtime data:', realtimeData)
 
     // Entity data now comes as multiple entity_record variables, each containing a single JSON record
@@ -135,7 +174,7 @@ export const WidgetView = () => {
     if (Array.isArray(realtimeData)) {
       // Check if it's the TagoIO realtime format with result arrays
       if (realtimeData[0]?.result) {
-        realtimeData.forEach((dataGroup: any) => {
+        for (const dataGroup of realtimeData) {
           if (dataGroup.result && Array.isArray(dataGroup.result)) {
             // Track the most recent timestamp from data points
             dataGroup.result.forEach((dp: any) => {
@@ -150,47 +189,51 @@ export const WidgetView = () => {
             // Find all entity_record variables and parse each one
             const entityRecordPoints = dataGroup.result.filter((dp: any) => dp.variable === 'entity_record')
 
-            entityRecordPoints.forEach((dp: any) => {
+            for (const dp of entityRecordPoints) {
               if (dp.value) {
                 try {
-                  const parsed = typeof dp.value === 'string'
-                    ? JSON.parse(dp.value)
-                    : dp.value
+                  const parsed = await parseValue(dp.value)
                   if (parsed && typeof parsed === 'object') {
-                    records.push(parsed)
+                    // Handle both single record and array of records
+                    if (Array.isArray(parsed)) {
+                      records.push(...parsed)
+                    } else {
+                      records.push(parsed)
+                    }
                   }
                 } catch (e) {
-                  console.error('Error parsing entity record:', e, dp.value)
+                  console.error('Error parsing entity record:', e, dp.value?.substring?.(0, 50))
                 }
               }
-            })
+            }
 
             // Find all camera_device variables and parse each one
             const cameraDevicePoints = dataGroup.result.filter((dp: any) => dp.variable === 'camera_device')
 
-            cameraDevicePoints.forEach((dp: any) => {
+            for (const dp of cameraDevicePoints) {
               if (dp.value) {
                 try {
-                  const parsed = typeof dp.value === 'string'
-                    ? JSON.parse(dp.value)
-                    : dp.value
+                  const parsed = await parseValue(dp.value)
                   if (parsed && typeof parsed === 'object') {
-                    cameras.push(parsed)
+                    // Handle both single device and array of devices
+                    if (Array.isArray(parsed)) {
+                      cameras.push(...parsed)
+                    } else {
+                      cameras.push(parsed)
+                    }
                   }
                 } catch (e) {
-                  console.error('Error parsing camera device:', e, dp.value)
+                  console.error('Error parsing camera device:', e, dp.value?.substring?.(0, 50))
                 }
               }
-            })
+            }
 
             // Also check for legacy entity_data format (single JSON array)
             if (records.length === 0) {
               const entityDataPoint = dataGroup.result.find((dp: any) => dp.variable === 'entity_data')
               if (entityDataPoint && entityDataPoint.value) {
                 try {
-                  const parsed = typeof entityDataPoint.value === 'string'
-                    ? JSON.parse(entityDataPoint.value)
-                    : entityDataPoint.value
+                  const parsed = await parseValue(entityDataPoint.value)
                   if (Array.isArray(parsed)) {
                     records = parsed
                   }
@@ -200,12 +243,25 @@ export const WidgetView = () => {
               }
             }
           }
-        })
+        }
       } else {
         // Direct array of entity records
         records = realtimeData
       }
     }
+
+    // Deduplicate records by id (keep the latest version of each record)
+    const recordMap = new Map<string, EntityRecord>()
+    records.forEach(record => {
+      if (record.id) {
+        // If we already have this record, keep the one with the later updated_at
+        const existing = recordMap.get(record.id)
+        if (!existing || new Date(record.updated_at) >= new Date(existing.updated_at)) {
+          recordMap.set(record.id, record)
+        }
+      }
+    })
+    records = Array.from(recordMap.values())
 
     // Sort records by index from metadata if available, otherwise by name
     records.sort((a: any, b: any) => {
@@ -214,6 +270,15 @@ export const WidgetView = () => {
       }
       return (a.name || '').localeCompare(b.name || '')
     })
+
+    // Deduplicate camera devices by id
+    const cameraMap = new Map<string, CameraDevice>()
+    cameras.forEach(camera => {
+      if (camera.id) {
+        cameraMap.set(camera.id, camera)
+      }
+    })
+    cameras = Array.from(cameraMap.values())
 
     // Sort camera devices by name
     cameras.sort((a, b) => (a.name || '').localeCompare(b.name || ''))
@@ -238,11 +303,11 @@ export const WidgetView = () => {
     // Development mode - use mock data
     if (isDevelopmentMode()) {
       console.log('Development mode detected - using mock data')
-      setTimeout(() => {
+      setTimeout(async () => {
         const mockRawData = getMockRawData()
         const mockCameras = getMockCameraDevices()
         // Wrap in TagoIO realtime format so processRealtimeData can extract timestamps
-        processRealtimeData([{ result: mockRawData }])
+        await processRealtimeData([{ result: mockRawData }])
         setCameraDevices(mockCameras)
         console.log(`Loaded ${mockCameras.length} mock camera devices`)
       }, 500)
@@ -269,9 +334,9 @@ export const WidgetView = () => {
     })
 
     // Handle real-time data
-    window.TagoIO.onRealtime(function(realtimeData: any) {
+    window.TagoIO.onRealtime(async function(realtimeData: any) {
       console.log('Data received from onRealtime:', realtimeData)
-      processRealtimeData(realtimeData)
+      await processRealtimeData(realtimeData)
     })
 
     // Signal that widget is ready
