@@ -188,10 +188,11 @@
 
 .current-status p {
   margin: 5px 0;
-  font-size: 14px;
+  font-size: 20px;
   color: #333;
 }
 
 .current-status strong {
   color: #667eea;
+  font-size: 20px;
 }
