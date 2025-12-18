@@ -42,7 +42,7 @@ export const LinkedCamerasAndScenarios = ({ venueId, getScenariosGroupedByCamera
               {camera && (
                 <div className="linked-camera-ids">
                   <span className="id-item">
-                    <span className="id-label">Device ID:</span>
+                    <span className="id-label">Camera Device ID:</span>
                     <span className="id-value">{camera.id}</span>
                   </span>
                 </div>
@@ -105,7 +105,7 @@ export const CameraScenarioDetails = ({ record }: CameraScenarioDetailsProps) =>
       <h4>Camera Info</h4>
       <div className="detail-grid">
         <div className="detail-item">
-          <span className="detail-label">Device ID</span>
+          <span className="detail-label">Camera Device ID</span>
           <span className="detail-value">{record.info.camera_device_id || 'N/A'}</span>
         </div>
         <div className="detail-item">
@@ -125,8 +125,12 @@ export const CameraScenarioDetails = ({ record }: CameraScenarioDetailsProps) =>
           <span className="detail-value scenario-type">{record.info.scenario_type || 'N/A'}</span>
         </div>
         <div className="detail-item">
-          <span className="detail-label">Scenario ID</span>
+          <span className="detail-label">Scenario Identifier</span>
           <span className="detail-value">{record.info.scenario_identifier || 'N/A'}</span>
+        </div>
+        <div className="detail-item">
+          <span className="detail-label">Scenario Device ID</span>
+          <span className="detail-value small-text">{record.info.device_id || 'N/A'}</span>
         </div>
       </div>
     </div>
@@ -477,7 +481,7 @@ interface RecordMetadataProps {
 
 export const RecordMetadata = ({ record }: RecordMetadataProps) => (
   <div className="details-section metadata-section">
-    <h4>Record Metadata</h4>
+    <h4>Entity Record Metadata</h4>
     <div className="detail-grid">
       <div className="detail-item">
         <span className="detail-label">Record ID</span>

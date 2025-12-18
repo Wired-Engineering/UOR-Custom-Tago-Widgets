@@ -72,6 +72,24 @@ export const CameraDeviceDetails = ({ camera }: CameraDeviceDetailsProps) => (
                   </span>
                 )}
               </div>
+              <div className="scenario-ids">
+                {scenario.info.camera_device_id && (
+                  <span className="id-item">
+                    <span className="id-label">Camera Device ID:</span>
+                    <span className="id-value">{scenario.info.camera_device_id}</span>
+                  </span>
+                )}
+                {scenario.info.device_id && (
+                  <span className="id-item">
+                    <span className="id-label">Scenario Device ID:</span>
+                    <span className="id-value">{scenario.info.device_id}</span>
+                  </span>
+                )}
+                <span className="id-item">
+                  <span className="id-label">Record ID:</span>
+                  <span className="id-value">{scenario.id}</span>
+                </span>
+              </div>
             </div>
           ))}
         </div>
