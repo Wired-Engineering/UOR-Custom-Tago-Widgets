@@ -484,7 +484,7 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
             padding: '8px 16px',
             display: 'inline-block'
           }}>
-            {currentLevel}
+            {Number(currentLevel).toFixed(2)}
           </div>
           <div className="value-label">Current WL (ft)</div>
           <div className="current-status">
