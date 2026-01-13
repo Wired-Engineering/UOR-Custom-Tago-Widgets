@@ -1,7 +1,51 @@
-import { useState } from 'preact/compat'
+import { useState, useEffect } from 'preact/compat'
 import type { FunctionComponent } from 'preact'
 import { PieChart, Pie, Cell } from 'recharts'
 import './WaterLevelGauge.css'
+
+// Hook to calculate responsive gauge dimensions based on viewport
+const useGaugeDimensions = () => {
+  const [dimensions, setDimensions] = useState(() => calculateDimensions())
+
+  function calculateDimensions() {
+    const vw = window.innerWidth
+    const vh = window.innerHeight
+
+    // Original design dimensions
+    const designWidth = 400  // Original gauge width
+    const designHeight = 650 // Approximate full gauge height when expanded (including zones)
+
+    // Calculate scale based on both dimensions with padding
+    const widthBasedScale = (vw * 0.90) / designWidth
+    const heightBasedScale = (vh * 0.90) / designHeight
+
+    // Use the smaller scale to ensure it fits in both dimensions
+    const scale = Math.max(0.4, Math.min(2.5, Math.min(widthBasedScale, heightBasedScale)))
+
+    // Calculate all dimensions based on scale
+    const width = 300 * scale
+    const height = 200 * scale
+    const chartWidth = width
+    const chartHeight = height
+    const cx = chartWidth / 2
+    const cy = chartWidth / 2
+    const iR = (width / 2) * 0.5
+    const oR = (width / 2) * 0.8
+
+    return { width, height, chartWidth, chartHeight, cx, cy, iR, oR, scale }
+  }
+
+  useEffect(() => {
+    const handleResize = () => {
+      setDimensions(calculateDimensions())
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  return dimensions
+}
 
 interface WaterGaugeProps {
   name: string
@@ -245,14 +289,9 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
   
   const gaugeSectors = createGaugeSectors()
   const RADIAN = Math.PI / 180
-  const width = 300  // Gauge width
-  const height = 200 // Gauge height
-  const chartWidth = width  // PieChart width
-  const chartHeight = height // PieChart height
-  const cx = chartWidth / 2      // Center X in chart coordinates
-  const cy = chartWidth / 2      // Center Y in chart coordinates  
-  const iR = (width / 2) * 0.5   // Inner radius based on gauge size
-  const oR = (width / 2) * 0.8   // Outer radius based on gauge size
+
+  // Use responsive dimensions from hook
+  const { chartWidth, chartHeight, cx, cy, iR, oR, scale } = useGaugeDimensions()
   
   
   // Calculate needle value based on current level position within the gauge range
@@ -361,16 +400,18 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
     const length = (iR + 2 * oR) / 3
     const sin = Math.sin(-RADIAN * ang)
     const cos = Math.cos(-RADIAN * ang)
-    const r = 5
-    const x0 = cx + 5
-    const y0 = cy + 5
+    // Scale the needle center circle and offset based on scale factor
+    const r = 5 * scale
+    const offset = 5 * scale
+    const x0 = cx + offset
+    const y0 = cy + offset
     const xba = x0 + r * sin
     const yba = y0 - r * cos
     const xbb = x0 - r * sin
     const ybb = y0 + r * cos
     const xp = x0 + length * cos
     const yp = y0 + length * sin
-    
+
     return (
       <g>
         <circle cx={x0} cy={y0} r={r} fill="#000000" stroke="none" />
@@ -437,13 +478,24 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
     setIsExpanded(!isExpanded)
   }
   
+  // Calculate gauge width based on scale (original design was 400px)
+  const gaugeWidth = 400 * scale
+
   return (
     <div className="gauge-scale-wrapper">
-    <div className={`water-gauge ${isExpanded ? 'expanded' : ''}`} onClick={toggleExpanded}>
+    <div
+      className={`water-gauge ${isExpanded ? 'expanded' : ''}`}
+      onClick={toggleExpanded}
+      style={{
+        width: `${gaugeWidth}px`,
+        padding: `${10 * scale}px`,
+        borderRadius: `${8 * scale}px`
+      }}
+    >
       <div className="gauge-header">
-        <h3 className="gauge-title">{name}</h3>
+        <h3 className="gauge-title" style={{ fontSize: `${16 * scale}px` }}>{name}</h3>
       </div>
-      
+
       <div className="gauge-container">
         <PieChart width={chartWidth} height={chartHeight}>
           {/* Main gauge sectors */}
@@ -463,80 +515,91 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
               <Cell key={`cell-${index}`} fill={entry.color} stroke="white" strokeWidth={1} />
             ))}
           </Pie>
-          
+
           {/* Always visible needle - render directly */}
           {/* Semicircle: 180° (left) to 0° (right) */}
           <Arrow />
         </PieChart>
-        
-        <div className="gauge-labels">
+
+        <div className="gauge-labels" style={{
+          maxWidth: `${315 * scale}px`,
+          marginTop: `${-25 * scale}px`,
+          fontSize: `${11 * scale}px`
+        }}>
           <span className="gauge-label-left">{bottomOfPond !== undefined ? `BOP: ${bottomOfPond}` : ''}</span>
           <span className="gauge-label-center">NWL: {normalLevel !== undefined ? normalLevel : ''}</span>
-          <span className="gauge-label-right">{topOfPond !== undefined ? `TOP: ${topOfPond}` : ''}</span>
+          <span className="gauge-label-right" style={{ marginRight: `${-15 * scale}px` }}>{topOfPond !== undefined ? `TOP: ${topOfPond}` : ''}</span>
         </div>
-        
-        <div className="gauge-value">
-          <div className="current-value" style={{ 
+
+        <div className="gauge-value" style={{ marginTop: `${10 * scale}px` }}>
+          <div className="current-value" style={{
             backgroundColor: currentColor,
             color: 'white',
             fontWeight: 'bold',
-            borderRadius: '50px',
-            padding: '8px 16px',
+            fontSize: `${20 * scale}px`,
+            borderRadius: `${50 * scale}px`,
+            padding: `${8 * scale}px ${16 * scale}px`,
             display: 'inline-block'
           }}>
             {Number(currentLevel).toFixed(2)}
           </div>
-          <div className="value-label">Current WL (ft)</div>
+          <div className="value-label" style={{ fontSize: `${12 * scale}px`, marginTop: `${4 * scale}px` }}>Current WL (ft)</div>
           <div className="current-status">
-            <p><strong>Deviation from Normal:</strong> {normalDeviation} in</p>
+            <p style={{ fontSize: `${12 * scale}px`, margin: `${5 * scale}px 0` }}>
+              <strong style={{ fontSize: `${12 * scale}px` }}>Deviation from Normal:</strong>{' '}
+              <span style={{ fontSize: `${14 * scale}px`, fontWeight: 'bold' }}>{normalDeviation} in</span>
+            </p>
           </div>
         </div>
       </div>
-     
+
       <div className="last-updated" style={{
         textAlign: 'center',
-        marginTop: '8px',
-        padding: '4px',
-        fontSize: '14px',
+        marginTop: `${8 * scale}px`,
+        padding: `${4 * scale}px`,
+        fontSize: `${14 * scale}px`,
         color: 'black',
         backgroundColor: '#f5f5f5',
-        borderRadius: '3px'
+        borderRadius: `${3 * scale}px`
       }}>
         Last Updated: {new Date(lastUpdated).toLocaleString()}
       </div>
       
       {isExpanded && (
-        <div className="gauge-details">
-          
+        <div className="gauge-details" style={{
+          marginTop: `${8 * scale}px`,
+          paddingTop: `${8 * scale}px`
+        }}>
+
           {/* Water Level Zones - Only visible when expanded */}
           <div className="zone-quick-reference" style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '4px',
-            padding: '6px',
+            gap: `${4 * scale}px`,
+            padding: `${6 * scale}px`,
             backgroundColor: '#f8f9fa',
-            borderRadius: '4px',
-            fontSize: '9px',
+            borderRadius: `${4 * scale}px`,
+            fontSize: `${9 * scale}px`,
             alignItems: 'center',
-            marginTop: '10px'
+            marginTop: `${10 * scale}px`
           }}>
-            <strong style={{ fontSize: '11px', marginBottom: '4px' }}>Water Level Zones</strong>
+            <strong style={{ fontSize: `${11 * scale}px`, marginBottom: `${4 * scale}px` }}>Water Level Zones</strong>
             
             {/* Top of Pond - Reference only, not in gauge */}
             {effectiveTopOfPond !== undefined && effectiveTopOfPond !== null && !isNaN(effectiveTopOfPond) && (
               <div className="zone-item" style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '3px',
+                gap: `${3 * scale}px`,
                 backgroundColor: 'white',
-                padding: '2px 6px',
-                borderRadius: '12px',
+                padding: `${2 * scale}px ${6 * scale}px`,
+                borderRadius: `${12 * scale}px`,
                 border: `1px solid ${topPondColor}`,
                 whiteSpace: 'nowrap'
               }}>
                 <div style={{
-                  width: '8px',
-                  height: '8px',
+                  width: `${8 * scale}px`,
+                  height: `${8 * scale}px`,
                   backgroundColor: topPondColor,
                   borderRadius: '50%'
                 }}></div>
@@ -550,16 +613,16 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
               <div className="zone-item" style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '3px',
+                gap: `${3 * scale}px`,
                 backgroundColor: 'white',
-                padding: '2px 6px',
-                borderRadius: '12px',
+                padding: `${2 * scale}px ${6 * scale}px`,
+                borderRadius: `${12 * scale}px`,
                 border: `1px solid ${warningColor}`,
                 whiteSpace: 'nowrap'
               }}>
                 <div style={{
-                  width: '8px',
-                  height: '8px',
+                  width: `${8 * scale}px`,
+                  height: `${8 * scale}px`,
                   backgroundColor: warningColor,
                   borderRadius: '50%'
                 }}></div>
@@ -573,16 +636,16 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
               <div className="zone-item" style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '3px',
+                gap: `${3 * scale}px`,
                 backgroundColor: 'white',
-                padding: '2px 6px',
-                borderRadius: '12px',
+                padding: `${2 * scale}px ${6 * scale}px`,
+                borderRadius: `${12 * scale}px`,
                 border: `1px solid ${operationalColor}`,
                 whiteSpace: 'nowrap'
               }}>
                 <div style={{
-                  width: '8px',
-                  height: '8px',
+                  width: `${8 * scale}px`,
+                  height: `${8 * scale}px`,
                   backgroundColor: operationalColor,
                   borderRadius: '50%'
                 }}></div>
@@ -596,16 +659,16 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
               <div className="zone-item" style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '3px',
+                gap: `${3 * scale}px`,
                 backgroundColor: 'white',
-                padding: '2px 6px',
-                borderRadius: '12px',
+                padding: `${2 * scale}px ${6 * scale}px`,
+                borderRadius: `${12 * scale}px`,
                 border: `1px solid ${normalColor}`,
                 whiteSpace: 'nowrap'
               }}>
                 <div style={{
-                  width: '8px',
-                  height: '8px',
+                  width: `${8 * scale}px`,
+                  height: `${8 * scale}px`,
                   backgroundColor: normalColor,
                   borderRadius: '50%'
                 }}></div>
@@ -619,16 +682,16 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
               <div className="zone-item" style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '3px',
+                gap: `${3 * scale}px`,
                 backgroundColor: 'white',
-                padding: '2px 6px',
-                borderRadius: '12px',
+                padding: `${2 * scale}px ${6 * scale}px`,
+                borderRadius: `${12 * scale}px`,
                 border: `1px solid ${operationalColor}`,
                 whiteSpace: 'nowrap'
               }}>
                 <div style={{
-                  width: '8px',
-                  height: '8px',
+                  width: `${8 * scale}px`,
+                  height: `${8 * scale}px`,
                   backgroundColor: operationalColor,
                   borderRadius: '50%'
                 }}></div>
@@ -642,16 +705,16 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
               <div className="zone-item" style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '3px',
+                gap: `${3 * scale}px`,
                 backgroundColor: 'white',
-                padding: '2px 6px',
-                borderRadius: '12px',
+                padding: `${2 * scale}px ${6 * scale}px`,
+                borderRadius: `${12 * scale}px`,
                 border: `1px solid ${warningColor}`,
                 whiteSpace: 'nowrap'
               }}>
                 <div style={{
-                  width: '8px',
-                  height: '8px',
+                  width: `${8 * scale}px`,
+                  height: `${8 * scale}px`,
                   backgroundColor: warningColor,
                   borderRadius: '50%'
                 }}></div>
@@ -665,16 +728,16 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
               <div className="zone-item" style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '3px',
+                gap: `${3 * scale}px`,
                 backgroundColor: 'white',
-                padding: '2px 6px',
-                borderRadius: '12px',
+                padding: `${2 * scale}px ${6 * scale}px`,
+                borderRadius: `${12 * scale}px`,
                 border: `1px solid ${bottomPondColor}`,
                 whiteSpace: 'nowrap'
               }}>
                 <div style={{
-                  width: '8px',
-                  height: '8px',
+                  width: `${8 * scale}px`,
+                  height: `${8 * scale}px`,
                   backgroundColor: bottomPondColor,
                   borderRadius: '50%'
                 }}></div>
