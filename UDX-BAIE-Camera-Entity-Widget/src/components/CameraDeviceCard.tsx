@@ -1,5 +1,4 @@
 import { CameraWithScenarios } from '../types/dashboard'
-import { formatDate, formatNumber } from '../utils/formatters'
 
 interface CameraDeviceDetailsProps {
   camera: CameraWithScenarios
@@ -34,10 +33,6 @@ export const CameraDeviceDetails = ({ camera }: CameraDeviceDetailsProps) => (
             {camera.is_configured ? 'Configured' : 'Unconfigured'}
           </span>
         </div>
-        <div className="detail-item">
-          <span className="detail-label">Last Input</span>
-          <span className="detail-value">{formatDate(camera.last_input)}</span>
-        </div>
       </div>
     </div>
 
@@ -64,11 +59,6 @@ export const CameraDeviceDetails = ({ camera }: CameraDeviceDetailsProps) => (
                 {scenario.settings.venue_id && (
                   <span className="venue-badge">
                     {scenario.settings.venue_type}: {scenario.settings.venue_id}
-                  </span>
-                )}
-                {scenario.metrics.last_crossline_count !== undefined && (
-                  <span className="count-badge">
-                    Count: {formatNumber(scenario.metrics.last_crossline_count)}
                   </span>
                 )}
               </div>
@@ -102,14 +92,6 @@ export const CameraDeviceDetails = ({ camera }: CameraDeviceDetailsProps) => (
         <div className="detail-item">
           <span className="detail-label">Device ID</span>
           <span className="detail-value small-text">{camera.id}</span>
-        </div>
-        <div className="detail-item">
-          <span className="detail-label">Created</span>
-          <span className="detail-value">{formatDate(camera.created_at)}</span>
-        </div>
-        <div className="detail-item">
-          <span className="detail-label">Updated</span>
-          <span className="detail-value">{formatDate(camera.updated_at)}</span>
         </div>
       </div>
     </div>

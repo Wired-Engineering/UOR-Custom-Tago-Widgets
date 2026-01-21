@@ -27,6 +27,13 @@ export interface DuplicateGroup {
   records: EntityRecord[]
 }
 
+export interface VenueGroup {
+  venueId: string
+  venueType: 'queue' | 'occupancy'
+  park: string
+  scenarios: EntityRecord[]
+}
+
 export interface GroupedCameras {
   configured: { [park: string]: CameraWithScenarios[] }
   unconfigured: CameraWithScenarios[]

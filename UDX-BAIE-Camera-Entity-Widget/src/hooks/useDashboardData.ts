@@ -7,7 +7,8 @@ import {
   GroupedCameras,
   DashboardStats,
   FilterType,
-  UnconfiguredScenario
+  UnconfiguredScenario,
+  VenueGroup
 } from '../types/dashboard'
 import {
   filterEntityRecord,
@@ -29,11 +30,10 @@ interface UseDashboardDataReturn {
   filteredDuplicateRecords: DuplicateGroup[]
   unconfiguredScenarios: UnconfiguredScenario[]
   filteredUnconfiguredScenarios: UnconfiguredScenario[]
-  camerasWithScenarios: CameraWithScenarios[]
-  scenariosByVenueId: Record<string, EntityRecord[]>
   groupedCameras: GroupedCameras
   groupedData: GroupedData
   stats: DashboardStats
+  filteredVenueGroups: { queue: VenueGroup[], occupancy: VenueGroup[] }
   getScenariosGroupedByCamera: (venueId: string) => Record<string, { camera: CameraDevice | null; scenarios: EntityRecord[] }>
 }
 
@@ -46,10 +46,26 @@ export const useDashboardData = ({
   // Calculate total counts from unfiltered data (for filter buttons)
   const totalCounts = useMemo(() => {
     const counts: Record<string, number> = {}
+    const queueVenueIds = new Set<string>()
+    const occupancyVenueIds = new Set<string>()
+
     entityData.forEach(record => {
       counts[record.record_type] = (counts[record.record_type] || 0) + 1
+
+      // Count unique venue_ids by venue_type from camera_scenario settings
+      if (record.record_type === 'camera_scenario' && record.settings.venue_id) {
+        const venueType = record.settings.venue_type?.toLowerCase()
+        if (venueType === 'queue') {
+          queueVenueIds.add(record.settings.venue_id)
+        } else if (venueType === 'occupancy' || venueType === 'occpuancy' || venueType === 'ocupancy') {
+          occupancyVenueIds.add(record.settings.venue_id)
+        }
+      }
     })
+
     counts.devices = cameraDevices.length
+    counts.queue_venue = queueVenueIds.size
+    counts.occupancy_venue = occupancyVenueIds.size
     return counts
   }, [entityData, cameraDevices])
 
@@ -149,6 +165,75 @@ export const useDashboardData = ({
 
     return lookup
   }, [entityData])
+
+  // Group scenarios by venue_id and venue_type
+  const venueGroups = useMemo(() => {
+    const queueGroups: VenueGroup[] = []
+    const occupancyGroups: VenueGroup[] = []
+    const venueMap = new Map<string, { venueType: string, park: string, scenarios: EntityRecord[] }>()
+
+    const cameraScenarios = entityData.filter(r => r.record_type === 'camera_scenario')
+
+    cameraScenarios.forEach(scenario => {
+      const venueId = scenario.settings.venue_id
+      const venueType = scenario.settings.venue_type?.toLowerCase()
+
+      if (venueId && venueType) {
+        if (!venueMap.has(venueId)) {
+          venueMap.set(venueId, {
+            venueType,
+            park: scenario.info.park || 'Unknown',
+            scenarios: []
+          })
+        }
+        venueMap.get(venueId)!.scenarios.push(scenario)
+      }
+    })
+
+    venueMap.forEach((data, venueId) => {
+      const group: VenueGroup = {
+        venueId,
+        venueType: data.venueType === 'queue' ? 'queue' : 'occupancy',
+        park: data.park,
+        scenarios: data.scenarios.sort((a, b) => a.name.localeCompare(b.name))
+      }
+
+      if (data.venueType === 'queue') {
+        queueGroups.push(group)
+      } else if (data.venueType === 'occupancy' || data.venueType === 'occpuancy' || data.venueType === 'ocupancy') {
+        occupancyGroups.push(group)
+      }
+    })
+
+    // Sort groups by venue_id
+    queueGroups.sort((a, b) => a.venueId.localeCompare(b.venueId))
+    occupancyGroups.sort((a, b) => a.venueId.localeCompare(b.venueId))
+
+    return { queue: queueGroups, occupancy: occupancyGroups }
+  }, [entityData])
+
+  // Filter venue groups by search query
+  const filteredVenueGroups = useMemo(() => {
+    if (!searchQuery) return venueGroups
+
+    const query = searchQuery.toLowerCase()
+
+    const filterGroup = (group: VenueGroup) => {
+      // Match on venue_id, park, or any scenario name/hostname
+      if (group.venueId.toLowerCase().includes(query)) return true
+      if (group.park.toLowerCase().includes(query)) return true
+      return group.scenarios.some(s =>
+        s.name.toLowerCase().includes(query) ||
+        s.info.camera_hostname?.toLowerCase().includes(query) ||
+        s.info.camera_friendly_name?.toLowerCase().includes(query)
+      )
+    }
+
+    return {
+      queue: venueGroups.queue.filter(filterGroup),
+      occupancy: venueGroups.occupancy.filter(filterGroup)
+    }
+  }, [venueGroups, searchQuery])
 
   // Get scenarios grouped by camera for a specific venue
   const getScenariosGroupedByCamera = (venueId: string) => {
@@ -259,11 +344,10 @@ export const useDashboardData = ({
     filteredDuplicateRecords,
     unconfiguredScenarios,
     filteredUnconfiguredScenarios,
-    camerasWithScenarios,
-    scenariosByVenueId,
     groupedCameras,
     groupedData,
     stats,
+    filteredVenueGroups,
     getScenariosGroupedByCamera
   }
 }

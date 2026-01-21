@@ -111,14 +111,6 @@ export const buildDuplicateGroupSearchIndex = (group: DuplicateGroup): string =>
 }
 
 /**
- * Main search function - checks if query matches search index
- */
-export const matchesSearch = (searchIndex: string, query: string): boolean => {
-  if (!query) return true
-  return searchIndex.includes(query.toLowerCase())
-}
-
-/**
  * Enhanced entity record filter with linked scenario search
  */
 export const filterEntityRecord = (

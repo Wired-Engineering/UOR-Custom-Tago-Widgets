@@ -6,14 +6,11 @@ import { useExpandState } from '../hooks/useExpandState'
 import { CollapsibleGroup, CollapsiblePark, CollapsibleItem } from './CollapsibleGroup'
 import {
   CameraScenarioDetails,
-  QueueVenueDetails,
-  OccupancyVenueDetails,
   RecordMetadata,
   RecordSummary
 } from './RecordDetails'
 import { CameraDeviceDetails, CameraDeviceSummary } from './CameraDeviceCard'
-import { FilterType, RecordType, RECORD_TYPE_LABELS, RECORD_TYPE_ICONS, UnconfiguredScenario } from '../types/dashboard'
-import { formatDate } from '../utils/formatters'
+import { FilterType, RecordType, RECORD_TYPE_LABELS, RECORD_TYPE_ICONS, UnconfiguredScenario, VenueGroup } from '../types/dashboard'
 import './EntityDataDashboard.css'
 
 const EntityDataDashboard = () => {
@@ -31,6 +28,7 @@ const EntityDataDashboard = () => {
     groupedCameras,
     groupedData,
     stats,
+    filteredVenueGroups,
     getScenariosGroupedByCamera
   } = useDashboardData({ entityData, cameraDevices, searchQuery, filterType })
 
@@ -139,7 +137,7 @@ const EntityDataDashboard = () => {
               >
                 Devices ({totalCounts.devices || 0})
               </button>
-              {duplicateRecords.length > 0 && (
+              {duplicateRecords?.length > 0 && (
                 <button
                   className={`filter-btn filter-duplicates ${filterType === 'duplicates' ? 'active' : ''}`}
                   onClick={() => setFilterType('duplicates')}
@@ -147,7 +145,7 @@ const EntityDataDashboard = () => {
                   Duplicates ({duplicateRecords.reduce((sum, d) => sum + d.records.length, 0)})
                 </button>
               )}
-              {unconfiguredScenarios.length > 0 && (
+              {unconfiguredScenarios?.length > 0 && (
                 <button
                   className={`filter-btn filter-unconfigured ${filterType === 'unconfigured' ? 'active' : ''}`}
                   onClick={() => setFilterType('unconfigured')}
@@ -215,8 +213,38 @@ const EntityDataDashboard = () => {
               />
             )}
 
-            {/* Entity Records View */}
-            {filterType !== 'devices' && filterType !== 'duplicates' && filterType !== 'unconfigured' && (
+            {/* Queue Venues View */}
+            {filterType === 'queue_venue' && (
+              <VenueGroupsView
+                venueGroups={filteredVenueGroups.queue}
+                venueType="queue"
+                isTypeExpanded={isTypeExpanded}
+                isParkExpanded={isParkExpanded}
+                isItemExpanded={isItemExpanded}
+                toggleType={toggleType}
+                togglePark={togglePark}
+                toggleItem={toggleItem}
+                getScenariosGroupedByCamera={getScenariosGroupedByCamera}
+              />
+            )}
+
+            {/* Occupancy Venues View */}
+            {filterType === 'occupancy_venue' && (
+              <VenueGroupsView
+                venueGroups={filteredVenueGroups.occupancy}
+                venueType="occupancy"
+                isTypeExpanded={isTypeExpanded}
+                isParkExpanded={isParkExpanded}
+                isItemExpanded={isItemExpanded}
+                toggleType={toggleType}
+                togglePark={togglePark}
+                toggleItem={toggleItem}
+                getScenariosGroupedByCamera={getScenariosGroupedByCamera}
+              />
+            )}
+
+            {/* Entity Records View (camera scenarios only in 'all' or 'camera_scenario' filter) */}
+            {(filterType === 'all' || filterType === 'camera_scenario') && (
               <>
                 {Object.entries(groupedData).map(([recordType, parks]) => (
                   <EntityRecordsSection
@@ -318,7 +346,6 @@ const DuplicatesView = ({ duplicateRecords, copiedId, onCopy }: DuplicatesViewPr
                     <th>#</th>
                     <th>Name</th>
                     <th>Record Type</th>
-                    <th>Created At</th>
                     <th>Record ID (click to copy)</th>
                   </tr>
                 </thead>
@@ -338,7 +365,6 @@ const DuplicatesView = ({ duplicateRecords, copiedId, onCopy }: DuplicatesViewPr
                           {RECORD_TYPE_ICONS[record.record_type as RecordType] || '?'}
                         </span>
                       </td>
-                      <td className="rec-date">{formatDate(record.created_at)}</td>
                       <td className="rec-id">
                         <button
                           className={`copy-id-btn ${copiedId === record.id ? 'copied' : ''}`}
@@ -421,7 +447,6 @@ const UnconfiguredView = ({ unconfiguredScenarios, copiedId, onCopy }: Unconfigu
                       <th>Scenario Name</th>
                       <th>Unique ID</th>
                       <th>Park</th>
-                      <th>Created At</th>
                       <th>Record ID (click to copy)</th>
                     </tr>
                   </thead>
@@ -431,7 +456,6 @@ const UnconfiguredView = ({ unconfiguredScenarios, copiedId, onCopy }: Unconfigu
                         <td className="rec-name">{item.record.name}</td>
                         <td className="rec-unique-id">{item.record.unique_id}</td>
                         <td className="rec-park">{item.record.info.park || '-'}</td>
-                        <td className="rec-date">{formatDate(item.record.created_at)}</td>
                         <td className="rec-id">
                           <button
                             className={`copy-id-btn ${copiedId === item.record.id ? 'copied' : ''}`}
@@ -578,6 +602,190 @@ const CamerasInAllView = (props: Omit<DevicesViewProps, 'hideNoResults'>) => (
   <DevicesView {...props} hideNoResults />
 )
 
+interface VenueGroupsViewProps {
+  venueGroups: VenueGroup[]
+  venueType: 'queue' | 'occupancy'
+  isTypeExpanded: (type: string) => boolean
+  isParkExpanded: (park: string) => boolean
+  isItemExpanded: (id: string) => boolean
+  toggleType: (type: string) => void
+  togglePark: (park: string) => void
+  toggleItem: (id: string) => void
+  getScenariosGroupedByCamera: (venueId: string) => Record<string, { camera: import('../WidgetView').CameraDevice | null; scenarios: import('../WidgetView').EntityRecord[] }>
+}
+
+const VenueGroupsView = ({
+  venueGroups,
+  venueType,
+  isTypeExpanded,
+  isParkExpanded,
+  isItemExpanded,
+  toggleType,
+  togglePark,
+  toggleItem,
+  getScenariosGroupedByCamera
+}: VenueGroupsViewProps) => {
+  // Group venues by park
+  const venuesByPark: Record<string, VenueGroup[]> = {}
+  venueGroups.forEach(venue => {
+    const park = venue.park || 'Unknown'
+    if (!venuesByPark[park]) {
+      venuesByPark[park] = []
+    }
+    venuesByPark[park].push(venue)
+  })
+
+  const typeLabel = venueType === 'queue' ? 'Queue Venues' : 'Occupancy Venues'
+  const typeIcon = venueType === 'queue' ? 'QUEUE' : 'OCC'
+  const typeKey = venueType === 'queue' ? 'queue_venue' : 'occupancy_venue'
+
+  if (venueGroups.length === 0) {
+    return (
+      <div className="no-results">
+        <p>No {typeLabel.toLowerCase()} found.</p>
+      </div>
+    )
+  }
+
+  return (
+    <CollapsibleGroup
+      title={typeLabel}
+      count={venueGroups.length}
+      isExpanded={isTypeExpanded(typeKey)}
+      onToggle={() => toggleType(typeKey)}
+      badge={typeIcon}
+      className={`type-group type-${typeKey}`}
+    >
+      {Object.entries(venuesByPark).sort(([a], [b]) => a.localeCompare(b)).map(([park, venues]) => {
+        const parkKey = `${typeKey}_${park}`
+        return (
+          <CollapsiblePark
+            key={parkKey}
+            park={park}
+            count={venues.length}
+            isExpanded={isParkExpanded(parkKey)}
+            onToggle={() => togglePark(parkKey)}
+          >
+            {venues.sort((a, b) => a.venueId.localeCompare(b.venueId)).map(venue => (
+              <CollapsibleItem
+                key={venue.venueId}
+                isExpanded={isItemExpanded(venue.venueId)}
+                onToggle={() => toggleItem(venue.venueId)}
+                header={
+                  <>
+                    <div className="record-title">
+                      <span className="record-name">{venue.venueId}</span>
+                      <span className="record-id">{venue.scenarios.length} scenario{venue.scenarios.length !== 1 ? 's' : ''}</span>
+                    </div>
+                    <div className="record-summary">
+                      <span className="summary-item">
+                        <span className="summary-label">Park:</span> {venue.park}
+                      </span>
+                    </div>
+                  </>
+                }
+              >
+                <VenueGroupDetails
+                  venue={venue}
+                  getScenariosGroupedByCamera={getScenariosGroupedByCamera}
+                />
+              </CollapsibleItem>
+            ))}
+          </CollapsiblePark>
+        )
+      })}
+    </CollapsibleGroup>
+  )
+}
+
+interface VenueGroupDetailsProps {
+  venue: VenueGroup
+  getScenariosGroupedByCamera: VenueGroupsViewProps['getScenariosGroupedByCamera']
+}
+
+const VenueGroupDetails = ({ venue, getScenariosGroupedByCamera }: VenueGroupDetailsProps) => {
+  const cameraGroups = getScenariosGroupedByCamera(venue.venueId)
+  const hostnames = Object.keys(cameraGroups)
+
+  return (
+    <div className="record-details">
+      <div className="details-section">
+        <h4>Venue Info</h4>
+        <div className="detail-grid">
+          <div className="detail-item">
+            <span className="detail-label">Venue ID</span>
+            <span className="detail-value">{venue.venueId}</span>
+          </div>
+          <div className="detail-item">
+            <span className="detail-label">Venue Type</span>
+            <span className="detail-value">{venue.venueType}</span>
+          </div>
+          <div className="detail-item">
+            <span className="detail-label">Park</span>
+            <span className="detail-value">{venue.park}</span>
+          </div>
+          <div className="detail-item">
+            <span className="detail-label">Linked Scenarios</span>
+            <span className="detail-value">{venue.scenarios.length}</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="details-section">
+        <h4>Linked Cameras & Scenarios ({hostnames.length} camera{hostnames.length !== 1 ? 's' : ''})</h4>
+        <div className="linked-cameras-list">
+          {hostnames.sort().map(hostname => {
+            const { camera, scenarios } = cameraGroups[hostname]
+            return (
+              <div key={hostname} className="linked-camera-group">
+                <div className="linked-camera-header">
+                  <span className="camera-icon">CAM</span>
+                  <div className="camera-info">
+                    <span className="camera-name">{camera?.name || hostname}</span>
+                    {camera && (
+                      <span className={`camera-type-badge ${camera.device_type}`}>
+                        {camera.device_type}
+                      </span>
+                    )}
+                  </div>
+                  <span className="scenario-count">{scenarios.length} scenario{scenarios.length !== 1 ? 's' : ''}</span>
+                </div>
+                <div className="linked-scenarios">
+                  {scenarios.map(scenario => (
+                    <div key={scenario.id} className="linked-scenario-item">
+                      <div className="scenario-row">
+                        <div className="scenario-info">
+                          <span className="scenario-name">{scenario.name}</span>
+                          <div className="scenario-badges">
+                            <span className={`scenario-type-badge ${scenario.info.scenario_type === 'CrosslineCounting' ? 'crossline' : 'occupancy'}`}>
+                              {scenario.info.scenario_type === 'CrosslineCounting' ? 'Crossline' : 'OIA'}
+                            </span>
+                            {scenario.settings.direction && (
+                              <span className={`direction-badge direction-${scenario.settings.direction}`}>
+                                {scenario.settings.direction}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="scenario-ids">
+                        <span className="id-item">
+                          <span className="id-label">Record ID:</span>
+                          <span className="id-value">{scenario.id}</span>
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 interface EntityRecordsSectionProps {
   recordType: RecordType
   parks: { [park: string]: ReturnType<typeof useDashboardData>['groupedData'][string][string] }
@@ -638,12 +846,6 @@ const EntityRecordsSection = ({
                 }
               >
                 {record.record_type === 'camera_scenario' && <CameraScenarioDetails record={record} />}
-                {record.record_type === 'queue_venue' && (
-                  <QueueVenueDetails record={record} getScenariosGroupedByCamera={getScenariosGroupedByCamera} />
-                )}
-                {record.record_type === 'occupancy_venue' && (
-                  <OccupancyVenueDetails record={record} getScenariosGroupedByCamera={getScenariosGroupedByCamera} />
-                )}
                 <RecordMetadata record={record} />
               </CollapsibleItem>
             ))}

@@ -128,13 +128,7 @@ const generateMockCameraDevices = (): CameraDevice[] => {
   return devices
 }
 
-const mockEntityRecords: EntityRecord[] = parseEntityRecords()
 const mockCameraDevices: CameraDevice[] = parseCameraDevices()
-
-export const getMockEntityData = (): EntityRecord[] => {
-  console.log(`Mock data loaded with ${mockEntityRecords.length} entity records`)
-  return mockEntityRecords
-}
 
 // Get the raw mock data in TagoIO format (preserves time field)
 export const getMockRawData = (): TagoDataItem[] => {
@@ -156,9 +150,4 @@ export const isDevelopmentMode = () => {
 
   // Return true if either TagoIO is not available OR we're explicitly in development
   return !hasTagoIO || isDevEnv
-}
-
-// Production mode detection using Parcel
-export const isProductionMode = () => {
-  return process.env.NODE_ENV === 'production' && typeof window !== 'undefined' && (window as any).TagoIO
 }
