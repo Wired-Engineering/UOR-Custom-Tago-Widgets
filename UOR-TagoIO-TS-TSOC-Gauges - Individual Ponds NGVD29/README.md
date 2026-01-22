@@ -1,0 +1,27 @@
+# Tech Services TSOC Water Level Gauges Widget - POND I ONLY
+
+A TagoIO custom widget for monitoring water level data with interactive gauge visualizations.
+
+## Features
+
+- Real-time water level monitoring
+- Interactive gauge displays with operational ranges
+- Alarm threshold indicators
+- Sortable device list with current levels
+
+## Development
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Visit `http://localhost:3000` to view the widget in development mode with mock data.
+
+## Build
+
+```bash
+pnpm build:widget
+```
+
+Builds the widget for TagoIO deployment in the `built-widget` directory.

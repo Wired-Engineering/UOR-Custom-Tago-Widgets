@@ -1,0 +1,5002 @@
+[
+  {
+    "id": "69036c786fe6f1000aa2d226",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761832056189",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:47:36.623Z"
+  },
+  {
+    "id": "69036c786fe6f1000aa2d225",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761832056189",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:47:36.623Z"
+  },
+  {
+    "id": "69036c786fe6f1000aa2d224",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761832056189",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:47:36.623Z"
+  },
+  {
+    "id": "69036c786fe6f1000aa2d223",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761832056189",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:47:36.623Z"
+  },
+  {
+    "id": "69036c786fe6f1000aa2d222",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761832056189",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:47:36.623Z"
+  },
+  {
+    "id": "69036c786fe6f1000aa2d221",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761832056189",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:47:36.623Z"
+  },
+  {
+    "id": "69036c786fe6f1000aa2d220",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761832056189",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:47:36.623Z"
+  },
+  {
+    "id": "69036c786fe6f1000aa2d21f",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761832056189",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T13:47:36.623Z"
+  },
+  {
+    "id": "69036c786fe6f1000aa2d21e",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761832056189",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T13:47:36.623Z"
+  },
+  {
+    "id": "69036c786fe6f1000aa2d21d",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761832056189",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T13:47:36.623Z"
+  },
+  {
+    "id": "69036c786fe6f1000aa2d21c",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761832056189",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T13:47:36.623Z"
+  },
+  {
+    "id": "69036c786fe6f1000aa2d21b",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761832056189",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T13:47:36.623Z"
+  },
+  {
+    "id": "69036c786fe6f1000aa2d21a",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761832056189",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:47:36.623Z"
+  },
+  {
+    "id": "69036c786fe6f1000aa2d219",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761832056189",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:47:36.623Z"
+  },
+  {
+    "id": "69036c786fe6f1000aa2d218",
+    "variable": "navd_current_we",
+    "value": 102.45,
+    "type": "number",
+    "group": "1761832056189",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:47:36.623Z"
+  },
+  {
+    "id": "69036c786fe6f1000aa2d217",
+    "variable": "navd_normal_we_status",
+    "value": "Below Normal",
+    "type": "string",
+    "group": "1761832056189",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:47:36.623Z"
+  },
+  {
+    "id": "69036c786fe6f1000aa2d216",
+    "variable": "navd_normal_we_deviation",
+    "value": -6.79,
+    "type": "number",
+    "group": "1761832056189",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:47:36.623Z"
+  },
+  {
+    "id": "69036c786fe6f1000aa2d228",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761832056189",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:47:36.623Z"
+  },
+  {
+    "id": "69036c786fe6f1000aa2d227",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761832056189",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:47:36.623Z"
+  },
+  {
+    "id": "69036c783607df00106d92a2",
+    "variable": "water_depth",
+    "value": 12.99,
+    "type": "number",
+    "group": "1761832056189",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:47:36.191Z"
+  },
+  {
+    "id": "69036a1ff1f181000ae836da",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761831454695",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:37:35.133Z"
+  },
+  {
+    "id": "69036a1ff1f181000ae836d9",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761831454695",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:37:35.133Z"
+  },
+  {
+    "id": "69036a1ff1f181000ae836d8",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761831454695",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:37:35.133Z"
+  },
+  {
+    "id": "69036a1ff1f181000ae836c9",
+    "variable": "navd_normal_we_status",
+    "value": "Below Normal",
+    "type": "string",
+    "group": "1761831454695",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:37:35.133Z"
+  },
+  {
+    "id": "69036a1ff1f181000ae836ca",
+    "variable": "navd_current_we",
+    "value": 102.49,
+    "type": "number",
+    "group": "1761831454695",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:37:35.133Z"
+  },
+  {
+    "id": "69036a1ff1f181000ae836cb",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761831454695",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:37:35.133Z"
+  },
+  {
+    "id": "69036a1ff1f181000ae836cc",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761831454695",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:37:35.133Z"
+  },
+  {
+    "id": "69036a1ff1f181000ae836cd",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761831454695",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T13:37:35.133Z"
+  },
+  {
+    "id": "69036a1ff1f181000ae836ce",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761831454695",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T13:37:35.133Z"
+  },
+  {
+    "id": "69036a1ff1f181000ae836cf",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761831454695",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T13:37:35.133Z"
+  },
+  {
+    "id": "69036a1ff1f181000ae836d0",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761831454695",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T13:37:35.133Z"
+  },
+  {
+    "id": "69036a1ff1f181000ae836d1",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761831454695",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T13:37:35.133Z"
+  },
+  {
+    "id": "69036a1ff1f181000ae836d2",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761831454695",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:37:35.133Z"
+  },
+  {
+    "id": "69036a1ff1f181000ae836d3",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761831454695",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:37:35.133Z"
+  },
+  {
+    "id": "69036a1ff1f181000ae836d4",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761831454695",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:37:35.133Z"
+  },
+  {
+    "id": "69036a1ff1f181000ae836d5",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761831454695",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:37:35.133Z"
+  },
+  {
+    "id": "69036a1ff1f181000ae836d6",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761831454695",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:37:35.133Z"
+  },
+  {
+    "id": "69036a1ff1f181000ae836d7",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761831454695",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:37:35.133Z"
+  },
+  {
+    "id": "69036a1ff1f181000ae836c8",
+    "variable": "navd_normal_we_deviation",
+    "value": -6.39,
+    "type": "number",
+    "group": "1761831454695",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:37:35.132Z"
+  },
+  {
+    "id": "69036a1ea4feb4000914ab35",
+    "variable": "water_depth",
+    "value": 13.39,
+    "type": "number",
+    "group": "1761831454695",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:37:34.697Z"
+  },
+  {
+    "id": "690367c7e26ed3000a5d382c",
+    "variable": "navd_normal_we_deviation",
+    "value": -4.43,
+    "type": "number",
+    "group": "1761830854971",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:27:35.419Z"
+  },
+  {
+    "id": "690367c7e26ed3000a5d382d",
+    "variable": "navd_normal_we_status",
+    "value": "Below Normal",
+    "type": "string",
+    "group": "1761830854971",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:27:35.419Z"
+  },
+  {
+    "id": "690367c7e26ed3000a5d382e",
+    "variable": "navd_current_we",
+    "value": 102.65,
+    "type": "number",
+    "group": "1761830854971",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:27:35.419Z"
+  },
+  {
+    "id": "690367c7e26ed3000a5d382f",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761830854971",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:27:35.419Z"
+  },
+  {
+    "id": "690367c7e26ed3000a5d3830",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761830854971",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:27:35.419Z"
+  },
+  {
+    "id": "690367c7e26ed3000a5d3831",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761830854971",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T13:27:35.419Z"
+  },
+  {
+    "id": "690367c7e26ed3000a5d3832",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761830854971",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T13:27:35.419Z"
+  },
+  {
+    "id": "690367c7e26ed3000a5d3833",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761830854971",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T13:27:35.419Z"
+  },
+  {
+    "id": "690367c7e26ed3000a5d3834",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761830854971",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T13:27:35.419Z"
+  },
+  {
+    "id": "690367c7e26ed3000a5d3835",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761830854971",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T13:27:35.419Z"
+  },
+  {
+    "id": "690367c7e26ed3000a5d3836",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761830854971",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:27:35.419Z"
+  },
+  {
+    "id": "690367c7e26ed3000a5d3837",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761830854971",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:27:35.419Z"
+  },
+  {
+    "id": "690367c7e26ed3000a5d3838",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761830854971",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:27:35.419Z"
+  },
+  {
+    "id": "690367c7e26ed3000a5d3839",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761830854971",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:27:35.419Z"
+  },
+  {
+    "id": "690367c7e26ed3000a5d383a",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761830854971",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:27:35.419Z"
+  },
+  {
+    "id": "690367c7e26ed3000a5d383b",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761830854971",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:27:35.419Z"
+  },
+  {
+    "id": "690367c7e26ed3000a5d383c",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761830854971",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:27:35.419Z"
+  },
+  {
+    "id": "690367c7e26ed3000a5d383d",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761830854971",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:27:35.419Z"
+  },
+  {
+    "id": "690367c7e26ed3000a5d383e",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761830854971",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:27:35.419Z"
+  },
+  {
+    "id": "690367c67ba448000a938121",
+    "variable": "water_depth",
+    "value": 15.35,
+    "type": "number",
+    "group": "1761830854971",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:27:34.974Z"
+  },
+  {
+    "id": "6903656ea4feb40009143101",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761830253910",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:17:34.379Z"
+  },
+  {
+    "id": "6903656ea4feb400091430ef",
+    "variable": "navd_normal_we_deviation",
+    "value": -4.43,
+    "type": "number",
+    "group": "1761830253910",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:17:34.378Z"
+  },
+  {
+    "id": "6903656ea4feb400091430f0",
+    "variable": "navd_normal_we_status",
+    "value": "Below Normal",
+    "type": "string",
+    "group": "1761830253910",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:17:34.378Z"
+  },
+  {
+    "id": "6903656ea4feb400091430f1",
+    "variable": "navd_current_we",
+    "value": 102.65,
+    "type": "number",
+    "group": "1761830253910",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:17:34.378Z"
+  },
+  {
+    "id": "6903656ea4feb400091430f2",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761830253910",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:17:34.378Z"
+  },
+  {
+    "id": "6903656ea4feb400091430f3",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761830253910",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:17:34.378Z"
+  },
+  {
+    "id": "6903656ea4feb400091430f4",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761830253910",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T13:17:34.378Z"
+  },
+  {
+    "id": "6903656ea4feb400091430f5",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761830253910",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T13:17:34.378Z"
+  },
+  {
+    "id": "6903656ea4feb400091430f6",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761830253910",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T13:17:34.378Z"
+  },
+  {
+    "id": "6903656ea4feb400091430f7",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761830253910",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T13:17:34.378Z"
+  },
+  {
+    "id": "6903656ea4feb400091430f8",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761830253910",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T13:17:34.378Z"
+  },
+  {
+    "id": "6903656ea4feb400091430f9",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761830253910",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:17:34.378Z"
+  },
+  {
+    "id": "6903656ea4feb400091430fa",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761830253910",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:17:34.378Z"
+  },
+  {
+    "id": "6903656ea4feb400091430fb",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761830253910",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:17:34.378Z"
+  },
+  {
+    "id": "6903656ea4feb400091430fc",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761830253910",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:17:34.378Z"
+  },
+  {
+    "id": "6903656ea4feb400091430fd",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761830253910",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:17:34.378Z"
+  },
+  {
+    "id": "6903656ea4feb400091430fe",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761830253910",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:17:34.378Z"
+  },
+  {
+    "id": "6903656ea4feb400091430ff",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761830253910",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:17:34.378Z"
+  },
+  {
+    "id": "6903656ea4feb40009143100",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761830253910",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:17:34.378Z"
+  },
+  {
+    "id": "6903656d7ba448000a93443a",
+    "variable": "water_depth",
+    "value": 15.35,
+    "type": "number",
+    "group": "1761830253910",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:17:33.912Z"
+  },
+  {
+    "id": "690363161c56be000aa396c0",
+    "variable": "navd_normal_we_deviation",
+    "value": -4.43,
+    "type": "number",
+    "group": "1761829653862",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:07:34.334Z"
+  },
+  {
+    "id": "690363161c56be000aa396c1",
+    "variable": "navd_normal_we_status",
+    "value": "Below Normal",
+    "type": "string",
+    "group": "1761829653862",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:07:34.334Z"
+  },
+  {
+    "id": "690363161c56be000aa396c2",
+    "variable": "navd_current_we",
+    "value": 102.65,
+    "type": "number",
+    "group": "1761829653862",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:07:34.334Z"
+  },
+  {
+    "id": "690363161c56be000aa396c3",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761829653862",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:07:34.334Z"
+  },
+  {
+    "id": "690363161c56be000aa396c4",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761829653862",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:07:34.334Z"
+  },
+  {
+    "id": "690363161c56be000aa396c5",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761829653862",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T13:07:34.334Z"
+  },
+  {
+    "id": "690363161c56be000aa396c6",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761829653862",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T13:07:34.334Z"
+  },
+  {
+    "id": "690363161c56be000aa396c7",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761829653862",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T13:07:34.334Z"
+  },
+  {
+    "id": "690363161c56be000aa396c8",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761829653862",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T13:07:34.334Z"
+  },
+  {
+    "id": "690363161c56be000aa396c9",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761829653862",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T13:07:34.334Z"
+  },
+  {
+    "id": "690363161c56be000aa396ca",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761829653862",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:07:34.334Z"
+  },
+  {
+    "id": "690363161c56be000aa396cb",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761829653862",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:07:34.334Z"
+  },
+  {
+    "id": "690363161c56be000aa396cc",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761829653862",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:07:34.334Z"
+  },
+  {
+    "id": "690363161c56be000aa396cd",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761829653862",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:07:34.334Z"
+  },
+  {
+    "id": "690363161c56be000aa396ce",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761829653862",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:07:34.334Z"
+  },
+  {
+    "id": "690363161c56be000aa396cf",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761829653862",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:07:34.334Z"
+  },
+  {
+    "id": "690363161c56be000aa396d0",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761829653862",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:07:34.334Z"
+  },
+  {
+    "id": "690363161c56be000aa396d1",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761829653862",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:07:34.334Z"
+  },
+  {
+    "id": "690363161c56be000aa396d2",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761829653862",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:07:34.334Z"
+  },
+  {
+    "id": "69036315ebd5e5000acdbb24",
+    "variable": "water_depth",
+    "value": 15.35,
+    "type": "number",
+    "group": "1761829653862",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:07:33.864Z"
+  },
+  {
+    "id": "690360bf94138e000a325d0d",
+    "variable": "navd_normal_we_deviation",
+    "value": -4.43,
+    "type": "number",
+    "group": "1761829055022",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:57:35.424Z"
+  },
+  {
+    "id": "690360bf94138e000a325d0e",
+    "variable": "navd_normal_we_status",
+    "value": "Below Normal",
+    "type": "string",
+    "group": "1761829055022",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:57:35.424Z"
+  },
+  {
+    "id": "690360bf94138e000a325d0f",
+    "variable": "navd_current_we",
+    "value": 102.65,
+    "type": "number",
+    "group": "1761829055022",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:57:35.424Z"
+  },
+  {
+    "id": "690360bf94138e000a325d10",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761829055022",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:57:35.424Z"
+  },
+  {
+    "id": "690360bf94138e000a325d11",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761829055022",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:57:35.424Z"
+  },
+  {
+    "id": "690360bf94138e000a325d12",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761829055022",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T12:57:35.424Z"
+  },
+  {
+    "id": "690360bf94138e000a325d13",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761829055022",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T12:57:35.424Z"
+  },
+  {
+    "id": "690360bf94138e000a325d14",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761829055022",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T12:57:35.424Z"
+  },
+  {
+    "id": "690360bf94138e000a325d15",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761829055022",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T12:57:35.424Z"
+  },
+  {
+    "id": "690360bf94138e000a325d16",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761829055022",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T12:57:35.424Z"
+  },
+  {
+    "id": "690360bf94138e000a325d17",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761829055022",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:57:35.424Z"
+  },
+  {
+    "id": "690360bf94138e000a325d18",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761829055022",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:57:35.424Z"
+  },
+  {
+    "id": "690360bf94138e000a325d19",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761829055022",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:57:35.424Z"
+  },
+  {
+    "id": "690360bf94138e000a325d1a",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761829055022",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:57:35.424Z"
+  },
+  {
+    "id": "690360bf94138e000a325d1b",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761829055022",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:57:35.424Z"
+  },
+  {
+    "id": "690360bf94138e000a325d1c",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761829055022",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:57:35.424Z"
+  },
+  {
+    "id": "690360bf94138e000a325d1d",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761829055022",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:57:35.424Z"
+  },
+  {
+    "id": "690360bf94138e000a325d1e",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761829055022",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:57:35.424Z"
+  },
+  {
+    "id": "690360bf94138e000a325d1f",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761829055022",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:57:35.424Z"
+  },
+  {
+    "id": "690360bfa4feb4000913a747",
+    "variable": "water_depth",
+    "value": 15.35,
+    "type": "number",
+    "group": "1761829055022",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:57:35.024Z"
+  },
+  {
+    "id": "69035e66a4feb40009136c86",
+    "variable": "navd_normal_we_deviation",
+    "value": -4.43,
+    "type": "number",
+    "group": "1761828454328",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:47:34.774Z"
+  },
+  {
+    "id": "69035e66a4feb40009136c87",
+    "variable": "navd_normal_we_status",
+    "value": "Below Normal",
+    "type": "string",
+    "group": "1761828454328",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:47:34.774Z"
+  },
+  {
+    "id": "69035e66a4feb40009136c88",
+    "variable": "navd_current_we",
+    "value": 102.65,
+    "type": "number",
+    "group": "1761828454328",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:47:34.774Z"
+  },
+  {
+    "id": "69035e66a4feb40009136c89",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761828454328",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:47:34.774Z"
+  },
+  {
+    "id": "69035e66a4feb40009136c8a",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761828454328",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:47:34.774Z"
+  },
+  {
+    "id": "69035e66a4feb40009136c8b",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761828454328",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T12:47:34.774Z"
+  },
+  {
+    "id": "69035e66a4feb40009136c8c",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761828454328",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T12:47:34.774Z"
+  },
+  {
+    "id": "69035e66a4feb40009136c8d",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761828454328",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T12:47:34.774Z"
+  },
+  {
+    "id": "69035e66a4feb40009136c8e",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761828454328",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T12:47:34.774Z"
+  },
+  {
+    "id": "69035e66a4feb40009136c8f",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761828454328",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T12:47:34.774Z"
+  },
+  {
+    "id": "69035e66a4feb40009136c90",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761828454328",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:47:34.774Z"
+  },
+  {
+    "id": "69035e66a4feb40009136c91",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761828454328",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:47:34.774Z"
+  },
+  {
+    "id": "69035e66a4feb40009136c92",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761828454328",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:47:34.774Z"
+  },
+  {
+    "id": "69035e66a4feb40009136c93",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761828454328",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:47:34.774Z"
+  },
+  {
+    "id": "69035e66a4feb40009136c94",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761828454328",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:47:34.774Z"
+  },
+  {
+    "id": "69035e66a4feb40009136c95",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761828454328",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:47:34.774Z"
+  },
+  {
+    "id": "69035e66a4feb40009136c96",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761828454328",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:47:34.774Z"
+  },
+  {
+    "id": "69035e66a4feb40009136c97",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761828454328",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:47:34.774Z"
+  },
+  {
+    "id": "69035e66a4feb40009136c98",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761828454328",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:47:34.774Z"
+  },
+  {
+    "id": "69035e6676b75a000aa3b522",
+    "variable": "water_depth",
+    "value": 15.35,
+    "type": "number",
+    "group": "1761828454328",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:47:34.331Z"
+  },
+  {
+    "id": "690359b56fe6f1000aa0e9ca",
+    "variable": "navd_normal_we_deviation",
+    "value": -4.43,
+    "type": "number",
+    "group": "1761827252663",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:27:33.130Z"
+  },
+  {
+    "id": "690359b56fe6f1000aa0e9cb",
+    "variable": "navd_normal_we_status",
+    "value": "Below Normal",
+    "type": "string",
+    "group": "1761827252663",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:27:33.130Z"
+  },
+  {
+    "id": "690359b56fe6f1000aa0e9cc",
+    "variable": "navd_current_we",
+    "value": 102.65,
+    "type": "number",
+    "group": "1761827252663",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:27:33.130Z"
+  },
+  {
+    "id": "690359b56fe6f1000aa0e9cd",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761827252663",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:27:33.130Z"
+  },
+  {
+    "id": "690359b56fe6f1000aa0e9ce",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761827252663",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:27:33.130Z"
+  },
+  {
+    "id": "690359b56fe6f1000aa0e9cf",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761827252663",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T12:27:33.130Z"
+  },
+  {
+    "id": "690359b56fe6f1000aa0e9d0",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761827252663",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T12:27:33.130Z"
+  },
+  {
+    "id": "690359b56fe6f1000aa0e9d1",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761827252663",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T12:27:33.130Z"
+  },
+  {
+    "id": "690359b56fe6f1000aa0e9d2",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761827252663",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T12:27:33.130Z"
+  },
+  {
+    "id": "690359b56fe6f1000aa0e9d3",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761827252663",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T12:27:33.130Z"
+  },
+  {
+    "id": "690359b56fe6f1000aa0e9d4",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761827252663",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:27:33.130Z"
+  },
+  {
+    "id": "690359b56fe6f1000aa0e9d5",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761827252663",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:27:33.130Z"
+  },
+  {
+    "id": "690359b56fe6f1000aa0e9d6",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761827252663",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:27:33.130Z"
+  },
+  {
+    "id": "690359b56fe6f1000aa0e9d7",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761827252663",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:27:33.130Z"
+  },
+  {
+    "id": "690359b56fe6f1000aa0e9d8",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761827252663",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:27:33.130Z"
+  },
+  {
+    "id": "690359b56fe6f1000aa0e9d9",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761827252663",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:27:33.130Z"
+  },
+  {
+    "id": "690359b56fe6f1000aa0e9da",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761827252663",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:27:33.130Z"
+  },
+  {
+    "id": "690359b56fe6f1000aa0e9db",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761827252663",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:27:33.130Z"
+  },
+  {
+    "id": "690359b56fe6f1000aa0e9dc",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761827252663",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:27:33.130Z"
+  },
+  {
+    "id": "690359b46fe6f1000aa0e9ba",
+    "variable": "water_depth",
+    "value": 15.35,
+    "type": "number",
+    "group": "1761827252663",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:27:32.665Z"
+  },
+  {
+    "id": "6903575eb92ceb000a6d9ac5",
+    "variable": "navd_normal_we_deviation",
+    "value": -4.43,
+    "type": "number",
+    "group": "1761826653921",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:17:34.379Z"
+  },
+  {
+    "id": "6903575eb92ceb000a6d9ac6",
+    "variable": "navd_normal_we_status",
+    "value": "Below Normal",
+    "type": "string",
+    "group": "1761826653921",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:17:34.379Z"
+  },
+  {
+    "id": "6903575eb92ceb000a6d9ac7",
+    "variable": "navd_current_we",
+    "value": 102.65,
+    "type": "number",
+    "group": "1761826653921",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:17:34.379Z"
+  },
+  {
+    "id": "6903575eb92ceb000a6d9ac8",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761826653921",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:17:34.379Z"
+  },
+  {
+    "id": "6903575eb92ceb000a6d9ac9",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761826653921",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:17:34.379Z"
+  },
+  {
+    "id": "6903575eb92ceb000a6d9aca",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761826653921",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T12:17:34.379Z"
+  },
+  {
+    "id": "6903575eb92ceb000a6d9acb",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761826653921",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T12:17:34.379Z"
+  },
+  {
+    "id": "6903575eb92ceb000a6d9acc",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761826653921",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T12:17:34.379Z"
+  },
+  {
+    "id": "6903575eb92ceb000a6d9acd",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761826653921",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T12:17:34.379Z"
+  },
+  {
+    "id": "6903575eb92ceb000a6d9ace",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761826653921",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T12:17:34.379Z"
+  },
+  {
+    "id": "6903575eb92ceb000a6d9acf",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761826653921",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:17:34.379Z"
+  },
+  {
+    "id": "6903575eb92ceb000a6d9ad0",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761826653921",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:17:34.379Z"
+  },
+  {
+    "id": "6903575eb92ceb000a6d9ad1",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761826653921",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:17:34.379Z"
+  },
+  {
+    "id": "6903575eb92ceb000a6d9ad2",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761826653921",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:17:34.379Z"
+  },
+  {
+    "id": "6903575eb92ceb000a6d9ad3",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761826653921",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:17:34.379Z"
+  },
+  {
+    "id": "6903575eb92ceb000a6d9ad4",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761826653921",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:17:34.379Z"
+  },
+  {
+    "id": "6903575eb92ceb000a6d9ad5",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761826653921",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:17:34.379Z"
+  },
+  {
+    "id": "6903575eb92ceb000a6d9ad6",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761826653921",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:17:34.379Z"
+  },
+  {
+    "id": "6903575eb92ceb000a6d9ad7",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761826653921",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:17:34.379Z"
+  },
+  {
+    "id": "6903575df1f181000ae653bb",
+    "variable": "water_depth",
+    "value": 15.35,
+    "type": "number",
+    "group": "1761826653921",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:17:33.923Z"
+  },
+  {
+    "id": "690355050ad75e000a0d5f2c",
+    "variable": "navd_normal_we_deviation",
+    "value": -4.43,
+    "type": "number",
+    "group": "1761826052917",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:07:33.355Z"
+  },
+  {
+    "id": "690355050ad75e000a0d5f2d",
+    "variable": "navd_normal_we_status",
+    "value": "Below Normal",
+    "type": "string",
+    "group": "1761826052917",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:07:33.355Z"
+  },
+  {
+    "id": "690355050ad75e000a0d5f2e",
+    "variable": "navd_current_we",
+    "value": 102.65,
+    "type": "number",
+    "group": "1761826052917",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:07:33.355Z"
+  },
+  {
+    "id": "690355050ad75e000a0d5f2f",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761826052917",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:07:33.355Z"
+  },
+  {
+    "id": "690355050ad75e000a0d5f30",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761826052917",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:07:33.355Z"
+  },
+  {
+    "id": "690355050ad75e000a0d5f31",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761826052917",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T12:07:33.355Z"
+  },
+  {
+    "id": "690355050ad75e000a0d5f32",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761826052917",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T12:07:33.355Z"
+  },
+  {
+    "id": "690355050ad75e000a0d5f33",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761826052917",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T12:07:33.355Z"
+  },
+  {
+    "id": "690355050ad75e000a0d5f34",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761826052917",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T12:07:33.355Z"
+  },
+  {
+    "id": "690355050ad75e000a0d5f35",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761826052917",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T12:07:33.355Z"
+  },
+  {
+    "id": "690355050ad75e000a0d5f36",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761826052917",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:07:33.355Z"
+  },
+  {
+    "id": "690355050ad75e000a0d5f37",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761826052917",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:07:33.355Z"
+  },
+  {
+    "id": "690355050ad75e000a0d5f38",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761826052917",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:07:33.355Z"
+  },
+  {
+    "id": "690355050ad75e000a0d5f39",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761826052917",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:07:33.355Z"
+  },
+  {
+    "id": "690355050ad75e000a0d5f3a",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761826052917",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:07:33.355Z"
+  },
+  {
+    "id": "690355050ad75e000a0d5f3b",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761826052917",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:07:33.355Z"
+  },
+  {
+    "id": "690355050ad75e000a0d5f3c",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761826052917",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:07:33.355Z"
+  },
+  {
+    "id": "690355050ad75e000a0d5f3d",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761826052917",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:07:33.355Z"
+  },
+  {
+    "id": "690355050ad75e000a0d5f3e",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761826052917",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:07:33.355Z"
+  },
+  {
+    "id": "690355046fe6f1000aa0719d",
+    "variable": "water_depth",
+    "value": 15.35,
+    "type": "number",
+    "group": "1761826052917",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:07:32.919Z"
+  },
+  {
+    "id": "690352ab6fe6f1000aa03427",
+    "variable": "navd_normal_we_deviation",
+    "value": -4.43,
+    "type": "number",
+    "group": "1761825451112",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:57:31.566Z"
+  },
+  {
+    "id": "690352ab6fe6f1000aa03428",
+    "variable": "navd_normal_we_status",
+    "value": "Below Normal",
+    "type": "string",
+    "group": "1761825451112",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:57:31.566Z"
+  },
+  {
+    "id": "690352ab6fe6f1000aa03429",
+    "variable": "navd_current_we",
+    "value": 102.65,
+    "type": "number",
+    "group": "1761825451112",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:57:31.566Z"
+  },
+  {
+    "id": "690352ab6fe6f1000aa0342a",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761825451112",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:57:31.566Z"
+  },
+  {
+    "id": "690352ab6fe6f1000aa0342b",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761825451112",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:57:31.566Z"
+  },
+  {
+    "id": "690352ab6fe6f1000aa0342c",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761825451112",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T11:57:31.566Z"
+  },
+  {
+    "id": "690352ab6fe6f1000aa0342d",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761825451112",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T11:57:31.566Z"
+  },
+  {
+    "id": "690352ab6fe6f1000aa0342e",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761825451112",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T11:57:31.566Z"
+  },
+  {
+    "id": "690352ab6fe6f1000aa0342f",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761825451112",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T11:57:31.566Z"
+  },
+  {
+    "id": "690352ab6fe6f1000aa03430",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761825451112",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T11:57:31.566Z"
+  },
+  {
+    "id": "690352ab6fe6f1000aa03431",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761825451112",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:57:31.566Z"
+  },
+  {
+    "id": "690352ab6fe6f1000aa03432",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761825451112",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:57:31.566Z"
+  },
+  {
+    "id": "690352ab6fe6f1000aa03433",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761825451112",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:57:31.566Z"
+  },
+  {
+    "id": "690352ab6fe6f1000aa03434",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761825451112",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:57:31.566Z"
+  },
+  {
+    "id": "690352ab6fe6f1000aa03435",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761825451112",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:57:31.566Z"
+  },
+  {
+    "id": "690352ab6fe6f1000aa03436",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761825451112",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:57:31.566Z"
+  },
+  {
+    "id": "690352ab6fe6f1000aa03437",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761825451112",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:57:31.566Z"
+  },
+  {
+    "id": "690352ab6fe6f1000aa03438",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761825451112",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:57:31.566Z"
+  },
+  {
+    "id": "690352ab6fe6f1000aa03439",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761825451112",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:57:31.566Z"
+  },
+  {
+    "id": "690352ab822d42000ae05913",
+    "variable": "water_depth",
+    "value": 15.35,
+    "type": "number",
+    "group": "1761825451112",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:57:31.114Z"
+  },
+  {
+    "id": "690350557410ee000a04912a",
+    "variable": "navd_normal_we_deviation",
+    "value": -4.43,
+    "type": "number",
+    "group": "1761824852438",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:47:32.878Z"
+  },
+  {
+    "id": "690350557410ee000a04912b",
+    "variable": "navd_normal_we_status",
+    "value": "Below Normal",
+    "type": "string",
+    "group": "1761824852438",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:47:32.878Z"
+  },
+  {
+    "id": "690350557410ee000a04912c",
+    "variable": "navd_current_we",
+    "value": 102.65,
+    "type": "number",
+    "group": "1761824852438",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:47:32.878Z"
+  },
+  {
+    "id": "690350557410ee000a04912d",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761824852438",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:47:32.878Z"
+  },
+  {
+    "id": "690350557410ee000a04912e",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761824852438",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:47:32.878Z"
+  },
+  {
+    "id": "690350557410ee000a04912f",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761824852438",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T11:47:32.878Z"
+  },
+  {
+    "id": "690350557410ee000a049130",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761824852438",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T11:47:32.878Z"
+  },
+  {
+    "id": "690350557410ee000a049131",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761824852438",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T11:47:32.878Z"
+  },
+  {
+    "id": "690350557410ee000a049132",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761824852438",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T11:47:32.878Z"
+  },
+  {
+    "id": "690350557410ee000a049133",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761824852438",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T11:47:32.878Z"
+  },
+  {
+    "id": "690350557410ee000a049134",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761824852438",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:47:32.878Z"
+  },
+  {
+    "id": "690350557410ee000a049135",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761824852438",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:47:32.878Z"
+  },
+  {
+    "id": "690350557410ee000a049136",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761824852438",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:47:32.878Z"
+  },
+  {
+    "id": "690350557410ee000a049137",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761824852438",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:47:32.878Z"
+  },
+  {
+    "id": "690350557410ee000a049138",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761824852438",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:47:32.878Z"
+  },
+  {
+    "id": "690350557410ee000a049139",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761824852438",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:47:32.878Z"
+  },
+  {
+    "id": "690350557410ee000a04913a",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761824852438",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:47:32.878Z"
+  },
+  {
+    "id": "690350557410ee000a04913b",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761824852438",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:47:32.878Z"
+  },
+  {
+    "id": "690350557410ee000a04913c",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761824852438",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:47:32.878Z"
+  },
+  {
+    "id": "69035054e26ed3000a5ad74f",
+    "variable": "water_depth",
+    "value": 15.35,
+    "type": "number",
+    "group": "1761824852438",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:47:32.440Z"
+  },
+  {
+    "id": "69034dfbd60a0e000fbc7955",
+    "variable": "navd_normal_we_deviation",
+    "value": -4.43,
+    "type": "number",
+    "group": "1761824251115",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:37:31.616Z"
+  },
+  {
+    "id": "69034dfbd60a0e000fbc7956",
+    "variable": "navd_normal_we_status",
+    "value": "Below Normal",
+    "type": "string",
+    "group": "1761824251115",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:37:31.616Z"
+  },
+  {
+    "id": "69034dfbd60a0e000fbc7957",
+    "variable": "navd_current_we",
+    "value": 102.65,
+    "type": "number",
+    "group": "1761824251115",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:37:31.616Z"
+  },
+  {
+    "id": "69034dfbd60a0e000fbc7958",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761824251115",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:37:31.616Z"
+  },
+  {
+    "id": "69034dfbd60a0e000fbc7959",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761824251115",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:37:31.616Z"
+  },
+  {
+    "id": "69034dfbd60a0e000fbc795a",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761824251115",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T11:37:31.616Z"
+  },
+  {
+    "id": "69034dfbd60a0e000fbc795b",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761824251115",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T11:37:31.616Z"
+  },
+  {
+    "id": "69034dfbd60a0e000fbc795c",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761824251115",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T11:37:31.616Z"
+  },
+  {
+    "id": "69034dfbd60a0e000fbc795d",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761824251115",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T11:37:31.616Z"
+  },
+  {
+    "id": "69034dfbd60a0e000fbc795e",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761824251115",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T11:37:31.616Z"
+  },
+  {
+    "id": "69034dfbd60a0e000fbc795f",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761824251115",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:37:31.616Z"
+  },
+  {
+    "id": "69034dfbd60a0e000fbc7960",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761824251115",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:37:31.616Z"
+  },
+  {
+    "id": "69034dfbd60a0e000fbc7961",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761824251115",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:37:31.616Z"
+  },
+  {
+    "id": "69034dfbd60a0e000fbc7962",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761824251115",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:37:31.616Z"
+  },
+  {
+    "id": "69034dfbd60a0e000fbc7963",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761824251115",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:37:31.616Z"
+  },
+  {
+    "id": "69034dfbd60a0e000fbc7964",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761824251115",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:37:31.616Z"
+  },
+  {
+    "id": "69034dfbd60a0e000fbc7965",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761824251115",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:37:31.616Z"
+  },
+  {
+    "id": "69034dfbd60a0e000fbc7966",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761824251115",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:37:31.616Z"
+  },
+  {
+    "id": "69034dfbd60a0e000fbc7967",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761824251115",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:37:31.616Z"
+  },
+  {
+    "id": "69034dfb7ba448000a90f5ed",
+    "variable": "water_depth",
+    "value": 15.35,
+    "type": "number",
+    "group": "1761824251115",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:37:31.117Z"
+  },
+  {
+    "id": "69034ba4d60a0e000fbc3ccb",
+    "variable": "navd_normal_we_deviation",
+    "value": -4.43,
+    "type": "number",
+    "group": "1761823652151",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:27:32.647Z"
+  },
+  {
+    "id": "69034ba4d60a0e000fbc3ccc",
+    "variable": "navd_normal_we_status",
+    "value": "Below Normal",
+    "type": "string",
+    "group": "1761823652151",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:27:32.647Z"
+  },
+  {
+    "id": "69034ba4d60a0e000fbc3ccd",
+    "variable": "navd_current_we",
+    "value": 102.65,
+    "type": "number",
+    "group": "1761823652151",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:27:32.647Z"
+  },
+  {
+    "id": "69034ba4d60a0e000fbc3cce",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761823652151",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:27:32.647Z"
+  },
+  {
+    "id": "69034ba4d60a0e000fbc3ccf",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761823652151",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:27:32.647Z"
+  },
+  {
+    "id": "69034ba4d60a0e000fbc3cd0",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761823652151",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T11:27:32.647Z"
+  },
+  {
+    "id": "69034ba4d60a0e000fbc3cd1",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761823652151",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T11:27:32.647Z"
+  },
+  {
+    "id": "69034ba4d60a0e000fbc3cd2",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761823652151",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T11:27:32.647Z"
+  },
+  {
+    "id": "69034ba4d60a0e000fbc3cd3",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761823652151",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T11:27:32.647Z"
+  },
+  {
+    "id": "69034ba4d60a0e000fbc3cd4",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761823652151",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T11:27:32.647Z"
+  },
+  {
+    "id": "69034ba4d60a0e000fbc3cd5",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761823652151",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:27:32.647Z"
+  },
+  {
+    "id": "69034ba4d60a0e000fbc3cd6",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761823652151",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:27:32.647Z"
+  },
+  {
+    "id": "69034ba4d60a0e000fbc3cd7",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761823652151",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:27:32.647Z"
+  },
+  {
+    "id": "69034ba4d60a0e000fbc3cd8",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761823652151",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:27:32.647Z"
+  },
+  {
+    "id": "69034ba4d60a0e000fbc3cd9",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761823652151",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:27:32.647Z"
+  },
+  {
+    "id": "69034ba4d60a0e000fbc3cda",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761823652151",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:27:32.647Z"
+  },
+  {
+    "id": "69034ba4d60a0e000fbc3cdb",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761823652151",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:27:32.647Z"
+  },
+  {
+    "id": "69034ba4d60a0e000fbc3cdc",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761823652151",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:27:32.647Z"
+  },
+  {
+    "id": "69034ba4d60a0e000fbc3cdd",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761823652151",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:27:32.647Z"
+  },
+  {
+    "id": "69034ba4ddade9000a8761e4",
+    "variable": "water_depth",
+    "value": 15.35,
+    "type": "number",
+    "group": "1761823652151",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:27:32.154Z"
+  },
+  {
+    "id": "6903494aebd5e5000acb2605",
+    "variable": "navd_normal_we_deviation",
+    "value": -3.64,
+    "type": "number",
+    "group": "1761823049685",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:17:30.139Z"
+  },
+  {
+    "id": "6903494aebd5e5000acb2606",
+    "variable": "navd_normal_we_status",
+    "value": "Below Normal",
+    "type": "string",
+    "group": "1761823049685",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:17:30.139Z"
+  },
+  {
+    "id": "6903494aebd5e5000acb2607",
+    "variable": "navd_current_we",
+    "value": 102.72,
+    "type": "number",
+    "group": "1761823049685",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:17:30.139Z"
+  },
+  {
+    "id": "6903494aebd5e5000acb2608",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761823049685",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:17:30.139Z"
+  },
+  {
+    "id": "6903494aebd5e5000acb2609",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761823049685",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:17:30.139Z"
+  },
+  {
+    "id": "6903494aebd5e5000acb260a",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761823049685",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T11:17:30.139Z"
+  },
+  {
+    "id": "6903494aebd5e5000acb260b",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761823049685",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T11:17:30.139Z"
+  },
+  {
+    "id": "6903494aebd5e5000acb260c",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761823049685",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T11:17:30.139Z"
+  },
+  {
+    "id": "6903494aebd5e5000acb260d",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761823049685",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T11:17:30.139Z"
+  },
+  {
+    "id": "6903494aebd5e5000acb260e",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761823049685",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T11:17:30.139Z"
+  },
+  {
+    "id": "6903494aebd5e5000acb260f",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761823049685",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:17:30.139Z"
+  },
+  {
+    "id": "6903494aebd5e5000acb2610",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761823049685",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:17:30.139Z"
+  },
+  {
+    "id": "6903494aebd5e5000acb2611",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761823049685",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:17:30.139Z"
+  },
+  {
+    "id": "6903494aebd5e5000acb2612",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761823049685",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:17:30.139Z"
+  },
+  {
+    "id": "6903494aebd5e5000acb2613",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761823049685",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:17:30.139Z"
+  },
+  {
+    "id": "6903494aebd5e5000acb2614",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761823049685",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:17:30.139Z"
+  },
+  {
+    "id": "6903494aebd5e5000acb2615",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761823049685",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:17:30.139Z"
+  },
+  {
+    "id": "6903494aebd5e5000acb2616",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761823049685",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:17:30.139Z"
+  },
+  {
+    "id": "6903494aebd5e5000acb2617",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761823049685",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:17:30.139Z"
+  },
+  {
+    "id": "690349491c56be000aa0f6b8",
+    "variable": "water_depth",
+    "value": 16.14,
+    "type": "number",
+    "group": "1761823049685",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:17:29.687Z"
+  },
+  {
+    "id": "690346f376b75a000aa162df",
+    "variable": "navd_normal_we_deviation",
+    "value": -3.64,
+    "type": "number",
+    "group": "1761822451237",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:07:31.693Z"
+  },
+  {
+    "id": "690346f376b75a000aa162e0",
+    "variable": "navd_normal_we_status",
+    "value": "Below Normal",
+    "type": "string",
+    "group": "1761822451237",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:07:31.693Z"
+  },
+  {
+    "id": "690346f376b75a000aa162e1",
+    "variable": "navd_current_we",
+    "value": 102.72,
+    "type": "number",
+    "group": "1761822451237",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:07:31.693Z"
+  },
+  {
+    "id": "690346f376b75a000aa162e2",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761822451237",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:07:31.693Z"
+  },
+  {
+    "id": "690346f376b75a000aa162e3",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761822451237",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:07:31.693Z"
+  },
+  {
+    "id": "690346f376b75a000aa162e4",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761822451237",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T11:07:31.693Z"
+  },
+  {
+    "id": "690346f376b75a000aa162e5",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761822451237",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T11:07:31.693Z"
+  },
+  {
+    "id": "690346f376b75a000aa162e6",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761822451237",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T11:07:31.693Z"
+  },
+  {
+    "id": "690346f376b75a000aa162e7",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761822451237",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T11:07:31.693Z"
+  },
+  {
+    "id": "690346f376b75a000aa162e8",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761822451237",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T11:07:31.693Z"
+  },
+  {
+    "id": "690346f376b75a000aa162e9",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761822451237",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:07:31.693Z"
+  },
+  {
+    "id": "690346f376b75a000aa162ea",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761822451237",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:07:31.693Z"
+  },
+  {
+    "id": "690346f376b75a000aa162eb",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761822451237",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:07:31.693Z"
+  },
+  {
+    "id": "690346f376b75a000aa162ec",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761822451237",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:07:31.693Z"
+  },
+  {
+    "id": "690346f376b75a000aa162ed",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761822451237",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:07:31.693Z"
+  },
+  {
+    "id": "690346f376b75a000aa162ee",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761822451237",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:07:31.693Z"
+  },
+  {
+    "id": "690346f376b75a000aa162ef",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761822451237",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:07:31.693Z"
+  },
+  {
+    "id": "690346f376b75a000aa162f0",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761822451237",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:07:31.693Z"
+  },
+  {
+    "id": "690346f376b75a000aa162f1",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761822451237",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:07:31.693Z"
+  },
+  {
+    "id": "690346f37410ee000a03a418",
+    "variable": "water_depth",
+    "value": 16.14,
+    "type": "number",
+    "group": "1761822451237",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:07:31.239Z"
+  },
+  {
+    "id": "6903449bb92ceb000a6bbd73",
+    "variable": "navd_normal_we_deviation",
+    "value": -3.64,
+    "type": "number",
+    "group": "1761821850805",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:57:31.284Z"
+  },
+  {
+    "id": "6903449bb92ceb000a6bbd74",
+    "variable": "navd_normal_we_status",
+    "value": "Below Normal",
+    "type": "string",
+    "group": "1761821850805",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:57:31.284Z"
+  },
+  {
+    "id": "6903449bb92ceb000a6bbd75",
+    "variable": "navd_current_we",
+    "value": 102.72,
+    "type": "number",
+    "group": "1761821850805",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:57:31.284Z"
+  },
+  {
+    "id": "6903449bb92ceb000a6bbd76",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761821850805",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:57:31.284Z"
+  },
+  {
+    "id": "6903449bb92ceb000a6bbd77",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761821850805",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:57:31.284Z"
+  },
+  {
+    "id": "6903449bb92ceb000a6bbd78",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761821850805",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T10:57:31.284Z"
+  },
+  {
+    "id": "6903449bb92ceb000a6bbd79",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761821850805",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T10:57:31.284Z"
+  },
+  {
+    "id": "6903449bb92ceb000a6bbd7a",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761821850805",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T10:57:31.284Z"
+  },
+  {
+    "id": "6903449bb92ceb000a6bbd7b",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761821850805",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T10:57:31.284Z"
+  },
+  {
+    "id": "6903449bb92ceb000a6bbd7c",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761821850805",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T10:57:31.284Z"
+  },
+  {
+    "id": "6903449bb92ceb000a6bbd7d",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761821850805",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:57:31.284Z"
+  },
+  {
+    "id": "6903449bb92ceb000a6bbd7e",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761821850805",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:57:31.284Z"
+  },
+  {
+    "id": "6903449bb92ceb000a6bbd7f",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761821850805",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:57:31.284Z"
+  },
+  {
+    "id": "6903449bb92ceb000a6bbd80",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761821850805",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:57:31.284Z"
+  },
+  {
+    "id": "6903449bb92ceb000a6bbd81",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761821850805",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:57:31.284Z"
+  },
+  {
+    "id": "6903449bb92ceb000a6bbd82",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761821850805",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:57:31.284Z"
+  },
+  {
+    "id": "6903449bb92ceb000a6bbd83",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761821850805",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:57:31.284Z"
+  },
+  {
+    "id": "6903449bb92ceb000a6bbd84",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761821850805",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:57:31.284Z"
+  },
+  {
+    "id": "6903449bb92ceb000a6bbd85",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761821850805",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:57:31.284Z"
+  },
+  {
+    "id": "6903449a8838f9000a26910e",
+    "variable": "water_depth",
+    "value": 16.14,
+    "type": "number",
+    "group": "1761821850805",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:57:30.807Z"
+  },
+  {
+    "id": "690342400ad75e000a0b7f6a",
+    "variable": "navd_normal_we_deviation",
+    "value": -3.64,
+    "type": "number",
+    "group": "1761821247949",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:47:28.346Z"
+  },
+  {
+    "id": "690342400ad75e000a0b7f6b",
+    "variable": "navd_normal_we_status",
+    "value": "Below Normal",
+    "type": "string",
+    "group": "1761821247949",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:47:28.346Z"
+  },
+  {
+    "id": "690342400ad75e000a0b7f6c",
+    "variable": "navd_current_we",
+    "value": 102.72,
+    "type": "number",
+    "group": "1761821247949",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:47:28.346Z"
+  },
+  {
+    "id": "690342400ad75e000a0b7f6d",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761821247949",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:47:28.346Z"
+  },
+  {
+    "id": "690342400ad75e000a0b7f6e",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761821247949",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:47:28.346Z"
+  },
+  {
+    "id": "690342400ad75e000a0b7f6f",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761821247949",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T10:47:28.346Z"
+  },
+  {
+    "id": "690342400ad75e000a0b7f70",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761821247949",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T10:47:28.346Z"
+  },
+  {
+    "id": "690342400ad75e000a0b7f71",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761821247949",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T10:47:28.346Z"
+  },
+  {
+    "id": "690342400ad75e000a0b7f72",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761821247949",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T10:47:28.346Z"
+  },
+  {
+    "id": "690342400ad75e000a0b7f73",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761821247949",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T10:47:28.346Z"
+  },
+  {
+    "id": "690342400ad75e000a0b7f74",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761821247949",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:47:28.346Z"
+  },
+  {
+    "id": "690342400ad75e000a0b7f75",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761821247949",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:47:28.346Z"
+  },
+  {
+    "id": "690342400ad75e000a0b7f76",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761821247949",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:47:28.346Z"
+  },
+  {
+    "id": "690342400ad75e000a0b7f77",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761821247949",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:47:28.346Z"
+  },
+  {
+    "id": "690342400ad75e000a0b7f78",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761821247949",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:47:28.346Z"
+  },
+  {
+    "id": "690342400ad75e000a0b7f79",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761821247949",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:47:28.346Z"
+  },
+  {
+    "id": "690342400ad75e000a0b7f7a",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761821247949",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:47:28.346Z"
+  },
+  {
+    "id": "690342400ad75e000a0b7f7b",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761821247949",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:47:28.346Z"
+  },
+  {
+    "id": "690342400ad75e000a0b7f7c",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761821247949",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:47:28.346Z"
+  },
+  {
+    "id": "6903423f8838f9000a265653",
+    "variable": "water_depth",
+    "value": 16.14,
+    "type": "number",
+    "group": "1761821247949",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:47:27.951Z"
+  },
+  {
+    "id": "69033fe6eb546200090026fd",
+    "variable": "navd_normal_we_deviation",
+    "value": -3.64,
+    "type": "number",
+    "group": "1761820646100",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:37:26.495Z"
+  },
+  {
+    "id": "69033fe6eb546200090026fe",
+    "variable": "navd_normal_we_status",
+    "value": "Below Normal",
+    "type": "string",
+    "group": "1761820646100",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:37:26.495Z"
+  },
+  {
+    "id": "69033fe6eb546200090026ff",
+    "variable": "navd_current_we",
+    "value": 102.72,
+    "type": "number",
+    "group": "1761820646100",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:37:26.495Z"
+  },
+  {
+    "id": "69033fe6eb54620009002700",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761820646100",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:37:26.495Z"
+  },
+  {
+    "id": "69033fe6eb54620009002701",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761820646100",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:37:26.495Z"
+  },
+  {
+    "id": "69033fe6eb54620009002702",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761820646100",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T10:37:26.495Z"
+  },
+  {
+    "id": "69033fe6eb54620009002703",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761820646100",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T10:37:26.495Z"
+  },
+  {
+    "id": "69033fe6eb54620009002704",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761820646100",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T10:37:26.495Z"
+  },
+  {
+    "id": "69033fe6eb54620009002705",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761820646100",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T10:37:26.495Z"
+  },
+  {
+    "id": "69033fe6eb54620009002706",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761820646100",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T10:37:26.495Z"
+  },
+  {
+    "id": "69033fe6eb54620009002707",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761820646100",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:37:26.495Z"
+  },
+  {
+    "id": "69033fe6eb54620009002708",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761820646100",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:37:26.495Z"
+  },
+  {
+    "id": "69033fe6eb54620009002709",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761820646100",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:37:26.495Z"
+  },
+  {
+    "id": "69033fe6eb5462000900270a",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761820646100",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:37:26.495Z"
+  },
+  {
+    "id": "69033fe6eb5462000900270b",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761820646100",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:37:26.495Z"
+  },
+  {
+    "id": "69033fe6eb5462000900270c",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761820646100",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:37:26.495Z"
+  },
+  {
+    "id": "69033fe6eb5462000900270d",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761820646100",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:37:26.495Z"
+  },
+  {
+    "id": "69033fe6eb5462000900270e",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761820646100",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:37:26.495Z"
+  },
+  {
+    "id": "69033fe6eb5462000900270f",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761820646100",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:37:26.495Z"
+  },
+  {
+    "id": "69033fe6ddade9000a863bd3",
+    "variable": "water_depth",
+    "value": 16.14,
+    "type": "number",
+    "group": "1761820646100",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:37:26.103Z"
+  },
+  {
+    "id": "69033d8f6fe6f1000a9e2529",
+    "variable": "navd_normal_we_deviation",
+    "value": -2.85,
+    "type": "number",
+    "group": "1761820046515",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:27:26.952Z"
+  },
+  {
+    "id": "69033d8f6fe6f1000a9e252a",
+    "variable": "navd_normal_we_status",
+    "value": "Below Normal",
+    "type": "string",
+    "group": "1761820046515",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:27:26.952Z"
+  },
+  {
+    "id": "69033d8f6fe6f1000a9e252b",
+    "variable": "navd_current_we",
+    "value": 102.78,
+    "type": "number",
+    "group": "1761820046515",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:27:26.952Z"
+  },
+  {
+    "id": "69033d8f6fe6f1000a9e252c",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761820046515",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:27:26.952Z"
+  },
+  {
+    "id": "69033d8f6fe6f1000a9e252d",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761820046515",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:27:26.952Z"
+  },
+  {
+    "id": "69033d8f6fe6f1000a9e252e",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761820046515",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T10:27:26.952Z"
+  },
+  {
+    "id": "69033d8f6fe6f1000a9e252f",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761820046515",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T10:27:26.952Z"
+  },
+  {
+    "id": "69033d8f6fe6f1000a9e2530",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761820046515",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T10:27:26.952Z"
+  },
+  {
+    "id": "69033d8f6fe6f1000a9e2531",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761820046515",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T10:27:26.952Z"
+  },
+  {
+    "id": "69033d8f6fe6f1000a9e2532",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761820046515",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T10:27:26.952Z"
+  },
+  {
+    "id": "69033d8f6fe6f1000a9e2533",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761820046515",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:27:26.952Z"
+  },
+  {
+    "id": "69033d8f6fe6f1000a9e2534",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761820046515",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:27:26.952Z"
+  },
+  {
+    "id": "69033d8f6fe6f1000a9e2535",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761820046515",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:27:26.952Z"
+  },
+  {
+    "id": "69033d8f6fe6f1000a9e2536",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761820046515",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:27:26.952Z"
+  },
+  {
+    "id": "69033d8f6fe6f1000a9e2537",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761820046515",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:27:26.952Z"
+  },
+  {
+    "id": "69033d8f6fe6f1000a9e2538",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761820046515",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:27:26.952Z"
+  },
+  {
+    "id": "69033d8f6fe6f1000a9e2539",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761820046515",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:27:26.952Z"
+  },
+  {
+    "id": "69033d8f6fe6f1000a9e253a",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761820046515",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:27:26.952Z"
+  },
+  {
+    "id": "69033d8f6fe6f1000a9e253b",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761820046515",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:27:26.952Z"
+  },
+  {
+    "id": "69033d8e7ba448000a8f538d",
+    "variable": "water_depth",
+    "value": 16.93,
+    "type": "number",
+    "group": "1761820046515",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:27:26.517Z"
+  },
+  {
+    "id": "69033b3a7ba448000a8f1e25",
+    "variable": "navd_normal_we_status",
+    "value": "Above Normal",
+    "type": "string",
+    "group": "1761819449623",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:17:30.040Z"
+  },
+  {
+    "id": "69033b3a7ba448000a8f1e26",
+    "variable": "navd_current_we",
+    "value": 103.17,
+    "type": "number",
+    "group": "1761819449623",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:17:30.040Z"
+  },
+  {
+    "id": "69033b3a7ba448000a8f1e27",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761819449623",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:17:30.040Z"
+  },
+  {
+    "id": "69033b3a7ba448000a8f1e28",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761819449623",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:17:30.040Z"
+  },
+  {
+    "id": "69033b3a7ba448000a8f1e29",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761819449623",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T10:17:30.040Z"
+  },
+  {
+    "id": "69033b3a7ba448000a8f1e2a",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761819449623",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T10:17:30.040Z"
+  },
+  {
+    "id": "69033b3a7ba448000a8f1e2b",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761819449623",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T10:17:30.040Z"
+  },
+  {
+    "id": "69033b3a7ba448000a8f1e2c",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761819449623",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T10:17:30.040Z"
+  },
+  {
+    "id": "69033b3a7ba448000a8f1e2d",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761819449623",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T10:17:30.040Z"
+  },
+  {
+    "id": "69033b3a7ba448000a8f1e2e",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761819449623",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:17:30.040Z"
+  },
+  {
+    "id": "69033b3a7ba448000a8f1e2f",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761819449623",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:17:30.040Z"
+  },
+  {
+    "id": "69033b3a7ba448000a8f1e30",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761819449623",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:17:30.040Z"
+  },
+  {
+    "id": "69033b3a7ba448000a8f1e31",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761819449623",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:17:30.040Z"
+  },
+  {
+    "id": "69033b3a7ba448000a8f1e32",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761819449623",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:17:30.040Z"
+  },
+  {
+    "id": "69033b3a7ba448000a8f1e33",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761819449623",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:17:30.040Z"
+  },
+  {
+    "id": "69033b3a7ba448000a8f1e34",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761819449623",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:17:30.040Z"
+  },
+  {
+    "id": "69033b3a7ba448000a8f1e35",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761819449623",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:17:30.040Z"
+  },
+  {
+    "id": "69033b3a7ba448000a8f1e36",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761819449623",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:17:30.040Z"
+  },
+  {
+    "id": "69033b3a7ba448000a8f1e24",
+    "variable": "navd_normal_we_deviation",
+    "value": 1.87,
+    "type": "number",
+    "group": "1761819449623",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:17:30.039Z"
+  },
+  {
+    "id": "69033b39a4feb400090ffd5e",
+    "variable": "water_depth",
+    "value": 21.65,
+    "type": "number",
+    "group": "1761819449623",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:17:29.625Z"
+  },
+  {
+    "id": "690338de94138e000a2e5fb1",
+    "variable": "navd_normal_we_deviation",
+    "value": 2.66,
+    "type": "number",
+    "group": "1761818845951",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:07:26.400Z"
+  },
+  {
+    "id": "690338de94138e000a2e5fb2",
+    "variable": "navd_normal_we_status",
+    "value": "Above Normal",
+    "type": "string",
+    "group": "1761818845951",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:07:26.400Z"
+  },
+  {
+    "id": "690338de94138e000a2e5fb3",
+    "variable": "navd_current_we",
+    "value": 103.24,
+    "type": "number",
+    "group": "1761818845951",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:07:26.400Z"
+  },
+  {
+    "id": "690338de94138e000a2e5fb4",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761818845951",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:07:26.400Z"
+  },
+  {
+    "id": "690338de94138e000a2e5fb5",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761818845951",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:07:26.400Z"
+  },
+  {
+    "id": "690338de94138e000a2e5fb6",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761818845951",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T10:07:26.400Z"
+  },
+  {
+    "id": "690338de94138e000a2e5fb7",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761818845951",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T10:07:26.400Z"
+  },
+  {
+    "id": "690338de94138e000a2e5fb8",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761818845951",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T10:07:26.400Z"
+  },
+  {
+    "id": "690338de94138e000a2e5fb9",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761818845951",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T10:07:26.400Z"
+  },
+  {
+    "id": "690338de94138e000a2e5fba",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761818845951",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T10:07:26.400Z"
+  },
+  {
+    "id": "690338de94138e000a2e5fbb",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761818845951",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:07:26.400Z"
+  },
+  {
+    "id": "690338de94138e000a2e5fbc",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761818845951",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:07:26.400Z"
+  },
+  {
+    "id": "690338de94138e000a2e5fbd",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761818845951",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:07:26.400Z"
+  },
+  {
+    "id": "690338de94138e000a2e5fbe",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761818845951",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:07:26.400Z"
+  },
+  {
+    "id": "690338de94138e000a2e5fbf",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761818845951",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:07:26.400Z"
+  },
+  {
+    "id": "690338de94138e000a2e5fc0",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761818845951",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:07:26.400Z"
+  },
+  {
+    "id": "690338de94138e000a2e5fc1",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761818845951",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:07:26.400Z"
+  },
+  {
+    "id": "690338de94138e000a2e5fc2",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761818845951",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:07:26.400Z"
+  },
+  {
+    "id": "690338de94138e000a2e5fc3",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761818845951",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:07:26.400Z"
+  },
+  {
+    "id": "690338dda4feb400090fbfb8",
+    "variable": "water_depth",
+    "value": 22.44,
+    "type": "number",
+    "group": "1761818845951",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:07:25.952Z"
+  },
+  {
+    "id": "69033687822d42000add8ed5",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761818246469",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T09:57:26.921Z"
+  },
+  {
+    "id": "69033687822d42000add8ed6",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761818246469",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:57:26.921Z"
+  },
+  {
+    "id": "69033687822d42000add8ed7",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761818246469",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:57:26.921Z"
+  },
+  {
+    "id": "69033687822d42000add8ed8",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761818246469",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:57:26.921Z"
+  },
+  {
+    "id": "69033687822d42000add8ed9",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761818246469",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:57:26.921Z"
+  },
+  {
+    "id": "69033687822d42000add8eda",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761818246469",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:57:26.921Z"
+  },
+  {
+    "id": "69033687822d42000add8edb",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761818246469",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:57:26.921Z"
+  },
+  {
+    "id": "69033687822d42000add8edc",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761818246469",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:57:26.921Z"
+  },
+  {
+    "id": "69033687822d42000add8edd",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761818246469",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:57:26.921Z"
+  },
+  {
+    "id": "69033687822d42000add8ede",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761818246469",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:57:26.921Z"
+  },
+  {
+    "id": "69033687822d42000add8ecc",
+    "variable": "navd_normal_we_deviation",
+    "value": 2.66,
+    "type": "number",
+    "group": "1761818246469",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:57:26.920Z"
+  },
+  {
+    "id": "69033687822d42000add8ecd",
+    "variable": "navd_normal_we_status",
+    "value": "Above Normal",
+    "type": "string",
+    "group": "1761818246469",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:57:26.920Z"
+  },
+  {
+    "id": "69033687822d42000add8ece",
+    "variable": "navd_current_we",
+    "value": 103.24,
+    "type": "number",
+    "group": "1761818246469",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:57:26.920Z"
+  },
+  {
+    "id": "69033687822d42000add8ecf",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761818246469",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:57:26.920Z"
+  },
+  {
+    "id": "69033687822d42000add8ed0",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761818246469",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:57:26.920Z"
+  },
+  {
+    "id": "69033687822d42000add8ed1",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761818246469",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T09:57:26.920Z"
+  },
+  {
+    "id": "69033687822d42000add8ed2",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761818246469",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T09:57:26.920Z"
+  },
+  {
+    "id": "69033687822d42000add8ed3",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761818246469",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T09:57:26.920Z"
+  },
+  {
+    "id": "69033687822d42000add8ed4",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761818246469",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T09:57:26.920Z"
+  },
+  {
+    "id": "69033686b92ceb000a6a5fd9",
+    "variable": "water_depth",
+    "value": 22.44,
+    "type": "number",
+    "group": "1761818246469",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:57:26.472Z"
+  },
+  {
+    "id": "6903342fd60a0e000fb9f0ad",
+    "variable": "navd_normal_we_deviation",
+    "value": 2.66,
+    "type": "number",
+    "group": "1761817646523",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:47:26.933Z"
+  },
+  {
+    "id": "6903342fd60a0e000fb9f0ae",
+    "variable": "navd_normal_we_status",
+    "value": "Above Normal",
+    "type": "string",
+    "group": "1761817646523",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:47:26.933Z"
+  },
+  {
+    "id": "6903342fd60a0e000fb9f0af",
+    "variable": "navd_current_we",
+    "value": 103.24,
+    "type": "number",
+    "group": "1761817646523",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:47:26.933Z"
+  },
+  {
+    "id": "6903342fd60a0e000fb9f0b0",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761817646523",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:47:26.933Z"
+  },
+  {
+    "id": "6903342fd60a0e000fb9f0b1",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761817646523",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:47:26.933Z"
+  },
+  {
+    "id": "6903342fd60a0e000fb9f0b2",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761817646523",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T09:47:26.933Z"
+  },
+  {
+    "id": "6903342fd60a0e000fb9f0b3",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761817646523",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T09:47:26.933Z"
+  },
+  {
+    "id": "6903342fd60a0e000fb9f0b4",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761817646523",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T09:47:26.933Z"
+  },
+  {
+    "id": "6903342fd60a0e000fb9f0b5",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761817646523",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T09:47:26.933Z"
+  },
+  {
+    "id": "6903342fd60a0e000fb9f0b6",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761817646523",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T09:47:26.933Z"
+  },
+  {
+    "id": "6903342fd60a0e000fb9f0b7",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761817646523",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:47:26.933Z"
+  },
+  {
+    "id": "6903342fd60a0e000fb9f0b8",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761817646523",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:47:26.933Z"
+  },
+  {
+    "id": "6903342fd60a0e000fb9f0b9",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761817646523",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:47:26.933Z"
+  },
+  {
+    "id": "6903342fd60a0e000fb9f0ba",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761817646523",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:47:26.933Z"
+  },
+  {
+    "id": "6903342fd60a0e000fb9f0bb",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761817646523",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:47:26.933Z"
+  },
+  {
+    "id": "6903342fd60a0e000fb9f0bc",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761817646523",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:47:26.933Z"
+  },
+  {
+    "id": "6903342fd60a0e000fb9f0bd",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761817646523",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:47:26.933Z"
+  },
+  {
+    "id": "6903342fd60a0e000fb9f0be",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761817646523",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:47:26.933Z"
+  },
+  {
+    "id": "6903342fd60a0e000fb9f0bf",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761817646523",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:47:26.933Z"
+  },
+  {
+    "id": "6903342e822d42000add5724",
+    "variable": "water_depth",
+    "value": 22.44,
+    "type": "number",
+    "group": "1761817646523",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:47:26.525Z"
+  },
+  {
+    "id": "690331d6822d42000add1deb",
+    "variable": "navd_ten_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761817045845",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:37:26.265Z"
+  },
+  {
+    "id": "690331d6822d42000add1dec",
+    "variable": "name",
+    "value": "Pond I",
+    "type": "string",
+    "group": "1761817045845",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:37:26.265Z"
+  },
+  {
+    "id": "690331d6822d42000add1ded",
+    "variable": "photo_url_one",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Control.jpeg",
+    "type": "string",
+    "group": "1761817045845",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:37:26.265Z"
+  },
+  {
+    "id": "690331d6822d42000add1dee",
+    "variable": "photo_url_two",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Details.jpeg",
+    "type": "string",
+    "group": "1761817045845",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:37:26.265Z"
+  },
+  {
+    "id": "690331d6822d42000add1def",
+    "variable": "photo_url_three",
+    "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
+    "type": "string",
+    "group": "1761817045845",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:37:26.265Z"
+  },
+  {
+    "id": "690331d6822d42000add1ddd",
+    "variable": "navd_normal_we_deviation",
+    "value": 2.66,
+    "type": "number",
+    "group": "1761817045845",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:37:26.264Z"
+  },
+  {
+    "id": "690331d6822d42000add1dde",
+    "variable": "navd_normal_we_status",
+    "value": "Above Normal",
+    "type": "string",
+    "group": "1761817045845",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:37:26.264Z"
+  },
+  {
+    "id": "690331d6822d42000add1ddf",
+    "variable": "navd_current_we",
+    "value": 103.24,
+    "type": "number",
+    "group": "1761817045845",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:37:26.264Z"
+  },
+  {
+    "id": "690331d6822d42000add1de0",
+    "variable": "navd_elevation_adjusting_factor",
+    "value": 101.37,
+    "type": "number",
+    "group": "1761817045845",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:37:26.264Z"
+  },
+  {
+    "id": "690331d6822d42000add1de1",
+    "variable": "normal_wd",
+    "value": 19.78,
+    "type": "number",
+    "group": "1761817045845",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:37:26.264Z"
+  },
+  {
+    "id": "690331d6822d42000add1de2",
+    "variable": "navd_normal_we",
+    "value": 103.02,
+    "type": "number",
+    "group": "1761817045845",
+    "location": "",
+    "metadata": "{\"color\":\"#13c613ff\"}",
+    "time": "2025-10-30T09:37:26.264Z"
+  },
+  {
+    "id": "690331d6822d42000add1de3",
+    "variable": "navd_max_op_we",
+    "value": 103.31,
+    "type": "number",
+    "group": "1761817045845",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T09:37:26.264Z"
+  },
+  {
+    "id": "690331d6822d42000add1de4",
+    "variable": "navd_min_op_we",
+    "value": 102.27,
+    "type": "number",
+    "group": "1761817045845",
+    "location": "",
+    "metadata": "{\"color\":\"#ff8c00\"}",
+    "time": "2025-10-30T09:37:26.264Z"
+  },
+  {
+    "id": "690331d6822d42000add1de5",
+    "variable": "navd_max_alarm_we",
+    "value": 104.86,
+    "type": "number",
+    "group": "1761817045845",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T09:37:26.264Z"
+  },
+  {
+    "id": "690331d6822d42000add1de6",
+    "variable": "navd_min_alarm_we",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761817045845",
+    "location": "",
+    "metadata": "{\"color\":\"#ff0000\"}",
+    "time": "2025-10-30T09:37:26.264Z"
+  },
+  {
+    "id": "690331d6822d42000add1de7",
+    "variable": "navd_alarm_top",
+    "value": 105.86,
+    "type": "number",
+    "group": "1761817045845",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:37:26.264Z"
+  },
+  {
+    "id": "690331d6822d42000add1de8",
+    "variable": "navd_alarm_bop",
+    "value": 86.86,
+    "type": "number",
+    "group": "1761817045845",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:37:26.264Z"
+  },
+  {
+    "id": "690331d6822d42000add1de9",
+    "variable": "navd_one_hundred_year_storm",
+    "value": 105,
+    "type": "number",
+    "group": "1761817045845",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:37:26.264Z"
+  },
+  {
+    "id": "690331d6822d42000add1dea",
+    "variable": "navd_twentyfive_year_storm",
+    "value": 0,
+    "type": "number",
+    "group": "1761817045845",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:37:26.264Z"
+  },
+  {
+    "id": "690331d58838f9000a24c200",
+    "variable": "water_depth",
+    "value": 22.44,
+    "type": "number",
+    "group": "1761817045845",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:37:25.847Z"
+  }
+]
