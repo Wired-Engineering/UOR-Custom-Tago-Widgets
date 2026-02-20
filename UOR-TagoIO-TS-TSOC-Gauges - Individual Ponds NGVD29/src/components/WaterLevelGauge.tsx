@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'preact/compat'
 import type { FunctionComponent } from 'preact'
-import { PieChart, Pie, Cell } from 'recharts'
+import { PieChart, Pie, Sector, DefaultZIndexes, ZIndexLayer } from 'recharts'
+import type { PieSectorDataItem } from 'recharts'
 import './WaterLevelGauge.css'
 
 // Hook to calculate responsive gauge dimensions based on viewport
@@ -58,6 +59,7 @@ interface WaterGaugeProps {
   bottomOfPond?: number
   maxAlarm?: number
   minAlarm?: number
+  deviceBattery?: number
   lastUpdated: string
 }
 
@@ -72,6 +74,7 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
   bottomOfPond,
   maxAlarm,
   minAlarm,
+  deviceBattery,
   lastUpdated
 }) => {
   // Use values directly from data - only treat 0 as undefined for non-bottom-of-pond values
@@ -288,8 +291,6 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
   }
   
   const gaugeSectors = createGaugeSectors()
-  const RADIAN = Math.PI / 180
-
   // Use responsive dimensions from hook
   const { chartWidth, chartHeight, cx, cy, iR, oR, scale } = useGaugeDimensions()
   
@@ -393,43 +394,42 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
   }
   */
 
-  // Arrow component for needle - using Recharts approach
-  const Arrow = () => {
-    const total = gaugeSectors.reduce((sum, sector) => sum + sector.value, 0)
-    const ang = 180.0 * (1 - needleValue / total)
-    const length = (iR + 2 * oR) / 3
-    const sin = Math.sin(-RADIAN * ang)
-    const cos = Math.cos(-RADIAN * ang)
-    // Scale the needle center circle and offset based on scale factor
-    const r = 5 * scale
-    const offset = 5 * scale
-    const x0 = cx + offset
-    const y0 = cy + offset
-    const xba = x0 + r * sin
-    const yba = y0 - r * cos
-    const xbb = x0 - r * sin
-    const ybb = y0 + r * cos
-    const xp = x0 + length * cos
-    const yp = y0 + length * sin
+  // Needle geometry - drawn pointing right (0°), rotated via CSS transform
+  const needleTotal = gaugeSectors.reduce((sum, sector) => sum + sector.value, 0)
+  const needleAng = 180.0 * (1 - needleValue / needleTotal) // 180 = left, 0 = right
+  const needleLength = (iR + 2 * oR) / 3
+  const needleR = 5 * scale
+  const needleX0 = cx + 5 * scale
+  const needleY0 = cy + 5 * scale
+  // Base needle shape pointing right (0°)
+  const needlePath = `M${needleX0} ${needleY0 - needleR}L${needleX0} ${needleY0 + needleR} L${needleX0 + needleLength} ${needleY0} Z`
 
-    return (
-      <g>
-        <circle cx={x0} cy={y0} r={r} fill="#000000" stroke="none" />
-        <path
-          d={`M${xba} ${yba}L${xbb} ${ybb} L${xp} ${yp} L${xba} ${yba}`}
-          stroke="none"
-          fill="#000000"
-        />
-      </g>
-    )
-  }
-  
+  // Animate needle: hidden until sectors finish, then sweep from left to target
+  const pieAnimationDuration = 800
+  const [needleVisible, setNeedleVisible] = useState(false)
+  const [needleReady, setNeedleReady] = useState(false)
+  useEffect(() => {
+    const timer = setTimeout(() => setNeedleVisible(true), pieAnimationDuration)
+    return () => clearTimeout(timer)
+  }, [])
+  useEffect(() => {
+    if (needleVisible) {
+      // Double rAF ensures the browser paints at 180° before we transition
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => setNeedleReady(true))
+      })
+    }
+  }, [needleVisible])
+  const displayAng = needleReady ? needleAng : 180
+
   const pieProps = {
     startAngle: 180,
     endAngle: 0,
     cx: cx,
     cy: cy,
-    isAnimationActive: false
+    isAnimationActive: true,
+    animationDuration: pieAnimationDuration,
+    animationBegin: 0
   }
   
   const getCurrentZoneInfo = () => {
@@ -471,7 +471,16 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
   
   const currentZoneInfo = getCurrentZoneInfo()
   const currentColor = currentZoneInfo.color
-  
+
+  const getBatteryColor = (level?: number) => {
+    if (level === undefined || level === null) return '#999'
+    if (level >= 75) return '#13c613'
+    if (level >= 30) return '#f0ad00'
+    return '#ff0000'
+  }
+
+  const batteryColor = getBatteryColor(deviceBattery)
+
   const [isExpanded, setIsExpanded] = useState(true)
   
   const toggleExpanded = () => {
@@ -494,31 +503,59 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
     >
       <div className="gauge-header">
         <h3 className="gauge-title" style={{ fontSize: `${16 * scale}px` }}>{name}</h3>
+        {deviceBattery !== undefined && deviceBattery !== null && (
+          <div className={`battery-indicator${deviceBattery <= 10 ? ' battery-critical' : ''}`} style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: `${3 * scale}px`,
+            fontSize: `${12 * scale}px`,
+            fontWeight: 600,
+            color: batteryColor
+          }}>
+            <svg width={18 * scale} height={10 * scale} viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.5" y="0.5" width="14" height="9" rx="1.5" stroke={batteryColor} strokeWidth="1" fill="none" />
+              <rect x="1.5" y="1.5" width={`${Math.max(0, Math.min(100, deviceBattery)) / 100 * 12}`} height="7" rx="0.5" fill={batteryColor} />
+              <rect x="15" y="2.5" width="2" height="5" rx="0.5" fill={batteryColor} />
+            </svg>
+            <span>{Math.round(deviceBattery)}%</span>
+          </div>
+        )}
       </div>
 
       <div className="gauge-container">
         <PieChart width={chartWidth} height={chartHeight}>
           {/* Main gauge sectors */}
           <Pie
-            stroke="white"
-            strokeWidth={1}
             data={gaugeSectors}
             innerRadius={iR}
             outerRadius={oR}
             {...pieProps}
             dataKey="value"
-            // DISABLING LABELS FOR NOW
-            //label={renderZoneLabel}
             labelLine={false}
-          >
-            {gaugeSectors.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={entry.color} stroke="white" strokeWidth={1} />
-            ))}
-          </Pie>
+            zIndex={DefaultZIndexes.scatter}
+            shape={(props: PieSectorDataItem) => (
+              <Sector
+                {...props}
+                fill={props.payload?.color}
+                stroke="white"
+                strokeWidth={1}
+              />
+            )}
+          />
 
-          {/* Always visible needle - render directly */}
-          {/* Semicircle: 180° (left) to 0° (right) */}
-          <Arrow />
+          {/* Needle - appears after sectors finish animating */}
+          {needleVisible && (
+            <ZIndexLayer zIndex={DefaultZIndexes.scatter + 1}>
+              <g style={{
+                transform: `rotate(${-displayAng}deg)`,
+                transformOrigin: `${needleX0}px ${needleY0}px`,
+                transition: 'transform 1s ease-out'
+              }}>
+                <circle cx={needleX0} cy={needleY0} r={needleR} fill="#000000" stroke="none" />
+                <path d={needlePath} stroke="none" fill="#000000" />
+              </g>
+            </ZIndexLayer>
+          )}
         </PieChart>
 
         <div className="gauge-labels" style={{

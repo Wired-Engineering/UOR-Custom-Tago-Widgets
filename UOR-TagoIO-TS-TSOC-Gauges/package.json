@@ -1,7 +1,7 @@
 {
   "name": "uor-tagoio-ts-tsoc-gauges",
   "private": true,
-  "version": "0.1.3",
+  "version": "0.1.4",
   "type": "module",
   "scripts": {
     "dev": "parcel serve index.html --port 3000",
@@ -33,7 +33,7 @@
     "@tago-io/custom-widget": "^1.1.0",
     "lodash-es": "^4.17.23",
     "preact": "^10.28.4",
-    "recharts": "3.4.1"
+    "recharts": "3.7.0"
   },
   "devDependencies": {
     "@types/node": "^25.3.0",

@@ -1,6 +1,7 @@
-import { useState } from 'preact/compat'
+import { useState, useEffect } from 'preact/compat'
 import type { FunctionComponent } from 'preact'
-import { PieChart, Pie, Cell, DefaultZIndexes, ZIndexLayer } from 'recharts'
+import { PieChart, Pie, Sector, DefaultZIndexes, ZIndexLayer } from 'recharts'
+import type { PieSectorDataItem } from 'recharts'
 import './WaterLevelGauge.css'
 
 interface WaterGaugeProps {
@@ -246,7 +247,6 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
   }
   
   const gaugeSectors = createGaugeSectors()
-  const RADIAN = Math.PI / 180
   const width = 300  // Gauge width
   const height = 200 // Gauge height
   const chartWidth = width  // PieChart width
@@ -294,106 +294,42 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
 
   const needleValue = calculateNeedleValue()
 
-  // Custom label function to show zone ranges outside the sectors (currently disabled)
-  /*
-  const renderZoneLabel = ({ cx, cy, midAngle, outerRadius, index }: any) => {
-    if (index >= gaugeSectors.length) return null
-    
-    const sector = gaugeSectors[index]
-    const labelRadius = outerRadius + 15 // Reduced distance from outer radius
-    const rawX = cx + labelRadius * Math.cos(-midAngle * RADIAN)
-    const rawY = cy + labelRadius * Math.sin(-midAngle * RADIAN)
-    
-    // Format the range text - use two decimal places
-    const rangeText = `${sector.lowerBound}-${sector.upperBound}`
-    
-    // Calculate container boundaries (assuming 400px chart width)
-    const containerLeft = 20
-    const containerRight = chartWidth - 20
-    const containerTop = 20
-    const containerBottom = chartHeight - 20
-    
-    // Constrain label position to stay within container bounds
-    let x = rawX
-    let y = rawY
-    let textAnchor = "middle"
-    
-    // Adjust horizontal positioning based on angle and container bounds
-    if (midAngle >= 45 && midAngle <= 135) {
-      // Labels on the right side - ensure they don't go past right boundary
-      textAnchor = "start"
-      x = Math.min(rawX, containerRight - 50) // Leave 50px margin for text
-    } else if (midAngle >= 225 && midAngle <= 315) {
-      // Labels on the left side - ensure they don't go past left boundary
-      textAnchor = "end" 
-      x = Math.max(rawX, containerLeft + 50) // Leave 50px margin for text
-    } else {
-      // Labels on top/bottom - center them
-      textAnchor = "middle"
-      x = Math.max(containerLeft + 30, Math.min(rawX, containerRight - 30))
-    }
-    
-    // Constrain vertical positioning
-    y = Math.max(containerTop + 10, Math.min(rawY, containerBottom - 10))
-    
-    return (
-      <text
-        x={x}
-        y={y}
-        fill="#333"
-        textAnchor={textAnchor}
-        dominantBaseline="central"
-        fontSize="10"
-        fontWeight="600"
-        style={{ 
-          textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-          fontFamily: 'Arial, sans-serif'
-        }}
-      >
-        {rangeText}
-      </text>
-    )
-  }
-  */
+  // Needle geometry - drawn pointing right (0°), rotated via CSS transform
+  const needleTotal = gaugeSectors.reduce((sum, sector) => sum + sector.value, 0)
+  const needleAng = 180.0 * (1 - needleValue / needleTotal) // 180 = left, 0 = right
+  const needleLength = (iR + 2 * oR) / 3
+  const needleR = 5
+  const needleX0 = cx + 5
+  const needleY0 = cy + 5
+  // Base needle shape pointing right (0°)
+  const needlePath = `M${needleX0} ${needleY0 - needleR}L${needleX0} ${needleY0 + needleR} L${needleX0 + needleLength} ${needleY0} Z`
 
-  // Arrow component for needle - using Recharts approach
-  const Arrow = () => {
-    const total = gaugeSectors.reduce((sum, sector) => sum + sector.value, 0)
-    const ang = 180.0 * (1 - needleValue / total)
-    const length = (iR + 2 * oR) / 3
-    const sin = Math.sin(-RADIAN * ang)
-    const cos = Math.cos(-RADIAN * ang)
-    const r = 5
-    const x0 = cx + 5
-    const y0 = cy + 5
-    const xba = x0 + r * sin
-    const yba = y0 - r * cos
-    const xbb = x0 - r * sin
-    const ybb = y0 + r * cos
-    const xp = x0 + length * cos
-    const yp = y0 + length * sin
-    
-    return (
-      <ZIndexLayer zIndex={DefaultZIndexes.scatter + 1}>
-        <g>
-          <circle cx={x0} cy={y0} r={r} fill="#000000" stroke="none" />
-          <path
-            d={`M${xba} ${yba}L${xbb} ${ybb} L${xp} ${yp} L${xba} ${yba}`}
-            stroke="none"
-            fill="#000000"
-          />
-      </g>
-      </ZIndexLayer>
-      
-    )
-  }
-  
+  // Animate needle: hidden until sectors finish, then sweep from left to target
+  const pieAnimationDuration = 800
+  const [needleVisible, setNeedleVisible] = useState(false)
+  const [needleReady, setNeedleReady] = useState(false)
+  useEffect(() => {
+    const timer = setTimeout(() => setNeedleVisible(true), pieAnimationDuration)
+    return () => clearTimeout(timer)
+  }, [])
+  useEffect(() => {
+    if (needleVisible) {
+      // Double rAF ensures the browser paints at 180° before we transition
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => setNeedleReady(true))
+      })
+    }
+  }, [needleVisible])
+  const displayAng = needleReady ? needleAng : 180
+
   const pieProps = {
     startAngle: 180,
     endAngle: 0,
     cx: cx,
     cy: cy,
-    isAnimationActive: false
+    isAnimationActive: true,
+    animationDuration: pieAnimationDuration,
+    animationBegin: 0
   }
   
   const getCurrentZoneInfo = () => {
@@ -479,8 +415,6 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
         <PieChart width={chartWidth} height={chartHeight}>
           {/* Main gauge sectors */}
           <Pie
-            stroke="white"
-            strokeWidth={1}
             data={gaugeSectors}
             innerRadius={iR}
             outerRadius={oR}
@@ -488,15 +422,29 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
             dataKey="value"
             labelLine={false}
             zIndex={DefaultZIndexes.scatter}
-          >
-            {gaugeSectors.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={entry.color} stroke="white" strokeWidth={1} />
-            ))}
-          </Pie>
+            shape={(props: PieSectorDataItem) => (
+              <Sector
+                {...props}
+                fill={props.payload?.color}
+                stroke="white"
+                strokeWidth={1}
+              />
+            )}
+          />
           
-          {/* Always visible needle - render directly */}
-          {/* Semicircle: 180° (left) to 0° (right) */}
-          <Arrow />
+          {/* Needle - appears after sectors finish animating */}
+          {needleVisible && (
+            <ZIndexLayer zIndex={DefaultZIndexes.scatter + 1}>
+              <g style={{
+                transform: `rotate(${-displayAng}deg)`,
+                transformOrigin: `${needleX0}px ${needleY0}px`,
+                transition: 'transform 1s ease-out'
+              }}>
+                <circle cx={needleX0} cy={needleY0} r={needleR} fill="#000000" stroke="none" />
+                <path d={needlePath} stroke="none" fill="#000000" />
+              </g>
+            </ZIndexLayer>
+          )}
         </PieChart>
         
         <div className="gauge-labels">

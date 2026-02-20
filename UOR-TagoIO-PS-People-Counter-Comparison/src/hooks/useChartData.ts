@@ -39,9 +39,6 @@ export const useChartData = (
       return dataPoint;
     });
 
-    // Filter out data points where all sensor values are 0 (to clean up the chart)
-    return chartPoints.filter(point => {
-      return selectedSensors.some(sensor => (point[sensor.sensorName] || 0) > 0);
-    });
+    return chartPoints;
   }, [selectedSensors, processedData, selectedDate]);
 };

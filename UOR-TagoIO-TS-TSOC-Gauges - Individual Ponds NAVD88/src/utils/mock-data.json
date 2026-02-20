@@ -200,6 +200,16 @@
     "time": "2025-10-30T13:47:36.191Z"
   },
   {
+    "id": "mock_battery_1761832056189",
+    "variable": "battery",
+    "value": 85,
+    "type": "number",
+    "group": "1761832056189",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:47:36.191Z"
+  },
+  {
     "id": "69036a1ff1f181000ae836da",
     "variable": "photo_url_three",
     "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
@@ -393,6 +403,16 @@
     "id": "69036a1ea4feb4000914ab35",
     "variable": "water_depth",
     "value": 13.39,
+    "type": "number",
+    "group": "1761831454695",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:37:34.697Z"
+  },
+  {
+    "id": "mock_battery_1761831454695",
+    "variable": "battery",
+    "value": 72,
     "type": "number",
     "group": "1761831454695",
     "location": "",
@@ -600,6 +620,16 @@
     "time": "2025-10-30T13:27:34.974Z"
   },
   {
+    "id": "mock_battery_1761830854971",
+    "variable": "battery",
+    "value": 45,
+    "type": "number",
+    "group": "1761830854971",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:27:34.974Z"
+  },
+  {
     "id": "6903656ea4feb40009143101",
     "variable": "photo_url_three",
     "value": "https://api.tago.io/file/62670297f0c9c70011f751a5/photo-storage/Tech%20Services/EM-500SWL%20Dashboard/Pond%20I/Pond%20I%20Notes.png",
@@ -793,6 +823,16 @@
     "id": "6903656d7ba448000a93443a",
     "variable": "water_depth",
     "value": 15.35,
+    "type": "number",
+    "group": "1761830253910",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:17:33.912Z"
+  },
+  {
+    "id": "mock_battery_1761830253910",
+    "variable": "battery",
+    "value": 93,
     "type": "number",
     "group": "1761830253910",
     "location": "",
@@ -1000,6 +1040,16 @@
     "time": "2025-10-30T13:07:33.864Z"
   },
   {
+    "id": "mock_battery_1761829653862",
+    "variable": "battery",
+    "value": 67,
+    "type": "number",
+    "group": "1761829653862",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T13:07:33.864Z"
+  },
+  {
     "id": "690360bf94138e000a325d0d",
     "variable": "navd_normal_we_deviation",
     "value": -4.43,
@@ -1193,6 +1243,16 @@
     "id": "690360bfa4feb4000913a747",
     "variable": "water_depth",
     "value": 15.35,
+    "type": "number",
+    "group": "1761829055022",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:57:35.024Z"
+  },
+  {
+    "id": "mock_battery_1761829055022",
+    "variable": "battery",
+    "value": 28,
     "type": "number",
     "group": "1761829055022",
     "location": "",
@@ -1400,6 +1460,16 @@
     "time": "2025-10-30T12:47:34.331Z"
   },
   {
+    "id": "mock_battery_1761828454328",
+    "variable": "battery",
+    "value": 91,
+    "type": "number",
+    "group": "1761828454328",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:47:34.331Z"
+  },
+  {
     "id": "690359b56fe6f1000aa0e9ca",
     "variable": "navd_normal_we_deviation",
     "value": -4.43,
@@ -1593,6 +1663,16 @@
     "id": "690359b46fe6f1000aa0e9ba",
     "variable": "water_depth",
     "value": 15.35,
+    "type": "number",
+    "group": "1761827252663",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:27:32.665Z"
+  },
+  {
+    "id": "mock_battery_1761827252663",
+    "variable": "battery",
+    "value": 55,
     "type": "number",
     "group": "1761827252663",
     "location": "",
@@ -1800,6 +1880,16 @@
     "time": "2025-10-30T12:17:33.923Z"
   },
   {
+    "id": "mock_battery_1761826653921",
+    "variable": "battery",
+    "value": 78,
+    "type": "number",
+    "group": "1761826653921",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:17:33.923Z"
+  },
+  {
     "id": "690355050ad75e000a0d5f2c",
     "variable": "navd_normal_we_deviation",
     "value": -4.43,
@@ -1993,6 +2083,16 @@
     "id": "690355046fe6f1000aa0719d",
     "variable": "water_depth",
     "value": 15.35,
+    "type": "number",
+    "group": "1761826052917",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T12:07:32.919Z"
+  },
+  {
+    "id": "mock_battery_1761826052917",
+    "variable": "battery",
+    "value": 34,
     "type": "number",
     "group": "1761826052917",
     "location": "",
@@ -2200,6 +2300,16 @@
     "time": "2025-10-30T11:57:31.114Z"
   },
   {
+    "id": "mock_battery_1761825451112",
+    "variable": "battery",
+    "value": 88,
+    "type": "number",
+    "group": "1761825451112",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:57:31.114Z"
+  },
+  {
     "id": "690350557410ee000a04912a",
     "variable": "navd_normal_we_deviation",
     "value": -4.43,
@@ -2393,6 +2503,16 @@
     "id": "69035054e26ed3000a5ad74f",
     "variable": "water_depth",
     "value": 15.35,
+    "type": "number",
+    "group": "1761824852438",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:47:32.440Z"
+  },
+  {
+    "id": "mock_battery_1761824852438",
+    "variable": "battery",
+    "value": 62,
     "type": "number",
     "group": "1761824852438",
     "location": "",
@@ -2600,6 +2720,16 @@
     "time": "2025-10-30T11:37:31.117Z"
   },
   {
+    "id": "mock_battery_1761824251115",
+    "variable": "battery",
+    "value": 96,
+    "type": "number",
+    "group": "1761824251115",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:37:31.117Z"
+  },
+  {
     "id": "69034ba4d60a0e000fbc3ccb",
     "variable": "navd_normal_we_deviation",
     "value": -4.43,
@@ -2793,6 +2923,16 @@
     "id": "69034ba4ddade9000a8761e4",
     "variable": "water_depth",
     "value": 15.35,
+    "type": "number",
+    "group": "1761823652151",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:27:32.154Z"
+  },
+  {
+    "id": "mock_battery_1761823652151",
+    "variable": "battery",
+    "value": 41,
     "type": "number",
     "group": "1761823652151",
     "location": "",
@@ -3000,6 +3140,16 @@
     "time": "2025-10-30T11:17:29.687Z"
   },
   {
+    "id": "mock_battery_1761823049685",
+    "variable": "battery",
+    "value": 73,
+    "type": "number",
+    "group": "1761823049685",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:17:29.687Z"
+  },
+  {
     "id": "690346f376b75a000aa162df",
     "variable": "navd_normal_we_deviation",
     "value": -3.64,
@@ -3193,6 +3343,16 @@
     "id": "690346f37410ee000a03a418",
     "variable": "water_depth",
     "value": 16.14,
+    "type": "number",
+    "group": "1761822451237",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T11:07:31.239Z"
+  },
+  {
+    "id": "mock_battery_1761822451237",
+    "variable": "battery",
+    "value": 57,
     "type": "number",
     "group": "1761822451237",
     "location": "",
@@ -3400,6 +3560,16 @@
     "time": "2025-10-30T10:57:30.807Z"
   },
   {
+    "id": "mock_battery_1761821850805",
+    "variable": "battery",
+    "value": 82,
+    "type": "number",
+    "group": "1761821850805",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:57:30.807Z"
+  },
+  {
     "id": "690342400ad75e000a0b7f6a",
     "variable": "navd_normal_we_deviation",
     "value": -3.64,
@@ -3593,6 +3763,16 @@
     "id": "6903423f8838f9000a265653",
     "variable": "water_depth",
     "value": 16.14,
+    "type": "number",
+    "group": "1761821247949",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:47:27.951Z"
+  },
+  {
+    "id": "mock_battery_1761821247949",
+    "variable": "battery",
+    "value": 69,
     "type": "number",
     "group": "1761821247949",
     "location": "",
@@ -3800,6 +3980,16 @@
     "time": "2025-10-30T10:37:26.103Z"
   },
   {
+    "id": "mock_battery_1761820646100",
+    "variable": "battery",
+    "value": 94,
+    "type": "number",
+    "group": "1761820646100",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:37:26.103Z"
+  },
+  {
     "id": "69033d8f6fe6f1000a9e2529",
     "variable": "navd_normal_we_deviation",
     "value": -2.85,
@@ -3993,6 +4183,16 @@
     "id": "69033d8e7ba448000a8f538d",
     "variable": "water_depth",
     "value": 16.93,
+    "type": "number",
+    "group": "1761820046515",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:27:26.517Z"
+  },
+  {
+    "id": "mock_battery_1761820046515",
+    "variable": "battery",
+    "value": 8,
     "type": "number",
     "group": "1761820046515",
     "location": "",
@@ -4200,6 +4400,16 @@
     "time": "2025-10-30T10:17:29.625Z"
   },
   {
+    "id": "mock_battery_1761819449623",
+    "variable": "battery",
+    "value": 76,
+    "type": "number",
+    "group": "1761819449623",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:17:29.625Z"
+  },
+  {
     "id": "690338de94138e000a2e5fb1",
     "variable": "navd_normal_we_deviation",
     "value": 2.66,
@@ -4393,6 +4603,16 @@
     "id": "690338dda4feb400090fbfb8",
     "variable": "water_depth",
     "value": 22.44,
+    "type": "number",
+    "group": "1761818845951",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T10:07:25.952Z"
+  },
+  {
+    "id": "mock_battery_1761818845951",
+    "variable": "battery",
+    "value": 51,
     "type": "number",
     "group": "1761818845951",
     "location": "",
@@ -4600,6 +4820,16 @@
     "time": "2025-10-30T09:57:26.472Z"
   },
   {
+    "id": "mock_battery_1761818246469",
+    "variable": "battery",
+    "value": 87,
+    "type": "number",
+    "group": "1761818246469",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:57:26.472Z"
+  },
+  {
     "id": "6903342fd60a0e000fb9f0ad",
     "variable": "navd_normal_we_deviation",
     "value": 2.66,
@@ -4800,6 +5030,16 @@
     "time": "2025-10-30T09:47:26.525Z"
   },
   {
+    "id": "mock_battery_1761817646523",
+    "variable": "battery",
+    "value": 63,
+    "type": "number",
+    "group": "1761817646523",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:47:26.525Z"
+  },
+  {
     "id": "690331d6822d42000add1deb",
     "variable": "navd_ten_year_storm",
     "value": 0,
@@ -4993,6 +5233,16 @@
     "id": "690331d58838f9000a24c200",
     "variable": "water_depth",
     "value": 22.44,
+    "type": "number",
+    "group": "1761817045845",
+    "location": "",
+    "metadata": "",
+    "time": "2025-10-30T09:37:25.847Z"
+  },
+  {
+    "id": "mock_battery_1761817045845",
+    "variable": "battery",
+    "value": 44,
     "type": "number",
     "group": "1761817045845",
     "location": "",

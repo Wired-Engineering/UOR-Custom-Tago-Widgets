@@ -165,3 +165,12 @@
 .current-status strong {
   color: #667eea;
 }
+
+.battery-critical {
+  animation: flash 3s ease-in-out infinite;
+}
+
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}

@@ -478,12 +478,12 @@ const PeopleCounterDashboard = () => {
           </div>
         </div>
 
-        <div style={{ flex: 1 }}>
-          <ChartContainer width="100%" height="100%">
+        <div style={{ flex: 1, minHeight: 0, position: 'relative' }}>
+          <ChartContainer width="100%" height="100%" minWidth={0}>
             <Chart data={chartData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
               <ChartGrid strokeDasharray="3 3" />
               <ChartXAxis dataKey="hour" />
-              <ChartYAxis />
+              <ChartYAxis allowDecimals={false} />
               <ChartTooltip content={<CustomTooltip />} />
               <ChartLegend />
               {selectedSensors.map(sensor => (

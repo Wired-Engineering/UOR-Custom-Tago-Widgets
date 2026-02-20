@@ -1,7 +1,7 @@
 {
   "name": "uor-tagoio-ps-people-counter-comparison",
   "private": true,
-  "version": "1.0.6",
+  "version": "1.0.7",
   "type": "module",
   "scripts": {
     "dev": "parcel serve index.html --port 3000",
@@ -31,17 +31,17 @@
   "dependencies": {
     "@preact/compat": "^18.3.1",
     "@tago-io/custom-widget": "^1.1.0",
-    "lodash-es": "^4.17.21",
+    "lodash-es": "^4.17.23",
     "papaparse": "^5.5.3",
-    "preact": "^10.27.0",
-    "recharts": "^3.1.2"
+    "preact": "^10.28.4",
+    "recharts": "^3.7.0"
   },
   "devDependencies": {
-    "@types/node": "^24.3.0",
-    "@types/papaparse": "^5.3.16",
-    "parcel": "^2.15.4",
+    "@types/node": "^25.3.0",
+    "@types/papaparse": "^5.5.2",
+    "parcel": "^2.16.4",
     "path-browserify": "^1.0.1",
     "process": "^0.11.10",
-    "typescript": "~5.9.2"
+    "typescript": "~5.9.3"
   }
 }
