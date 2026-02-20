@@ -52,6 +52,7 @@ const WaterLevelDashboard = () => {
                   bottomOfPond={level.bottomOfPond}
                   maxAlarm={level.maxAlarm}
                   minAlarm={level.minAlarm}
+                  deviceBattery={level.deviceBattery}
                   lastUpdated={level.last_updated}
                 />
               ))}

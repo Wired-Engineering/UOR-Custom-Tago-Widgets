@@ -1,6 +1,6 @@
 import { useState } from 'preact/compat'
 import type { FunctionComponent } from 'preact'
-import { PieChart, Pie, Cell } from 'recharts'
+import { PieChart, Pie, Cell, DefaultZIndexes, ZIndexLayer } from 'recharts'
 import './WaterLevelGauge.css'
 
 interface WaterGaugeProps {
@@ -14,6 +14,7 @@ interface WaterGaugeProps {
   bottomOfPond?: number
   maxAlarm?: number
   minAlarm?: number
+  deviceBattery?: number
   lastUpdated: string
 }
 
@@ -28,6 +29,7 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
   bottomOfPond,
   maxAlarm,
   minAlarm,
+  deviceBattery,
   lastUpdated
 }) => {
   // Use values directly from data - only treat 0 as undefined for non-bottom-of-pond values
@@ -372,14 +374,17 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
     const yp = y0 + length * sin
     
     return (
-      <g>
-        <circle cx={x0} cy={y0} r={r} fill="#000000" stroke="none" />
-        <path
-          d={`M${xba} ${yba}L${xbb} ${ybb} L${xp} ${yp} L${xba} ${yba}`}
-          stroke="none"
-          fill="#000000"
-        />
+      <ZIndexLayer zIndex={DefaultZIndexes.scatter + 1}>
+        <g>
+          <circle cx={x0} cy={y0} r={r} fill="#000000" stroke="none" />
+          <path
+            d={`M${xba} ${yba}L${xbb} ${ybb} L${xp} ${yp} L${xba} ${yba}`}
+            stroke="none"
+            fill="#000000"
+          />
       </g>
+      </ZIndexLayer>
+      
     )
   }
   
@@ -431,8 +436,17 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
   const currentZoneInfo = getCurrentZoneInfo()
   const currentColor = currentZoneInfo.color
   
+  const getBatteryColor = (level?: number) => {
+    if (level === undefined || level === null) return '#999'
+    if (level >= 75) return '#13c613'
+    if (level >= 30) return '#f0ad00'
+    return '#ff0000'
+  }
+
+  const batteryColor = getBatteryColor(deviceBattery)
+
   const [isExpanded, setIsExpanded] = useState(false)
-  
+
   const toggleExpanded = () => {
     setIsExpanded(!isExpanded)
   }
@@ -442,6 +456,23 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
     <div className={`water-gauge ${isExpanded ? 'expanded' : ''}`} onClick={toggleExpanded}>
       <div className="gauge-header">
         <h3 className="gauge-title">{name}</h3>
+        {deviceBattery !== undefined && deviceBattery !== null && (
+          <div className={`battery-indicator${deviceBattery <= 10 ? ' battery-critical' : ''}`} style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '3px',
+            fontSize: '12px',
+            fontWeight: 600,
+            color: batteryColor
+          }}>
+            <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.5" y="0.5" width="14" height="9" rx="1.5" stroke={batteryColor} strokeWidth="1" fill="none" />
+              <rect x="1.5" y="1.5" width={`${Math.max(0, Math.min(100, deviceBattery)) / 100 * 12}`} height="7" rx="0.5" fill={batteryColor} />
+              <rect x="15" y="2.5" width="2" height="5" rx="0.5" fill={batteryColor} />
+            </svg>
+            <span>{Math.round(deviceBattery)}%</span>
+          </div>
+        )}
       </div>
       
       <div className="gauge-container">
@@ -455,9 +486,8 @@ const WaterGauge: FunctionComponent<WaterGaugeProps> = ({
             outerRadius={oR}
             {...pieProps}
             dataKey="value"
-            // DISABLING LABELS FOR NOW
-            //label={renderZoneLabel}
             labelLine={false}
+            zIndex={DefaultZIndexes.scatter}
           >
             {gaugeSectors.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={entry.color} stroke="white" strokeWidth={1} />

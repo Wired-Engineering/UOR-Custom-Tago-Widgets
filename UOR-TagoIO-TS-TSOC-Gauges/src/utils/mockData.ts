@@ -12,6 +12,7 @@ export interface WaterLevelData {
   bottomOfPond: number
   maxAlarm?: number
   minAlarm?: number
+  deviceBattery?: number
   last_updated?: string
   group: string
 }
@@ -51,6 +52,7 @@ export const mockWaterLevelData = (): WaterLevelData[] => {
         bottomOfPond: group.device_navd_alarm_bop || (group.device_navd_min_op_we !== undefined ? group.device_navd_min_op_we - 10 : 0),
         maxAlarm: group.device_navd_max_alarm_we,
         minAlarm: group.device_navd_min_alarm_we,
+        deviceBattery: group.device_battery,
         last_updated: new Date().toISOString(),
         group: groupId
       }      

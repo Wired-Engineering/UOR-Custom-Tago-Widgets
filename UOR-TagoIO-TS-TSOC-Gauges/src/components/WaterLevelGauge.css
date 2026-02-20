@@ -196,3 +196,12 @@
   color: #667eea;
   font-size: 20px;
 }
+
+.battery-critical {
+  animation: flash 3s ease-in-out infinite;
+}
+
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}

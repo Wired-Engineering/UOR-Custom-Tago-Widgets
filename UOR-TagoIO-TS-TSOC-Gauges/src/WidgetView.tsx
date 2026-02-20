@@ -17,6 +17,7 @@ export interface EntityWaterLevelData {
   bottomOfPond?: number
   maxAlarm?: number
   minAlarm?: number
+  deviceBattery?: number
   group: string
   created_at: string
   updated_at: string
@@ -114,6 +115,7 @@ export const WidgetView = () => {
               bottomOfPond: variables.device_navd_alarm_bop !== undefined && variables.device_navd_alarm_bop !== null ? variables.device_navd_alarm_bop : undefined,
               maxAlarm: variables.device_navd_max_alarm_we !== undefined && variables.device_navd_max_alarm_we !== null ? variables.device_navd_max_alarm_we : undefined,
               minAlarm: variables.device_navd_min_alarm_we !== undefined && variables.device_navd_min_alarm_we !== null ? variables.device_navd_min_alarm_we : undefined,
+              deviceBattery: variables.device_battery !== undefined && variables.device_battery !== null ? variables.device_battery : undefined,
               group: groupKey,
               created_at: variables.time || new Date().toISOString(),
               updated_at: variables.time || new Date().toISOString(),
